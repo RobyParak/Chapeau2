@@ -18,10 +18,10 @@ namespace UI
             Application.SetHighDpiMode(HighDpiMode.SystemAware);
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);;
-            //Table table = new Table(1, 1);
+            Table table = new Table(1, 1);
             //Application.Run(new OrderView(table));
-            //Application.Run(new OrderView(table,3));
-            Application.Run(new TableForm());
+            Application.Run(new OrderView(table,3));
+            //Application.Run(new TableForm());
         }
     }
 }
