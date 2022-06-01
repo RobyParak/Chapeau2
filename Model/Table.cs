@@ -6,6 +6,15 @@ namespace Model
 {
     public class Table
     {
+        public Table()
+        {
+        }
+
+        public Table(int id, int status)
+        {
+            Id = id;
+            TableStatus = status;
+        }
         public int Id { get; set; }
 
         public int TableStatus { get; set; }
