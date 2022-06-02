@@ -4,6 +4,7 @@ using System.Text;
 using Model;
 using System.Data.SqlClient;
 using System.Data;
+using static Model.Staff;
 
 namespace DAL
 {
@@ -11,7 +12,7 @@ namespace DAL
     {
         public Staff LoginStaff(int staffID, int passCode)
         {
-            string query = "select Staff_ID, First_Name, Last_Name, Passcode, Has_Permission from staff WHERE [Passcode] = @pass and [Staff_ID] = @ID ";
+            string query = "select Staff_ID, First_Name, Last_Name, Role from staff WHERE [Passcode] = @pass and [Staff_ID] = @ID ";
             SqlParameter[] sqlParameters = { new SqlParameter ("@pass", passCode),
                     new SqlParameter ("@ID", staffID) };
 
@@ -31,6 +32,7 @@ namespace DAL
                 staff.PassCode = (int)dr["Passcode"];
                 //ask Dimitar how to convert it 
                 //staff.HasPermission = (bool)(dr["Has_Permission"]) ? 0 : 1;
+                staff.StaffRole = (Role)(Enum.Parse(dr["Role"]));
             }
             return staff;
 
