@@ -11,6 +11,7 @@ public class Bill
     public PaymentType PaymentMethod { get; set; }
     public double VAT { get; set; }
     public string Feedback { get; set; }
+    public List<Order> Orders { get; set; }
 
     public List<Order> orders { get; set; }
 

@@ -21,6 +21,6 @@ public class SalesService
     }
     public List<OrderItem> GetOrdersForBill(int tableId)
     {
-        return salesDao.GetOrdersForBill(tableId);
+        return salesDao.GetOrderItemsForBill(tableId);
     }
 }

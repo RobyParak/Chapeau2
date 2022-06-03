@@ -11,23 +11,20 @@ namespace UI
 {
     public partial class Payment : Form
     {
-        //need to get the table ID
+        //Receive table and bill from orderForm
         Table table;
         Bill bill;
         SalesService salesService;
 
-        //Ask Gerwin how else could this be done without global
-        List<OrderItem> orderItems;
-        public Payment(Table table, int billId)
+//Asked Gerwin how else could this be done without global
+        //cannot be done, this global stays
+        List<OrderItem> ordersItems;
+        public Payment(Table table, Bill bill)
         {
             InitializeComponent();
-
+            this.bill = bill;
             salesService = new SalesService();
             this.table = table;
-            bill = new Bill
-            {
-                BillId = billId
-            };
 
             //make method to show panel parsing it
             pnlFeedback.Hide();
@@ -65,7 +62,6 @@ namespace UI
         {
             //card payent opens a new panel where the payment is "being processed"
 
-            //enum
             bill.PaymentMethod = PaymentType.Card;
             pnlCardPayment.Show();
             pnlPayment.Hide();
@@ -80,8 +76,9 @@ namespace UI
             pnlFeedback.Show();
             pnlFeedback.Dock = DockStyle.Fill;
             //Update orders in database to paid
-            //UpdateOrderStatus();
-       
+           UpdateOrderStatus();
+            //Set billID to null in table and update that
+
         }
 
         private void btnBack_Click_1(object sender, EventArgs e)
@@ -93,6 +90,18 @@ namespace UI
 
         private void PrintReceiptPopUp()
         {
+
+
+            //change name
+            bill.Feedback = txtFeedback.Text;
+            //then call a method to write bill to database
+            salesService.UpdateBill(bill);
+
+            //change table status to available
+            table.TableStatus = 0;
+           //set tableID to null
+
+           
             MessageBoxButtons buttons = MessageBoxButtons.YesNo;
             DialogResult result = MessageBox.Show("Do you wish to print a receipt", "Print Receipt", buttons);
             if (result == DialogResult.No)
@@ -103,6 +112,7 @@ namespace UI
             {
                 MessageBox.Show("Your receipt is being printed at the main till");
             }
+
         }
 
         private void btnCash_Click(object sender, EventArgs e)
@@ -110,19 +120,24 @@ namespace UI
             bill.PaymentMethod = PaymentType.Cash;
             //TO DO another panel that helps the waiter with the change
 
-            //To do: When successful call updateOrderStatus Method
-            PrintReceiptPopUp();
+
+            //move this to other panel
+            UpdateOrderStatus();
+            //update table to available and set bill to Null
         }
 
-        //private void UpdateOrderStatus()
-        //{
-        //    //update the order status get it from Dimitar or do a new query?
-        //    foreach (Order order in orders)
-        //    {
-        //        order.IsPaid = true;
-        //        salesService.UpdateOrderStatus(order);
-        //    }
-        //}
+        private void UpdateOrderStatus()
+        {
+            //update the order status in the database
+            foreach (Order order in bill.Orders)
+            {
+                order.IsPaid = true;
+                salesService.UpdateOrderStatus(order);
+            }
+        }
+    }
+}
+
         private double CalculateVAT(int input)
         {
             double vat = 0;
