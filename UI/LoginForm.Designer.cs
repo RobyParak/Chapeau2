@@ -1,6 +1,6 @@
 ﻿namespace Login
 {
-    partial class Login
+    partial class LoginForm
     {
         /// <summary>
         ///  Required designer variable.
@@ -63,6 +63,7 @@
             this.txtPassword.Location = new System.Drawing.Point(67, 388);
             this.txtPassword.Margin = new System.Windows.Forms.Padding(2);
             this.txtPassword.Name = "txtPassword";
+            this.txtPassword.PasswordChar = '*';
             this.txtPassword.Size = new System.Drawing.Size(269, 27);
             this.txtPassword.TabIndex = 16;
             // 
@@ -92,7 +93,7 @@
             this.pictureBox1.TabIndex = 19;
             this.pictureBox1.TabStop = false;
             // 
-            // Login
+            // LoginForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -103,7 +104,7 @@
             this.Controls.Add(this.txtPassword);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.txtStaffID);
-            this.Name = "Login";
+            this.Name = "LoginForm";
             this.Text = "Form1";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);

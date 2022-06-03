@@ -14,9 +14,12 @@ namespace Model
         {
             Id = id;
             TableStatus = status;
+            //BillId = null;
         }
         public int Id { get; set; }
 
         public int TableStatus { get; set; }
+
+        public int BillId { get; set; }
     }
 }

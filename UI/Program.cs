@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Login;
 
 namespace UI
 {
@@ -20,8 +21,9 @@ namespace UI
             Application.SetCompatibleTextRenderingDefault(false);;
             Table table = new Table(1, 1);
             //Application.Run(new OrderView(table));
-            Application.Run(new OrderView(table,3));
+            //Application.Run(new OrderView(table,3));
             //Application.Run(new TableForm());
+            Application.Run(new LoginForm());
         }
     }
 }
