@@ -11,20 +11,18 @@ namespace UI
 {
     public partial class Payment : Form
     {
-        //need to get the table ID
+        //Receive table and bill from orderForm
         Table table;
         Bill bill;
         SalesService salesService;
 
-        //Ask Gerwin how else could this be done without global
+        //Asked Gerwin how else could this be done without global
+        //cannot be done, this global stays
         List<OrderItem> ordersItems;
-        public Payment(Table table, int billId)
+        public Payment(Table table, Bill bill)
         {
             InitializeComponent();
-            bill = new Bill
-            {
-                BillId = billId
-            };
+            this.bill = bill;
             salesService = new SalesService();
             this.table = table;
             //make method to show panel parsing it
@@ -63,8 +61,6 @@ namespace UI
         private void btnCard_Click(object sender, EventArgs e)
         {
             //card payent opens a new panel where the payment is "being processed"
-            
-            //enum
             bill.PaymentMethod = PaymentType.Card;
             pnlCardPayment.Show();
             pnlPayment.Hide();
@@ -92,7 +88,8 @@ namespace UI
             pnlFeedback.Show();
             pnlFeedback.Dock = DockStyle.Fill;
             //Update orders in database to paid
-           //UpdateOrderStatus();
+           UpdateOrderStatus();
+            //Set billID to null in table and update that
         }
 
         private void btnBack_Click_1(object sender, EventArgs e)
@@ -112,9 +109,9 @@ namespace UI
 
             //change table status to available
             table.TableStatus = 0;
-            //and update on database
+           //set tableID to null
 
-            //have a print receipt pop up?
+            //have a print receipt pop up
         }
 
         private void btnCash_Click(object sender, EventArgs e)
@@ -122,17 +119,20 @@ namespace UI
             bill.PaymentMethod = PaymentType.Cash;
             //TO DO another panel that helps the waiter with the change
 
-            //To do: When successful call updateOrderStatus Method
+            //move this to other panel
+            UpdateOrderStatus();
+            //update table to available and set bill to Null
         }
 
-        //private void UpdateOrderStatus()
-        //{
-        //    //update the order status get it from Dimitar or do a new query?
-        //    foreach (Order order in orders)
-        //    {
-        //        order.IsPaid = true;
-        //        salesService.UpdateOrderStatus(order);
-        //    }
-        //}
+        private void UpdateOrderStatus()
+        {
+            //update the order status in the database
+            foreach (Order order in bill.Orders)
+            {
+                order.IsPaid = true;
+                salesService.UpdateOrderStatus(order);
+            }
+        }
     }
 }
+

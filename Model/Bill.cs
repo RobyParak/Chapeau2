@@ -1,5 +1,6 @@
 ﻿using Model;
 using System;
+using System.Collections.Generic;
 
 public class Bill
 {
@@ -10,5 +11,6 @@ public class Bill
     public PaymentType PaymentMethod { get; set; }
     public double VAT { get; set; }
     public string Feedback { get; set; }
+    public List<Order> Orders { get; set; }
 
 }
