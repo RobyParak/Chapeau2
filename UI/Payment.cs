@@ -16,7 +16,7 @@ namespace UI
         Bill bill;
         SalesService salesService;
 
-        //Asked Gerwin how else could this be done without global
+//Asked Gerwin how else could this be done without global
         //cannot be done, this global stays
         List<OrderItem> ordersItems;
         public Payment(Table table, Bill bill)
@@ -25,6 +25,7 @@ namespace UI
             this.bill = bill;
             salesService = new SalesService();
             this.table = table;
+
             //make method to show panel parsing it
             pnlFeedback.Hide();
             pnlPayment.Show();
@@ -32,8 +33,9 @@ namespace UI
             pnlPayment.Dock = DockStyle.Fill;
             pnlCashPayment.Hide();
             lblTableID.Text = table.Id.ToString();
-            ordersItems = salesService.GetOrdersForBill(table.Id);
-            DisplayOrder(ordersItems);
+            orderItems = salesService.GetOrdersForBill(table.Id);
+            DisplayOrder(orderItems);
+            DisplayVAT();
         }
         private void DisplayOrder(List<OrderItem> orderItems)
         {
@@ -41,7 +43,7 @@ namespace UI
             listViewBill.View = View.Details;
             foreach (OrderItem orderItem in orderItems)
             {
-                string[] items = {$"x{orderItem.Quantity}", orderItem.Item.ItemName, $"€{orderItem.Item.Price}"};
+                string[] items = { $"x{orderItem.Quantity}", orderItem.Item.ItemName, $"€{orderItem.Item.Price}" };
                 ListViewItem li = new ListViewItem(items);
                 listViewBill.Items.Add(li);
             }
@@ -49,47 +51,34 @@ namespace UI
         }
         private void DisplayPrice(List<OrderItem> orderItems)
         {
-            //get bill
-          
+
             foreach (OrderItem orderItem in orderItems)
                 bill.AmountDue += orderItem.Item.Price;
 
-        lblAmountDue.Text= "€" + bill.AmountDue;
-
+            lblAmountDue.Text = "€ " + bill.AmountDue;
         }
 
         private void btnCard_Click(object sender, EventArgs e)
         {
             //card payent opens a new panel where the payment is "being processed"
+
             bill.PaymentMethod = PaymentType.Card;
             pnlCardPayment.Show();
             pnlPayment.Hide();
             pnlCardPayment.Dock = DockStyle.Fill;
         }
 
-        private void txtTip_TextChanged(object sender, EventArgs e)
-        {
-            bill.Tip = double.Parse(txtTip.Text);
-            bill.TotalDue = bill.AmountDue + bill.Tip;
-            txtTotalDue.Text = bill.TotalDue.ToString();
-        }
 
-        private void txtTotalDue_TextChanged(object sender, EventArgs e)
-        {
-            if (txtTip.Text != "")
-                bill.TotalDue = bill.AmountDue + bill.Tip;
-            else
-                bill.TotalDue = double.Parse(txtTotalDue.Text);
-        }
-        
         private void btnPaymentSuccessful_Click_1(object sender, EventArgs e)
         {
+            PrintReceiptPopUp();
             pnlCardPayment.Hide();
             pnlFeedback.Show();
             pnlFeedback.Dock = DockStyle.Fill;
             //Update orders in database to paid
            UpdateOrderStatus();
             //Set billID to null in table and update that
+
         }
 
         private void btnBack_Click_1(object sender, EventArgs e)
@@ -99,8 +88,9 @@ namespace UI
             pnlPayment.Dock = DockStyle.Fill;
         }
 
-        private void btnEnter_Click(object sender, EventArgs e)
+        private void PrintReceiptPopUp()
         {
+
 
             //change name
             bill.Feedback = txtFeedback.Text;
@@ -111,13 +101,25 @@ namespace UI
             table.TableStatus = 0;
            //set tableID to null
 
-            //have a print receipt pop up
+           
+            MessageBoxButtons buttons = MessageBoxButtons.YesNo;
+            DialogResult result = MessageBox.Show("Do you wish to print a receipt", "Print Receipt", buttons);
+            if (result == DialogResult.No)
+            {
+                this.Close();
+            }
+            else
+            {
+                MessageBox.Show("Your receipt is being printed at the main till");
+            }
+
         }
 
         private void btnCash_Click(object sender, EventArgs e)
         {
             bill.PaymentMethod = PaymentType.Cash;
             //TO DO another panel that helps the waiter with the change
+
 
             //move this to other panel
             UpdateOrderStatus();
@@ -136,3 +138,66 @@ namespace UI
     }
 }
 
+        private double CalculateVAT(int input)
+        {
+            double vat = 0;
+            foreach (OrderItem orderItem in orderItems)
+            {
+                if (orderItem.Item.VAT == input)
+                    vat += (orderItem.Item.Price * orderItem.Item.VAT) / 100;
+            }
+            return vat;
+        }
+        private void DisplayVAT()
+        {
+            double vat21 = CalculateVAT(21);
+            double vat6 = CalculateVAT(6);
+            lblVAT21.Text = "€ " + vat21;
+            lblVAT6.Text = "€ " + vat6;
+        }
+
+        private void btnCalculateTipAndTotal_Click(object sender, EventArgs e)
+        {
+            if (txtTip.Text == null)
+            {
+                bill.Tip = double.Parse(txtTip.Text);
+                bill.TotalDue = bill.AmountDue + bill.Tip;
+                txtTotalDue.Text = bill.TotalDue.ToString();
+
+            }
+            else
+            {
+
+                if (double.Parse(txtTotalDue.Text) > bill.AmountDue)
+                {
+                    bill.TotalDue = double.Parse(txtTotalDue.Text);
+                    bill.Tip = bill.TotalDue - bill.AmountDue;
+                    txtTip.Text = bill.Tip.ToString();
+                }
+                else
+                    MessageBox.Show("Total due must be higher than amount due");
+                
+            }
+        }
+
+        private void btnEnterFeedback_Click(object sender, EventArgs e)
+        {
+            if (txtFeedback.Text != "")
+                bill.Feedback = txtFeedback.Text;
+            else
+                bill.Feedback = "Feedback not provided";
+            //then call a method to write bill to database
+            salesService.UpdateBill(bill);
+
+            //change table status to available
+            table.TableStatus = 0;
+            //TO DO update status on form or on database?
+        }
+
+        private void btnGoToTableView_Click(object sender, EventArgs e)
+        {
+            //close this form and open the table view one
+           
+        }
+    }
+}
