@@ -16,7 +16,7 @@ namespace UI
         Bill bill;
         SalesService salesService;
 
-//Asked Gerwin how else could this be done without global
+        //Asked Gerwin how else could this be done without global
         //cannot be done, this global stays
         List<OrderItem> ordersItems;
         public Payment(Table table, Bill bill)
@@ -76,9 +76,8 @@ namespace UI
             pnlFeedback.Show();
             pnlFeedback.Dock = DockStyle.Fill;
             //Update orders in database to paid
-           UpdateOrderStatus();
-            //Set billID to null in table and update that
-
+            UpdateOrderStatus();
+            UpdateCurrentTable();
         }
 
         private void btnBack_Click_1(object sender, EventArgs e)
@@ -90,18 +89,6 @@ namespace UI
 
         private void PrintReceiptPopUp()
         {
-
-
-            //change name
-            bill.Feedback = txtFeedback.Text;
-            //then call a method to write bill to database
-            salesService.UpdateBill(bill);
-
-            //change table status to available
-            table.TableStatus = 0;
-           //set tableID to null
-
-           
             MessageBoxButtons buttons = MessageBoxButtons.YesNo;
             DialogResult result = MessageBox.Show("Do you wish to print a receipt", "Print Receipt", buttons);
             if (result == DialogResult.No)
@@ -124,6 +111,7 @@ namespace UI
             //move this to other panel
             UpdateOrderStatus();
             //update table to available and set bill to Null
+            UpdateCurrentTable();
         }
 
         private void UpdateOrderStatus()
@@ -135,8 +123,8 @@ namespace UI
                 salesService.UpdateOrderStatus(order);
             }
         }
-    }
-}
+    
+
 
         private double CalculateVAT(int input)
         {
@@ -182,6 +170,7 @@ namespace UI
 
         private void btnEnterFeedback_Click(object sender, EventArgs e)
         {
+            
             if (txtFeedback.Text != "")
                 bill.Feedback = txtFeedback.Text;
             else
@@ -189,15 +178,24 @@ namespace UI
             //then call a method to write bill to database
             salesService.UpdateBill(bill);
 
-            //change table status to available
-            table.TableStatus = 0;
-            //TO DO update status on form or on database?
+            UpdateCurrentTable();
         }
+    
 
+        private void UpdateCurrentTable()
+        {
+         table.TableStatus = 0;
+        table.BillId = null;
+        }
         private void btnGoToTableView_Click(object sender, EventArgs e)
         {
             //close this form and open the table view one
+           this.form.Close();
+          TableForm form = new TableForm(table)
            
         }
     }
 }
+
+
+
