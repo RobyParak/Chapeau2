@@ -31,5 +31,12 @@ namespace DAL
             }
             return tables;
         }
+
+        public void Db_Seat_Table(int tableID)
+        {
+            string query = $"Update [Tables] set [Status] = 1 Where [Table_ID] = '{tableID}'";
+            SqlParameter[] sqlParameters = new SqlParameter[0];
+            ExecuteEditQuery(query, sqlParameters);
+        }
     }
 }

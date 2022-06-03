@@ -38,72 +38,80 @@
             this.btnTable8 = new System.Windows.Forms.Button();
             this.btnTable9 = new System.Windows.Forms.Button();
             this.btnTable10 = new System.Windows.Forms.Button();
+            this.btnLogout = new System.Windows.Forms.Button();
+            this.lblLogout = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // btnTable1
             // 
             this.btnTable1.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.btnTable1.Location = new System.Drawing.Point(60, 22);
+            this.btnTable1.Location = new System.Drawing.Point(62, 41);
             this.btnTable1.Name = "btnTable1";
             this.btnTable1.Size = new System.Drawing.Size(70, 60);
             this.btnTable1.TabIndex = 0;
             this.btnTable1.Text = "1";
             this.btnTable1.UseVisualStyleBackColor = true;
+            this.btnTable1.Click += new System.EventHandler(this.btnTable1_Click);
             // 
             // btnTable2
             // 
             this.btnTable2.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.btnTable2.Location = new System.Drawing.Point(226, 22);
+            this.btnTable2.Location = new System.Drawing.Point(228, 41);
             this.btnTable2.Name = "btnTable2";
             this.btnTable2.Size = new System.Drawing.Size(70, 60);
             this.btnTable2.TabIndex = 1;
             this.btnTable2.Text = "2";
             this.btnTable2.UseVisualStyleBackColor = true;
+            this.btnTable2.Click += new System.EventHandler(this.btnTable2_Click);
             // 
             // btnTable3
             // 
             this.btnTable3.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.btnTable3.Location = new System.Drawing.Point(60, 106);
+            this.btnTable3.Location = new System.Drawing.Point(62, 125);
             this.btnTable3.Name = "btnTable3";
             this.btnTable3.Size = new System.Drawing.Size(70, 60);
             this.btnTable3.TabIndex = 2;
             this.btnTable3.Text = "3";
             this.btnTable3.UseVisualStyleBackColor = true;
+            this.btnTable3.Click += new System.EventHandler(this.btnTable3_Click);
             // 
             // btnTable4
             // 
             this.btnTable4.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.btnTable4.Location = new System.Drawing.Point(226, 106);
+            this.btnTable4.Location = new System.Drawing.Point(228, 125);
             this.btnTable4.Name = "btnTable4";
             this.btnTable4.Size = new System.Drawing.Size(70, 60);
             this.btnTable4.TabIndex = 3;
             this.btnTable4.Text = "4";
             this.btnTable4.UseVisualStyleBackColor = true;
+            this.btnTable4.Click += new System.EventHandler(this.btnTable4_Click);
             // 
             // btnTable5
             // 
             this.btnTable5.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.btnTable5.Location = new System.Drawing.Point(60, 187);
+            this.btnTable5.Location = new System.Drawing.Point(62, 206);
             this.btnTable5.Name = "btnTable5";
             this.btnTable5.Size = new System.Drawing.Size(70, 60);
             this.btnTable5.TabIndex = 4;
             this.btnTable5.Text = "5";
             this.btnTable5.UseVisualStyleBackColor = true;
+            this.btnTable5.Click += new System.EventHandler(this.btnTable5_Click);
             // 
             // btnTable6
             // 
             this.btnTable6.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.btnTable6.Location = new System.Drawing.Point(226, 187);
+            this.btnTable6.Location = new System.Drawing.Point(228, 206);
             this.btnTable6.Name = "btnTable6";
             this.btnTable6.Size = new System.Drawing.Size(70, 60);
             this.btnTable6.TabIndex = 5;
             this.btnTable6.Text = "6";
             this.btnTable6.UseVisualStyleBackColor = true;
+            this.btnTable6.Click += new System.EventHandler(this.btnTable6_Click);
             // 
             // btnTable7
             // 
             this.btnTable7.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.btnTable7.Location = new System.Drawing.Point(60, 271);
+            this.btnTable7.Location = new System.Drawing.Point(62, 290);
             this.btnTable7.Name = "btnTable7";
             this.btnTable7.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.btnTable7.Size = new System.Drawing.Size(70, 60);
@@ -115,38 +123,61 @@
             // btnTable8
             // 
             this.btnTable8.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.btnTable8.Location = new System.Drawing.Point(226, 271);
+            this.btnTable8.Location = new System.Drawing.Point(228, 290);
             this.btnTable8.Name = "btnTable8";
             this.btnTable8.Size = new System.Drawing.Size(70, 60);
             this.btnTable8.TabIndex = 7;
             this.btnTable8.Text = "8";
             this.btnTable8.UseVisualStyleBackColor = true;
+            this.btnTable8.Click += new System.EventHandler(this.btnTable8_Click);
             // 
             // btnTable9
             // 
             this.btnTable9.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.btnTable9.Location = new System.Drawing.Point(60, 359);
+            this.btnTable9.Location = new System.Drawing.Point(62, 379);
             this.btnTable9.Name = "btnTable9";
             this.btnTable9.Size = new System.Drawing.Size(70, 60);
             this.btnTable9.TabIndex = 8;
             this.btnTable9.Text = "9";
             this.btnTable9.UseVisualStyleBackColor = true;
+            this.btnTable9.Click += new System.EventHandler(this.btnTable9_Click);
             // 
             // btnTable10
             // 
             this.btnTable10.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.btnTable10.Location = new System.Drawing.Point(226, 359);
+            this.btnTable10.Location = new System.Drawing.Point(228, 379);
             this.btnTable10.Name = "btnTable10";
             this.btnTable10.Size = new System.Drawing.Size(70, 60);
             this.btnTable10.TabIndex = 9;
             this.btnTable10.Text = "10";
             this.btnTable10.UseVisualStyleBackColor = true;
+            this.btnTable10.Click += new System.EventHandler(this.btnTable10_Click);
+            // 
+            // btnLogout
+            // 
+            this.btnLogout.Location = new System.Drawing.Point(266, 9);
+            this.btnLogout.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnLogout.Name = "btnLogout";
+            this.btnLogout.Size = new System.Drawing.Size(93, 27);
+            this.btnLogout.TabIndex = 11;
+            this.btnLogout.UseVisualStyleBackColor = true;
+            this.btnLogout.Click += new System.EventHandler(this.btnLogout_Click);
+            // 
+            // lblLogout
+            // 
+            this.lblLogout.AutoSize = true;
+            this.lblLogout.Location = new System.Drawing.Point(148, 13);
+            this.lblLogout.Name = "lblLogout";
+            this.lblLogout.Size = new System.Drawing.Size(0, 15);
+            this.lblLogout.TabIndex = 12;
             // 
             // TableForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(363, 450);
+            this.Controls.Add(this.lblLogout);
+            this.Controls.Add(this.btnLogout);
             this.Controls.Add(this.btnTable10);
             this.Controls.Add(this.btnTable9);
             this.Controls.Add(this.btnTable8);
@@ -160,6 +191,7 @@
             this.Name = "TableForm";
             this.Text = "TableForm";
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -175,5 +207,7 @@
         private System.Windows.Forms.Button btnTable8;
         private System.Windows.Forms.Button btnTable9;
         private System.Windows.Forms.Button btnTable10;
+        private System.Windows.Forms.Button btnLogout;
+        private System.Windows.Forms.Label lblLogout;
     }
 }

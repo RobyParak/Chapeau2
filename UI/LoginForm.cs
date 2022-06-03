@@ -28,28 +28,32 @@ namespace Login
                 StaffService staffService = new StaffService();
                 Staff staff = staffService.LoginStaff(int.Parse(txtStaffID.Text), int.Parse(txtPassword.Text));
 
+                if (staff.PassCode != int.Parse(txtPassword.Text))
+                    throw new Exception();
 
-                if (staff.StaffRole == Role.Waiter)
+                switch (staff.Roles)
                 {
-                    TableForm tableForm = new TableForm();
-                    tableForm.ShowDialog();
+                    case RolesEnum.Waiter:
+                        TableForm tableForm = new TableForm(staff);
+                        tableForm.Show();
+                        this.Hide();
+                        break;
+                    case RolesEnum.Chef:
+                        KitchenViewForm kitchenViewForm = new KitchenViewForm(staff);
+                        kitchenViewForm.ShowDialog();
+                        this.Hide();
+                        break;
+                    case RolesEnum.Bartender:
+                        BarViewForm barViewForm = new BarViewForm(staff);
+                        barViewForm.ShowDialog();
+                        this.Hide();
+                        break;
+                    case RolesEnum.Manager:
+                        ManagerForm managerForm = new ManagerForm(staff);
+                        managerForm.ShowDialog();
+                        this.Hide();
+                        break;
                 }
-                else if (staff.StaffRole == Role.Bartender)
-                {
-                    BarViewForm barViewForm = new BarViewForm();
-                    barViewForm.ShowDialog();
-                }
-                else if (staff.StaffRole == Role.Chef)
-                {
-                    KitchenViewForm kitchenViewForm = new KitchenViewForm();
-                    kitchenViewForm.ShowDialog();
-                }
-                else
-                {
-                    ManagerForm managerForm = new ManagerForm();
-                    managerForm.ShowDialog();
-                }
-                this.Hide();
             }
             catch (Exception)
             {

@@ -12,7 +12,7 @@ namespace DAL
     {
         public Staff LoginStaff(int staffID, int passCode)
         {
-            string query = "select Staff_ID, First_Name, Last_Name, Role from staff WHERE [Passcode] = @pass and [Staff_ID] = @ID ";
+            string query = "select Staff_ID, First_Name, Last_Name, Passcode, Role from staff WHERE [Passcode] = @pass and [Staff_ID] = @ID ";
             SqlParameter[] sqlParameters = { new SqlParameter ("@pass", passCode),
                     new SqlParameter ("@ID", staffID) };
 
@@ -20,7 +20,7 @@ namespace DAL
         }
 
         public Staff ReadStaff(DataTable dataTable)
-        {
+        { 
             Staff staff = new Staff();
             if (dataTable.Rows.Count >= 1)
             {
@@ -30,12 +30,9 @@ namespace DAL
                 staff.LastName = (string)dr["Last_Name"];
                 staff.StaffID = (int)dr["Staff_ID"];
                 staff.PassCode = (int)dr["Passcode"];
-                //ask Dimitar how to convert it 
-                //staff.HasPermission = (bool)(dr["Has_Permission"]) ? 0 : 1;
-                staff.StaffRole = (Role)(Enum.Parse(dr["Role"]));
+                staff.Roles = (RolesEnum)(int)dr["Role"];
             }
             return staff;
-
         }
     }
 }
