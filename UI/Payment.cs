@@ -18,7 +18,7 @@ namespace UI
 
         //Asked Gerwin how else could this be done without global
         //cannot be done, this global stays
-        List<OrderItem> ordersItems;
+        List<OrderItem> orderItems;
         public Payment(Table table, Bill bill)
         {
             InitializeComponent();
@@ -123,7 +123,7 @@ namespace UI
                 salesService.UpdateOrderStatus(order);
             }
         }
-    
+
 
 
         private double CalculateVAT(int input)
@@ -164,13 +164,13 @@ namespace UI
                 }
                 else
                     MessageBox.Show("Total due must be higher than amount due");
-                
+
             }
         }
 
         private void btnEnterFeedback_Click(object sender, EventArgs e)
         {
-            
+
             if (txtFeedback.Text != "")
                 bill.Feedback = txtFeedback.Text;
             else
@@ -180,19 +180,41 @@ namespace UI
 
             UpdateCurrentTable();
         }
-    
+
 
         private void UpdateCurrentTable()
         {
-         table.TableStatus = 0;
-        table.BillId = null;
+            table.TableStatus = 0;
+            table.BillId = -1;
         }
-        private void btnGoToTableView_Click(object sender, EventArgs e)
+        //private void btnGoToTableView_Click(object sender, EventArgs e)
+        //{
+        //    //close this form and open the table view one
+        //    Payment.Close();
+        //    TableForm form = new TableForm(table);
+
+        //}
+
+        private void listViewBill_SelectedIndexChanged(object sender, EventArgs e)
         {
-            //close this form and open the table view one
-           this.form.Close();
-          TableForm form = new TableForm(table)
-           
+            List<OrderItem> partialOrderForSplitting = new List<OrderItem>();
+            OrderItem itemToAdd = new OrderItem();
+            try
+            {
+                if (listViewBill.SelectedItems.Count == 0)
+                {
+                    return;
+                }
+                ListViewItem li = listViewBill.SelectedItems[0];
+                itemToAdd = li.Tag as OrderItem;
+                partialOrderForSplitting.Add(itemToAdd);
+                DisplayPrice(partialOrderForSplitting);
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("An error occoured: ", ex.Message);
+            }
         }
     }
 }
