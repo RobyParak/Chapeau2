@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.ListViewItem listViewItem3 = new System.Windows.Forms.ListViewItem(new string[] {
+            System.Windows.Forms.ListViewItem listViewItem1 = new System.Windows.Forms.ListViewItem(new string[] {
             ""}, -1, System.Drawing.SystemColors.InactiveBorder, System.Drawing.SystemColors.WindowFrame, null);
-            System.Windows.Forms.ListViewItem listViewItem4 = new System.Windows.Forms.ListViewItem(new string[] {
+            System.Windows.Forms.ListViewItem listViewItem2 = new System.Windows.Forms.ListViewItem(new string[] {
             ""}, -1, System.Drawing.SystemColors.InactiveBorder, System.Drawing.SystemColors.WindowFrame, null);
             this.lblTableID = new System.Windows.Forms.Label();
             this.listViewBill = new System.Windows.Forms.ListView();
@@ -100,13 +100,14 @@
             this.listViewBill.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.listViewBill.HideSelection = false;
             this.listViewBill.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
-            listViewItem3});
+            listViewItem1});
             this.listViewBill.Location = new System.Drawing.Point(19, 65);
             this.listViewBill.Name = "listViewBill";
             this.listViewBill.Size = new System.Drawing.Size(453, 444);
             this.listViewBill.Sorting = System.Windows.Forms.SortOrder.Ascending;
             this.listViewBill.TabIndex = 1;
             this.listViewBill.UseCompatibleStateImageBehavior = false;
+            this.listViewBill.SelectedIndexChanged += new System.EventHandler(this.listViewBill_SelectedIndexChanged);
             // 
             // Quantity
             // 
@@ -321,7 +322,7 @@
             this.btnGoToTableView.TabIndex = 11;
             this.btnGoToTableView.Text = "back to table view";
             this.btnGoToTableView.UseVisualStyleBackColor = true;
-            this.btnGoToTableView.Click += new System.EventHandler(this.btnGoToTableView_Click);
+            //this.btnGoToTableView.Click += new System.EventHandler(this.btnGoToTableView_Click);
             // 
             // btnEnterFeedback
             // 
@@ -429,7 +430,7 @@
             this.listViewCashPayment.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.listViewCashPayment.HideSelection = false;
             this.listViewCashPayment.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
-            listViewItem4});
+            listViewItem2});
             this.listViewCashPayment.Location = new System.Drawing.Point(3, 39);
             this.listViewCashPayment.Name = "listViewCashPayment";
             this.listViewCashPayment.Size = new System.Drawing.Size(453, 408);
