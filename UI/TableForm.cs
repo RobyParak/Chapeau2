@@ -93,85 +93,69 @@ namespace UI
                 TableStatus();
             }
 
-
         }
 
         private void btnTable1_Click(object sender, EventArgs e)
         {
-            if (tableList[0].TableStatus == 0)
-            {
-                SeatTable(tableList[0].Id);
-            }
+            CheckTableStatus(tableList[0]);
         }
 
         private void btnTable2_Click(object sender, EventArgs e)
         {
-            if (tableList[1].TableStatus == 0)
-            {
-                SeatTable(tableList[1].Id);
-            }
+            CheckTableStatus(tableList[1]);
         }
 
         private void btnTable3_Click(object sender, EventArgs e)
         {
-            if (tableList[2].TableStatus == 0)
-            {
-                SeatTable(tableList[2].Id);
-            }
+            CheckTableStatus(tableList[2]);
         }
 
         private void btnTable4_Click(object sender, EventArgs e)
         {
-            if (tableList[3].TableStatus == 0)
-            {
-                SeatTable(tableList[3].Id);
-            }
+            CheckTableStatus(tableList[3]);
         }
 
         private void btnTable5_Click(object sender, EventArgs e)
         {
-            if (tableList[4].TableStatus == 0)
-            {
-                SeatTable(tableList[4].Id);
-            }
+            CheckTableStatus(tableList[4]);
         }
 
         private void btnTable6_Click(object sender, EventArgs e)
         {
-            if (tableList[5].TableStatus == 0)
-            {
-                SeatTable(tableList[5].Id);
-            }
+            CheckTableStatus(tableList[5]);
         }
 
         private void button7_Click(object sender, EventArgs e)
         {
-            if (tableList[6].TableStatus == 0)
-            {
-                SeatTable(tableList[6].Id);
-            }
+            CheckTableStatus(tableList[6]);
         }
         private void btnTable8_Click(object sender, EventArgs e)
         {
-            if (tableList[7].TableStatus == 0)
-            {
-                SeatTable(tableList[7].Id);
-            }
+            CheckTableStatus(tableList[7]);
         }
 
         private void btnTable9_Click(object sender, EventArgs e)
         {
-            if (tableList[8].TableStatus == 0)
-            {
-                SeatTable(tableList[8].Id);
-            }
+            CheckTableStatus(tableList[8]);
         }
 
         private void btnTable10_Click(object sender, EventArgs e)
         {
-            if (tableList[9].TableStatus == 0)
+            CheckTableStatus(tableList[9]);
+        }
+
+        private void CheckTableStatus(Table table)
+        {
+            if (table.TableStatus == 0)
             {
-                SeatTable(tableList[9].Id);
+                SeatTable(table.Id);
+            }
+            else if (table.TableStatus == 1)
+            {
+                tableService.ServerTable(table.Id);
+                OrderView orderView = new OrderView(table);
+                this.Close();
+                orderView.Show();              
             }
         }
     }

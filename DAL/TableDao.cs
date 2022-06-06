@@ -7,7 +7,7 @@ using System.Text;
 
 namespace DAL
 {
-    public class TableDao : BaseDao 
+    public class TableDao : BaseDao
     {
         public List<Table> Db_Get_Table_Data()
         {
@@ -35,6 +35,13 @@ namespace DAL
         public void Db_Seat_Table(int tableID)
         {
             string query = $"Update [Tables] set [Status] = 1 Where [Table_ID] = '{tableID}'";
+            SqlParameter[] sqlParameters = new SqlParameter[0];
+            ExecuteEditQuery(query, sqlParameters);
+        }
+
+        public void Db_Serve_Table(int tableID)
+        {
+            string query = $"Update [Tables] set [Status] = 2 Where [Table_ID] = '{tableID}'";
             SqlParameter[] sqlParameters = new SqlParameter[0];
             ExecuteEditQuery(query, sqlParameters);
         }
