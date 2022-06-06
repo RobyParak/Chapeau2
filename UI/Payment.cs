@@ -11,23 +11,20 @@ namespace UI
 {
     public partial class Payment : Form
     {
-        //need to get the table ID
+        //Receive table and bill from orderForm
         Table table;
         Bill bill;
         SalesService salesService;
 
-        //Ask Gerwin how else could this be done without global
+        //Asked Gerwin how else could this be done without global
+        //cannot be done, this global stays
         List<OrderItem> orderItems;
-        public Payment(Table table, int billId)
+        public Payment(Table table, Bill bill)
         {
             InitializeComponent();
-
+            this.bill = bill;
             salesService = new SalesService();
             this.table = table;
-            bill = new Bill
-            {
-                BillId = billId
-            };
 
             //make method to show panel parsing it
             pnlFeedback.Hide();
@@ -65,7 +62,6 @@ namespace UI
         {
             //card payent opens a new panel where the payment is "being processed"
 
-            //enum
             bill.PaymentMethod = PaymentType.Card;
             pnlCardPayment.Show();
             pnlPayment.Hide();
@@ -80,8 +76,8 @@ namespace UI
             pnlFeedback.Show();
             pnlFeedback.Dock = DockStyle.Fill;
             //Update orders in database to paid
-            //UpdateOrderStatus();
-       
+            UpdateOrderStatus();
+            UpdateCurrentTable();
         }
 
         private void btnBack_Click_1(object sender, EventArgs e)
@@ -103,6 +99,7 @@ namespace UI
             {
                 MessageBox.Show("Your receipt is being printed at the main till");
             }
+
         }
 
         private void btnCash_Click(object sender, EventArgs e)
@@ -110,19 +107,25 @@ namespace UI
             bill.PaymentMethod = PaymentType.Cash;
             //TO DO another panel that helps the waiter with the change
 
-            //To do: When successful call updateOrderStatus Method
-            PrintReceiptPopUp();
+
+            //move this to other panel
+            UpdateOrderStatus();
+            //update table to available and set bill to Null
+            UpdateCurrentTable();
         }
 
-        //private void UpdateOrderStatus()
-        //{
-        //    //update the order status get it from Dimitar or do a new query?
-        //    foreach (Order order in orders)
-        //    {
-        //        order.IsPaid = true;
-        //        salesService.UpdateOrderStatus(order);
-        //    }
-        //}
+        private void UpdateOrderStatus()
+        {
+            //update the order status in the database
+            foreach (Order order in bill.Orders)
+            {
+                order.IsPaid = true;
+                salesService.UpdateOrderStatus(order);
+            }
+        }
+
+
+
         private double CalculateVAT(int input)
         {
             double vat = 0;
@@ -161,12 +164,13 @@ namespace UI
                 }
                 else
                     MessageBox.Show("Total due must be higher than amount due");
-                
+
             }
         }
 
         private void btnEnterFeedback_Click(object sender, EventArgs e)
         {
+
             if (txtFeedback.Text != "")
                 bill.Feedback = txtFeedback.Text;
             else
@@ -174,15 +178,46 @@ namespace UI
             //then call a method to write bill to database
             salesService.UpdateBill(bill);
 
-            //change table status to available
-            table.TableStatus = 0;
-            //TO DO update status on form or on database?
+            UpdateCurrentTable();
         }
 
-        private void btnGoToTableView_Click(object sender, EventArgs e)
+
+        private void UpdateCurrentTable()
         {
-            //close this form and open the table view one
-           
+            table.TableStatus = 0;
+            table.BillId = -1;
+        }
+        //private void btnGoToTableView_Click(object sender, EventArgs e)
+        //{
+        //    //close this form and open the table view one
+        //    Payment.Close();
+        //    TableForm form = new TableForm(table);
+
+        //}
+
+        private void listViewBill_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            List<OrderItem> partialOrderForSplitting = new List<OrderItem>();
+            OrderItem itemToAdd = new OrderItem();
+            try
+            {
+                if (listViewBill.SelectedItems.Count == 0)
+                {
+                    return;
+                }
+                ListViewItem li = listViewBill.SelectedItems[0];
+                itemToAdd = li.Tag as OrderItem;
+                partialOrderForSplitting.Add(itemToAdd);
+                DisplayPrice(partialOrderForSplitting);
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("An error occoured: ", ex.Message);
+            }
         }
     }
 }
+
+
+

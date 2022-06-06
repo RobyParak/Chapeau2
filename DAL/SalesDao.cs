@@ -10,7 +10,7 @@ namespace DAL
     public class SalesDao : BaseDao
     {
 
-        //insert bill once it's paid
+        //update bill once it's paid
         public void UpdateBill(Bill bill)
         {
             string query = "UPDATE Bill SET Amount_Due = @AmountDue, Tips = @Tip, Total_Due = @Total, Comment = @Feedback, Payment_Method = @PayMethod";
@@ -34,7 +34,7 @@ namespace DAL
             ExecuteEditQuery(query, sqlParameters);
         }
 
-        public List<OrderItem> GetOrdersForBill(int tableId)
+        public List<OrderItem> GetOrderItemsForBill(int tableId)
         {
             //Need to get item name, quantity, price and VAT
             string query = "Select Item_Name as [Name], count(Quantity)" +
