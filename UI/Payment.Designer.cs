@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.ListViewItem listViewItem1 = new System.Windows.Forms.ListViewItem(new string[] {
+            System.Windows.Forms.ListViewItem listViewItem11 = new System.Windows.Forms.ListViewItem(new string[] {
             ""}, -1, System.Drawing.SystemColors.InactiveBorder, System.Drawing.SystemColors.WindowFrame, null);
-            System.Windows.Forms.ListViewItem listViewItem2 = new System.Windows.Forms.ListViewItem(new string[] {
+            System.Windows.Forms.ListViewItem listViewItem12 = new System.Windows.Forms.ListViewItem(new string[] {
             ""}, -1, System.Drawing.SystemColors.InactiveBorder, System.Drawing.SystemColors.WindowFrame, null);
             this.lblTableID = new System.Windows.Forms.Label();
             this.listViewBill = new System.Windows.Forms.ListView();
@@ -57,7 +57,6 @@
             this.pnlFeedback = new System.Windows.Forms.Panel();
             this.btnGoToTableView = new System.Windows.Forms.Button();
             this.btnEnterFeedback = new System.Windows.Forms.Button();
-            this.btnBackTwo = new System.Windows.Forms.Button();
             this.txtFeedback = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.pnlCardPayment = new System.Windows.Forms.Panel();
@@ -69,6 +68,8 @@
             this.columnHeader1 = new System.Windows.Forms.ColumnHeader();
             this.columnHeader2 = new System.Windows.Forms.ColumnHeader();
             this.columnHeader3 = new System.Windows.Forms.ColumnHeader();
+            this.btnBackToOrderViewFromPaymentMainPage = new System.Windows.Forms.Button();
+            this.label11 = new System.Windows.Forms.Label();
             this.pnlPayment.SuspendLayout();
             this.pnlFeedback.SuspendLayout();
             this.pnlCardPayment.SuspendLayout();
@@ -100,7 +101,7 @@
             this.listViewBill.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.listViewBill.HideSelection = false;
             this.listViewBill.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
-            listViewItem1});
+            listViewItem11});
             this.listViewBill.Location = new System.Drawing.Point(19, 65);
             this.listViewBill.Name = "listViewBill";
             this.listViewBill.Size = new System.Drawing.Size(453, 444);
@@ -126,6 +127,8 @@
             // 
             // pnlPayment
             // 
+            this.pnlPayment.Controls.Add(this.label11);
+            this.pnlPayment.Controls.Add(this.btnBackToOrderViewFromPaymentMainPage);
             this.pnlPayment.Controls.Add(this.label10);
             this.pnlPayment.Controls.Add(this.label9);
             this.pnlPayment.Controls.Add(this.btnCalculateTipAndTotal);
@@ -146,7 +149,7 @@
             this.pnlPayment.Controls.Add(this.lblTableID);
             this.pnlPayment.Location = new System.Drawing.Point(16, 34);
             this.pnlPayment.Name = "pnlPayment";
-            this.pnlPayment.Size = new System.Drawing.Size(463, 643);
+            this.pnlPayment.Size = new System.Drawing.Size(463, 1004);
             this.pnlPayment.TabIndex = 2;
             // 
             // label10
@@ -172,7 +175,7 @@
             this.btnCalculateTipAndTotal.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.btnCalculateTipAndTotal.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btnCalculateTipAndTotal.ForeColor = System.Drawing.SystemColors.ButtonShadow;
-            this.btnCalculateTipAndTotal.Location = new System.Drawing.Point(338, 782);
+            this.btnCalculateTipAndTotal.Location = new System.Drawing.Point(338, 784);
             this.btnCalculateTipAndTotal.Name = "btnCalculateTipAndTotal";
             this.btnCalculateTipAndTotal.Size = new System.Drawing.Size(96, 38);
             this.btnCalculateTipAndTotal.TabIndex = 15;
@@ -220,7 +223,7 @@
             // 
             this.btnCash.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.btnCash.ForeColor = System.Drawing.SystemColors.ButtonShadow;
-            this.btnCash.Location = new System.Drawing.Point(265, 885);
+            this.btnCash.Location = new System.Drawing.Point(286, 894);
             this.btnCash.Name = "btnCash";
             this.btnCash.Size = new System.Drawing.Size(85, 38);
             this.btnCash.TabIndex = 10;
@@ -231,7 +234,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(109, 832);
+            this.label4.Location = new System.Drawing.Point(95, 846);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(270, 32);
             this.label4.TabIndex = 9;
@@ -241,7 +244,7 @@
             // 
             this.btnCard.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.btnCard.ForeColor = System.Drawing.SystemColors.ButtonShadow;
-            this.btnCard.Location = new System.Drawing.Point(109, 885);
+            this.btnCard.Location = new System.Drawing.Point(185, 894);
             this.btnCard.Name = "btnCard";
             this.btnCard.Size = new System.Drawing.Size(85, 38);
             this.btnCard.TabIndex = 8;
@@ -304,7 +307,6 @@
             // 
             this.pnlFeedback.Controls.Add(this.btnGoToTableView);
             this.pnlFeedback.Controls.Add(this.btnEnterFeedback);
-            this.pnlFeedback.Controls.Add(this.btnBackTwo);
             this.pnlFeedback.Controls.Add(this.txtFeedback);
             this.pnlFeedback.Controls.Add(this.label6);
             this.pnlFeedback.Location = new System.Drawing.Point(61, 12);
@@ -322,7 +324,6 @@
             this.btnGoToTableView.TabIndex = 11;
             this.btnGoToTableView.Text = "back to table view";
             this.btnGoToTableView.UseVisualStyleBackColor = true;
-            //this.btnGoToTableView.Click += new System.EventHandler(this.btnGoToTableView_Click);
             // 
             // btnEnterFeedback
             // 
@@ -336,17 +337,6 @@
             this.btnEnterFeedback.UseVisualStyleBackColor = true;
             this.btnEnterFeedback.Click += new System.EventHandler(this.btnEnterFeedback_Click);
             // 
-            // btnBackTwo
-            // 
-            this.btnBackTwo.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.btnBackTwo.ForeColor = System.Drawing.SystemColors.ButtonShadow;
-            this.btnBackTwo.Location = new System.Drawing.Point(65, 334);
-            this.btnBackTwo.Name = "btnBackTwo";
-            this.btnBackTwo.Size = new System.Drawing.Size(85, 38);
-            this.btnBackTwo.TabIndex = 9;
-            this.btnBackTwo.Text = "Back";
-            this.btnBackTwo.UseVisualStyleBackColor = true;
-            // 
             // txtFeedback
             // 
             this.txtFeedback.AcceptsReturn = true;
@@ -356,7 +346,7 @@
             this.txtFeedback.MinimumSize = new System.Drawing.Size(4, 80);
             this.txtFeedback.Name = "txtFeedback";
             this.txtFeedback.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.txtFeedback.Size = new System.Drawing.Size(271, 39);
+            this.txtFeedback.Size = new System.Drawing.Size(271, 80);
             this.txtFeedback.TabIndex = 1;
             // 
             // label6
@@ -373,7 +363,7 @@
             this.pnlCardPayment.Controls.Add(this.btnPaymentSuccessful);
             this.pnlCardPayment.Controls.Add(this.btnBack);
             this.pnlCardPayment.Controls.Add(this.label5);
-            this.pnlCardPayment.Location = new System.Drawing.Point(16, 866);
+            this.pnlCardPayment.Location = new System.Drawing.Point(485, 603);
             this.pnlCardPayment.Name = "pnlCardPayment";
             this.pnlCardPayment.Size = new System.Drawing.Size(431, 157);
             this.pnlCardPayment.TabIndex = 4;
@@ -414,9 +404,9 @@
             // pnlCashPayment
             // 
             this.pnlCashPayment.Controls.Add(this.listViewCashPayment);
-            this.pnlCashPayment.Location = new System.Drawing.Point(16, 703);
+            this.pnlCashPayment.Location = new System.Drawing.Point(442, 775);
             this.pnlCashPayment.Name = "pnlCashPayment";
-            this.pnlCashPayment.Size = new System.Drawing.Size(447, 160);
+            this.pnlCashPayment.Size = new System.Drawing.Size(463, 320);
             this.pnlCashPayment.TabIndex = 5;
             // 
             // listViewCashPayment
@@ -430,10 +420,10 @@
             this.listViewCashPayment.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.listViewCashPayment.HideSelection = false;
             this.listViewCashPayment.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
-            listViewItem2});
-            this.listViewCashPayment.Location = new System.Drawing.Point(3, 39);
+            listViewItem12});
+            this.listViewCashPayment.Location = new System.Drawing.Point(19, 43);
             this.listViewCashPayment.Name = "listViewCashPayment";
-            this.listViewCashPayment.Size = new System.Drawing.Size(453, 408);
+            this.listViewCashPayment.Size = new System.Drawing.Size(441, 404);
             this.listViewCashPayment.Sorting = System.Windows.Forms.SortOrder.Ascending;
             this.listViewCashPayment.TabIndex = 2;
             this.listViewCashPayment.UseCompatibleStateImageBehavior = false;
@@ -452,6 +442,27 @@
             // 
             this.columnHeader3.Text = "Price";
             this.columnHeader3.Width = 70;
+            // 
+            // btnBackToOrderViewFromPaymentMainPage
+            // 
+            this.btnBackToOrderViewFromPaymentMainPage.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this.btnBackToOrderViewFromPaymentMainPage.ForeColor = System.Drawing.SystemColors.ButtonShadow;
+            this.btnBackToOrderViewFromPaymentMainPage.Location = new System.Drawing.Point(86, 894);
+            this.btnBackToOrderViewFromPaymentMainPage.Name = "btnBackToOrderViewFromPaymentMainPage";
+            this.btnBackToOrderViewFromPaymentMainPage.Size = new System.Drawing.Size(85, 38);
+            this.btnBackToOrderViewFromPaymentMainPage.TabIndex = 18;
+            this.btnBackToOrderViewFromPaymentMainPage.Text = "Back";
+            this.btnBackToOrderViewFromPaymentMainPage.UseVisualStyleBackColor = true;
+            this.btnBackToOrderViewFromPaymentMainPage.Click += new System.EventHandler(this.btnBackToOrderViewFromPaymentMainPage_Click);
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(86, 512);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(309, 32);
+            this.label11.TabIndex = 19;
+            this.label11.Text = "To split the bill, select items";
             // 
             // Payment
             // 
@@ -507,7 +518,6 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Button btnGoToTableView;
         private System.Windows.Forms.Button btnEnterFeedback;
-        private System.Windows.Forms.Button btnBackTwo;
         private System.Windows.Forms.Panel pnlCashPayment;
         private System.Windows.Forms.Label lblVAT6;
         private System.Windows.Forms.Label lblVAT21;
@@ -520,5 +530,7 @@
         private System.Windows.Forms.ColumnHeader columnHeader1;
         private System.Windows.Forms.ColumnHeader columnHeader2;
         private System.Windows.Forms.ColumnHeader columnHeader3;
+        private System.Windows.Forms.Button btnBackToOrderViewFromPaymentMainPage;
+        private System.Windows.Forms.Label label11;
     }
 }

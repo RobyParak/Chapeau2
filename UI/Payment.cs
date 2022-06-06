@@ -34,8 +34,15 @@ namespace UI
             pnlCashPayment.Hide();
             lblTableID.Text = table.Id.ToString();
             orderItems = salesService.GetOrdersForBill(table.Id);
-            DisplayOrder(orderItems);
-            DisplayVAT();
+            if (orderItems != null)
+            {
+                DisplayOrder(orderItems);
+                DisplayVAT();
+            }
+            else
+            {   //maybe add a message box about this
+                GoToTableviewForm();
+            }
         }
         private void DisplayOrder(List<OrderItem> orderItems)
         {
@@ -187,13 +194,18 @@ namespace UI
             table.TableStatus = 0;
             table.BillId = -1;
         }
-        //private void btnGoToTableView_Click(object sender, EventArgs e)
-        //{
-        //    //close this form and open the table view one
-        //    Payment.Close();
-        //    TableForm form = new TableForm(table);
+        private void GoToTableviewForm()
+        {
+            //TableForm tableForm = new TableForm(table);
+            //this.Close();
+            //tableForm.ShowDialog();
+        }
+        private void btnGoToTableView_Click(object sender, EventArgs e)
+        {
+            //close this form and open the table view one
+            GoToTableviewForm();
 
-        //}
+        }
 
         private void listViewBill_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -215,6 +227,14 @@ namespace UI
             {
                 MessageBox.Show("An error occoured: ", ex.Message);
             }
+        }
+
+        private void btnBackToOrderViewFromPaymentMainPage_Click(object sender, EventArgs e)
+        {
+            //OrderView orderForm = new OrderView(table, bill);
+            //this.Close();
+            //orderForm.ShowDialog();
+
         }
     }
 }
