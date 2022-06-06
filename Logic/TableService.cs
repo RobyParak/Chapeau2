@@ -14,5 +14,15 @@ namespace Logic
         {
             return tableDao.Db_Get_Table_Data();
         }
+
+        public void SeatTable(int tableId)
+        {
+            tableDao.Db_Seat_Table(tableId);
+        }
+
+        public void ServerTable(int tableId)
+        {
+            tableDao.Db_Serve_Table(tableId);
+        }
     }
 }

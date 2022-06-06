@@ -5,12 +5,13 @@ using System.Data;
 using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
+using Model;
 
 namespace UI
 {
     public partial class ManagerForm : Form
     {
-        public ManagerForm()
+        public ManagerForm(Staff staff)
         {
             InitializeComponent();
         }

@@ -5,12 +5,13 @@ using System.Data;
 using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
+using Model;
 
 namespace UI
 {
     public partial class KitchenViewForm : Form
     {
-        public KitchenViewForm()
+        public KitchenViewForm(Staff staff)
         {
             InitializeComponent();
         }

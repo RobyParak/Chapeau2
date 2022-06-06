@@ -14,7 +14,7 @@ namespace Model
         {
             Id = id;
             TableStatus = status;
-            //BillId = null;
+            BillId = -1;
         }
         public int Id { get; set; }
 
