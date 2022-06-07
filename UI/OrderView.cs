@@ -164,7 +164,7 @@ namespace UI
                 Quantity = int.Parse(textBoxQuantity.Text)
             };
             _bill.Orders.Add(order);
-            _orderService.CreateOrder(order, dish);
+            _orderService.CreateOrder(order, dish, _staff);
             List<Order> orders = _orderService.GetAllOrdersForTable(_table.Id);
             DisplayOrders(orders);
         }
@@ -413,7 +413,7 @@ namespace UI
                 Quantity = int.Parse(textBoxQuantity.Text)
             };
             _bill.Orders.Add(order);
-            _orderService.CreateOrder(order, drink);
+            _orderService.CreateOrder(order, drink, _staff);
             List<Order> orders = _orderService.GetAllOrdersForTable(_table.Id);
             DisplayOrders(orders);
         }

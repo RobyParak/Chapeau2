@@ -28,9 +28,9 @@ namespace Service
             _orderDao.DeleterOrder(orderId);
         }
 
-        public void CreateOrder(Order order, Item item)
+        public void CreateOrder(Order order, Item item, Staff staff)
         {
-            _orderDao.CreateOrder(order, item);
+            _orderDao.CreateOrder(order, item, staff);
         }
     }
 }

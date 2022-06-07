@@ -16,7 +16,7 @@ namespace DAL
             return ReadTables(ExecuteSelectQuery(query, sqlParameters));
         }
 
-        public void CreateOrder(Order order, Item item)
+        public void CreateOrder(Order order, Item item, Staff staff)
         {
             int tableId = order.TableId;
             int billId = order.BillId;
@@ -30,8 +30,11 @@ namespace DAL
             int itemId = item.ItemId;
             int orderQuantity = order.Quantity;
             query = $"INSERT INTO dbo.[Order_Item] VALUES( @OrderId , @ItemId , '', @OrderQuantity ); ";
-            SqlParameter[] sqlParametersLastQuery = { new SqlParameter("@OrderId", orderId), new SqlParameter("@ItemId", itemId), new SqlParameter("@OrderQuantity", orderQuantity) };
-            ExecuteEditQuery(query, sqlParametersLastQuery);
+            SqlParameter[] sqlParametersSecondLastQuery = { new SqlParameter("@OrderId", orderId), new SqlParameter("@ItemId", itemId), new SqlParameter("@OrderQuantity", orderQuantity) };
+            ExecuteEditQuery(query, sqlParametersSecondLastQuery);
+            query = $"INSERT INTO dbo.[Order_Staff] VALUES( @OrderId , @StaffId ); ";
+            SqlParameter[] sqlParametersLastQuery = { new SqlParameter("@OrderId", orderId), new SqlParameter("@StaffId", staff.StaffID) };
+            ExecuteEditQuery(query, sqlParametersSecondLastQuery);
         }
 
 
