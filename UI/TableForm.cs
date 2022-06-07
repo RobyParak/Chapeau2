@@ -14,22 +14,16 @@ namespace UI
     public partial class TableForm : Form
     {
         private Logic.TableService tableService;
-        private BillService billService; 
+        private BillService billService;
 
         private List<Table> tableList;
         private List<Button> buttonList;
-        private int billId;
         private Staff staff;
-
-        public TableForm()
-        {
-            InitializeComponent();
-            TableStatus();
-        }
 
         public TableForm(Staff staff)
         {
-            InitializeComponent(); // overal
+            // overal toevoegen
+            InitializeComponent();
 
             this.staff = staff;
 
@@ -192,9 +186,9 @@ namespace UI
 
                 tableService.ServeTable(table.Id);
                 //OrderView orderView = new OrderView(table, bill, staff);
-                OrderView orderView = new OrderView(table,bill,staff);
+                OrderView orderView = new OrderView(table, bill, staff);
                 this.Close();
-                orderView.Show();              
+                orderView.Show();
             }
             else if (table.TableStatus == 2)
             {

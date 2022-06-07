@@ -48,7 +48,7 @@ namespace DAL
                 Bill bill = new Bill()
                 {
                     BillId = (int)dr["Bill_ID"],
-                    AmountDue = (int)dr["Amount_Due"],
+                    AmountDue = (double)dr["Amount_Due"],
                     Tip = (double)dr["Tips"],
                     TotalDue = (double)dr["Total_Due"],
                     Feedback = (string)dr["Comment"],
