@@ -11,7 +11,7 @@ namespace DAL
     {
         public List<Order> GetAllOrdersForTable(int tableId)
         {
-            string query = "SELECT O.Order_ID, Bill_ID, Table_ID, OI.Item_ID, I.Item_Name, I.Price, OI.Comments, OI.Quantity FROM dbo.[Order] AS O JOIN dbo.Order_Item AS OI ON O.Order_ID = OI.Order_ID JOIN dbo.Item AS I ON I.Item_ID = OI.Item_ID WHERE Table_ID = @TableId AND O.Is_Paid = 0; ";
+            string query = "SELECT O.Order_ID, Bill_ID, Table_ID, OI.Item_ID, I.Item_Name, I.Price, OI.Comments, OI.Quantity, VAT FROM dbo.[Order] AS O JOIN dbo.Order_Item AS OI ON O.Order_ID = OI.Order_ID JOIN dbo.Item AS I ON I.Item_ID = OI.Item_ID WHERE Table_ID = @TableId AND O.Is_Paid = 0; ";
             SqlParameter[] sqlParameters = { new SqlParameter("@TableId", tableId) };
             return ReadTables(ExecuteSelectQuery(query, sqlParameters));
         }
@@ -64,7 +64,8 @@ namespace DAL
                     TableId = (int)dr["Table_ID"],
                     ItemName = (string)dr["Item_Name"],
                     Price = (double)dr["Price"],
-                    //VAT = (string)dr["Comments"],
+                    Comment = (string)dr["Comments"],
+                    VAT = (double)dr["Vat"],
                     IsPaid = false,
                     Quantity = (int)dr["Quantity"]
                 };

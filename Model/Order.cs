@@ -11,7 +11,7 @@ namespace Model
         public bool IsPaid { get; set; }
 
         //list of order_items
-        public List<OrderItem> Items { get; set;}
+        public string Comment { get; set; }
 
         //the followings must be removed:
         public string ItemName { get; set; }
