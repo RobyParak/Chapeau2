@@ -66,14 +66,14 @@ namespace UI
             this.buttonDrinks = new System.Windows.Forms.Button();
             this.buttonDinner = new System.Windows.Forms.Button();
             this.buttonLunch = new System.Windows.Forms.Button();
-            this.buttonReduceOne = new System.Windows.Forms.Button();
-            this.buttonRemove = new System.Windows.Forms.Button();
-            this.buttonComment = new System.Windows.Forms.Button();
             this.panelComment = new System.Windows.Forms.Panel();
             this.buttonCloseComment = new System.Windows.Forms.Button();
             this.buttonDone = new System.Windows.Forms.Button();
             this.labelComment = new System.Windows.Forms.Label();
             this.textBoxComment = new System.Windows.Forms.TextBox();
+            this.buttonReduceOne = new System.Windows.Forms.Button();
+            this.buttonRemove = new System.Windows.Forms.Button();
+            this.buttonComment = new System.Windows.Forms.Button();
             this.buttonBill = new System.Windows.Forms.Button();
             this.btnLogout = new System.Windows.Forms.Button();
             this.lblLogout = new System.Windows.Forms.Label();
@@ -158,10 +158,10 @@ namespace UI
             this.panelMenu.Controls.Add(this.buttonDrinks);
             this.panelMenu.Controls.Add(this.buttonDinner);
             this.panelMenu.Controls.Add(this.buttonLunch);
-            this.panelMenu.Location = new System.Drawing.Point(27, 230);
+            this.panelMenu.Location = new System.Drawing.Point(27, 485);
             this.panelMenu.Name = "panelMenu";
             this.panelMenu.Size = new System.Drawing.Size(314, 355);
-            this.panelMenu.TabIndex = 3;
+            this.panelMenu.TabIndex = 7;
             // 
             // textBoxQuantity
             // 
@@ -444,36 +444,6 @@ namespace UI
             this.buttonLunch.UseVisualStyleBackColor = false;
             this.buttonLunch.Click += new System.EventHandler(this.buttonLunch_Click);
             // 
-            // buttonReduceOne
-            // 
-            this.buttonReduceOne.Location = new System.Drawing.Point(293, 90);
-            this.buttonReduceOne.Name = "buttonReduceOne";
-            this.buttonReduceOne.Size = new System.Drawing.Size(50, 50);
-            this.buttonReduceOne.TabIndex = 4;
-            this.buttonReduceOne.Text = "-1";
-            this.buttonReduceOne.UseVisualStyleBackColor = true;
-            this.buttonReduceOne.Click += new System.EventHandler(this.buttonReduceOne_Click);
-            // 
-            // buttonRemove
-            // 
-            this.buttonRemove.Location = new System.Drawing.Point(293, 156);
-            this.buttonRemove.Name = "buttonRemove";
-            this.buttonRemove.Size = new System.Drawing.Size(50, 50);
-            this.buttonRemove.TabIndex = 5;
-            this.buttonRemove.Text = "-all";
-            this.buttonRemove.UseVisualStyleBackColor = true;
-            this.buttonRemove.Click += new System.EventHandler(this.buttonRemove_Click);
-            // 
-            // buttonComment
-            // 
-            this.buttonComment.Location = new System.Drawing.Point(293, 224);
-            this.buttonComment.Name = "buttonComment";
-            this.buttonComment.Size = new System.Drawing.Size(50, 50);
-            this.buttonComment.TabIndex = 6;
-            this.buttonComment.Text = "Comment";
-            this.buttonComment.UseVisualStyleBackColor = true;
-            this.buttonComment.Click += new System.EventHandler(this.buttonComment_Click);
-            // 
             // panelComment
             // 
             this.panelComment.Controls.Add(this.buttonCloseComment);
@@ -521,12 +491,42 @@ namespace UI
             this.textBoxComment.Size = new System.Drawing.Size(187, 23);
             this.textBoxComment.TabIndex = 0;
             // 
+            // buttonReduceOne
+            // 
+            this.buttonReduceOne.Location = new System.Drawing.Point(293, 90);
+            this.buttonReduceOne.Name = "buttonReduceOne";
+            this.buttonReduceOne.Size = new System.Drawing.Size(50, 50);
+            this.buttonReduceOne.TabIndex = 4;
+            this.buttonReduceOne.Text = "-1";
+            this.buttonReduceOne.UseVisualStyleBackColor = true;
+            this.buttonReduceOne.Click += new System.EventHandler(this.buttonReduceOne_Click);
+            // 
+            // buttonRemove
+            // 
+            this.buttonRemove.Location = new System.Drawing.Point(293, 156);
+            this.buttonRemove.Name = "buttonRemove";
+            this.buttonRemove.Size = new System.Drawing.Size(50, 50);
+            this.buttonRemove.TabIndex = 5;
+            this.buttonRemove.Text = "-all";
+            this.buttonRemove.UseVisualStyleBackColor = true;
+            this.buttonRemove.Click += new System.EventHandler(this.buttonRemove_Click);
+            // 
+            // buttonComment
+            // 
+            this.buttonComment.Location = new System.Drawing.Point(293, 224);
+            this.buttonComment.Name = "buttonComment";
+            this.buttonComment.Size = new System.Drawing.Size(50, 50);
+            this.buttonComment.TabIndex = 2;
+            this.buttonComment.Text = "Comment";
+            this.buttonComment.UseVisualStyleBackColor = true;
+            this.buttonComment.Click += new System.EventHandler(this.buttonComment_Click);
+            // 
             // buttonBill
             // 
             this.buttonBill.Location = new System.Drawing.Point(291, 370);
             this.buttonBill.Name = "buttonBill";
             this.buttonBill.Size = new System.Drawing.Size(50, 50);
-            this.buttonBill.TabIndex = 0;
+            this.buttonBill.TabIndex = 2;
             this.buttonBill.Text = "Bill";
             this.buttonBill.UseVisualStyleBackColor = true;
             this.buttonBill.Click += new System.EventHandler(this.buttonBill_Click);

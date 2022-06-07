@@ -59,7 +59,7 @@ namespace UI
             foreach(Order order in orders)
             {
 
-                string[] items = { order.OrderId.ToString(), order.ItemName,$"x{order.Quantity}", $"{order.Price * order.Quantity}", order.VAT.ToString() };
+                string[] items = { order.OrderId.ToString(), order.ItemName,$"x{order.Quantity}", $"{order.Price * order.Quantity}", order.Comment };
                 ListViewItem li = new ListViewItem(items);
                 listViewOrders.Items.Add(li);
             }
@@ -68,7 +68,9 @@ namespace UI
         private void buttonMenu_Click(object sender, EventArgs e)
         {
             panelMenu.Visible = true;
-            panelMenu.Location = new Point(27, 312);
+            panelMenu.Location = new Point(27, 290);
+            panelMenu.TabIndex = 8;
+            buttonBill.TabIndex = 0;
             buttonAddDish.Visible = true;
             buttonAddDrinks.Visible = false;
             listViewMenu.Items.Clear();
