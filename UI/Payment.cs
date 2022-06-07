@@ -14,17 +14,19 @@ namespace UI
         //Receive table and bill from orderForm
         Table table;
         Bill bill;
+        Staff staff;
         SalesService salesService;
 
         //Asked Gerwin how else could this be done without global
         //cannot be done, this global stays
         List<OrderItem> orderItems;
-        public Payment(Table table, Bill bill)
+        public Payment(Table table, Bill bill, Staff staff)
         {
             InitializeComponent();
             this.bill = bill;
             salesService = new SalesService();
             this.table = table;
+            this.staff = staff;
 
             //make method to show panel parsing it
             pnlFeedback.Hide();
@@ -54,13 +56,14 @@ namespace UI
                 ListViewItem li = new ListViewItem(items);
                 listViewBill.Items.Add(li);
             }
-            DisplayPrice(orderItems);
-        }
-        private void DisplayPrice(List<OrderItem> orderItems)
-        {
 
             foreach (OrderItem orderItem in orderItems)
                 bill.AmountDue += orderItem.Item.Price;
+
+            DisplayPrice();
+        }
+        private void DisplayPrice()
+        {
 
             lblAmountDue.Text = "€ " + bill.AmountDue;
         }
@@ -83,8 +86,7 @@ namespace UI
             pnlFeedback.Show();
             pnlFeedback.Dock = DockStyle.Fill;
             //Update orders in database to paid
-            UpdateOrderStatus();
-            UpdateCurrentTable();
+            
         }
 
         private void btnBack_Click_1(object sender, EventArgs e)
@@ -98,11 +100,7 @@ namespace UI
         {
             MessageBoxButtons buttons = MessageBoxButtons.YesNo;
             DialogResult result = MessageBox.Show("Do you wish to print a receipt", "Print Receipt", buttons);
-            if (result == DialogResult.No)
-            {
-                this.Close();
-            }
-            else
+            if (result == DialogResult.Yes)
             {
                 MessageBox.Show("Your receipt is being printed at the main till");
             }
@@ -153,7 +151,7 @@ namespace UI
 
         private void btnCalculateTipAndTotal_Click(object sender, EventArgs e)
         {
-            if (txtTip.Text == null)
+            if ((txtTip.Text != null) && (txtTip.Text != ""))
             {
                 bill.Tip = double.Parse(txtTip.Text);
                 bill.TotalDue = bill.AmountDue + bill.Tip;
@@ -162,13 +160,14 @@ namespace UI
             }
             else
             {
-
-                if (double.Parse(txtTotalDue.Text) > bill.AmountDue)
-                {
-                    bill.TotalDue = double.Parse(txtTotalDue.Text);
-                    bill.Tip = bill.TotalDue - bill.AmountDue;
-                    txtTip.Text = bill.Tip.ToString();
-                }
+                
+                    if (double.Parse(txtTotalDue.Text) > bill.AmountDue)
+                    {
+                        bill.TotalDue = double.Parse(txtTotalDue.Text);
+                        bill.Tip = bill.TotalDue - bill.AmountDue;
+                        txtTip.Text = bill.Tip.ToString();
+                    }
+                
                 else
                     MessageBox.Show("Total due must be higher than amount due");
 
@@ -184,8 +183,9 @@ namespace UI
                 bill.Feedback = "Feedback not provided";
             //then call a method to write bill to database
             salesService.UpdateBill(bill);
-
+            UpdateOrderStatus();
             UpdateCurrentTable();
+            GoToTableviewForm();
         }
 
 
@@ -196,9 +196,9 @@ namespace UI
         }
         private void GoToTableviewForm()
         {
-            //TableForm tableForm = new TableForm(table);
-            //this.Close();
-            //tableForm.ShowDialog();
+            TableForm tableForm = new TableForm(table, staff);
+            this.Close();
+            tableForm.ShowDialog();
         }
         private void btnGoToTableView_Click(object sender, EventArgs e)
         {
@@ -210,18 +210,24 @@ namespace UI
         private void listViewBill_SelectedIndexChanged(object sender, EventArgs e)
         {
             List<OrderItem> partialOrderForSplitting = new List<OrderItem>();
-            OrderItem itemToAdd = new OrderItem();
+            
             try
             {
                 if (listViewBill.SelectedItems.Count == 0)
                 {
                     return;
                 }
-                ListViewItem li = listViewBill.SelectedItems[0];
-                itemToAdd = li.Tag as OrderItem;
-                partialOrderForSplitting.Add(itemToAdd);
-                DisplayPrice(partialOrderForSplitting);
-
+                else
+                {
+                    OrderItem itemToAdd = new OrderItem();
+                    ListViewItem li = listViewBill.SelectedItems[0];
+                    itemToAdd.Quantity = int.Parse(li.Text);
+                    itemToAdd.Item.ItemName = li.SubItems[1].Text;
+                    itemToAdd.Item.Price = double.Parse(li.SubItems[2].Text);
+                    partialOrderForSplitting.Add(itemToAdd);
+                    bill.AmountDue += itemToAdd.Item.Price;
+                    DisplayPrice();
+                }
             }
             catch (Exception ex)
             {
@@ -231,9 +237,9 @@ namespace UI
 
         private void btnBackToOrderViewFromPaymentMainPage_Click(object sender, EventArgs e)
         {
-            //OrderView orderForm = new OrderView(table, bill);
-            //this.Close();
-            //orderForm.ShowDialog();
+            OrderView orderForm = new OrderView(table, bill, staff);
+            this.Close();
+            orderForm.ShowDialog();
 
         }
     }

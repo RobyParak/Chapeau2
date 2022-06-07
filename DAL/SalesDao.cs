@@ -29,7 +29,7 @@ namespace DAL
         public void UpdateOrder(Order order)
         {
             int paidStatus = (order.IsPaid) ? 1 : 0;
-            string query = $"UPDATE Order SET Order_Paid = @Paid_status";
+            string query = $"UPDATE [Order] SET Order_Paid = @Paid_status";
             SqlParameter[] sqlParameters = { new SqlParameter("@Paid_status", paidStatus) };
             ExecuteEditQuery(query, sqlParameters);
         }
