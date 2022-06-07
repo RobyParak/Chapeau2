@@ -497,8 +497,8 @@ namespace UI
         private void buttonBill_Click(object sender, EventArgs e)
         {
             //RP coding this:
-            Payment payementForm = new Payment(_table, _billId);
-            payementForm.ShowDialog();
+            //Payment payementForm = new Payment(_table, _billId);
+            //payementForm.ShowDialog();
         }
     }
 }

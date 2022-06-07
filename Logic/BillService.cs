@@ -18,5 +18,15 @@ namespace Service
         {
             return _billDao.CreateEmptyBill();
         }
+
+        public int GetBillIdByTableId(int tableId)
+        {
+            return _billDao.GetBillIdByTableId(tableId);
+        }
+
+        public Bill GetBillById(int billId)
+        {
+            return _billDao.GetBillById(billId);
+        }
     }
 }

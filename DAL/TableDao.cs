@@ -22,11 +22,13 @@ namespace DAL
 
             foreach (DataRow dr in dataTable.Rows)
             {
-                Table table = new Table()
-                {
-                    Id = (int)dr["Table_ID"],
-                    TableStatus = (int)dr["Status"]
-                };
+                Table table = new Table((int)dr["Table_ID"], (int)dr["Status"]);
+                
+                //Table table1 = new Table()
+                //{
+                //    Id = (int)dr["Table_ID"],
+                //    TableStatus = (int)dr["Status"]
+                //};
                 tables.Add(table);
             }
             return tables;
@@ -42,6 +44,13 @@ namespace DAL
         public void Db_Serve_Table(int tableID)
         {
             string query = $"Update [Tables] set [Status] = 2 Where [Table_ID] = '{tableID}'";
+            SqlParameter[] sqlParameters = new SqlParameter[0];
+            ExecuteEditQuery(query, sqlParameters);
+        }
+
+        public void Db_Change_Table_to_Available(int tableID)
+        {
+            string query = $"Update [Tables] set [Status] = 0 Where [Table_ID] = '{tableID}'";
             SqlParameter[] sqlParameters = new SqlParameter[0];
             ExecuteEditQuery(query, sqlParameters);
         }

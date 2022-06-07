@@ -7,28 +7,35 @@ using System.Text;
 using System.Windows.Forms;
 using Model;
 using Login;
+using Service;
 
 namespace UI
 {
     public partial class TableForm : Form
     {
         private Logic.TableService tableService;
-
+        private BillService billService; 
 
         private List<Table> tableList;
         private List<Button> buttonList;
+        private int billId;
+        private Staff staff;
 
         public TableForm()
         {
+            InitializeComponent();
             TableStatus();
         }
 
         public TableForm(Staff staff)
         {
-            InitializeComponent();
+            InitializeComponent(); // overal
+
+            this.staff = staff;
 
             tableList = new List<Table>();
             tableService = new Logic.TableService();
+            billService = new BillService();
 
             buttonList = new List<Button>();
             buttonList.Add(btnTable1);
@@ -46,6 +53,34 @@ namespace UI
 
             btnLogout.Text = "Logout";
             lblLogout.Text = "Logged in as: " + staff.FirstName;
+        }
+
+        public TableForm(Table table, Staff staff)
+        {
+            InitializeComponent();
+
+            this.staff = staff;
+
+            tableList = new List<Table>();
+            tableService = new Logic.TableService();
+
+            buttonList = new List<Button>();
+            buttonList.Add(btnTable1);
+            buttonList.Add(btnTable2);
+            buttonList.Add(btnTable3);
+            buttonList.Add(btnTable4);
+            buttonList.Add(btnTable5);
+            buttonList.Add(btnTable6);
+            buttonList.Add(btnTable7);
+            buttonList.Add(btnTable8);
+            buttonList.Add(btnTable9);
+            buttonList.Add(btnTable10);
+
+            btnLogout.Text = "Logout";
+            lblLogout.Text = "Logged in as: " + staff.FirstName;
+
+            tableService.ChangeTableToAvailable(table.Id);
+            TableStatus();
         }
 
         private void TableStatus()
@@ -149,13 +184,23 @@ namespace UI
             if (table.TableStatus == 0)
             {
                 SeatTable(table.Id);
+                billService.CreateEmptyBill();
             }
             else if (table.TableStatus == 1)
             {
-                tableService.ServerTable(table.Id);
+                Bill bill = billService.GetBillById(billService.GetBillIdByTableId(table.Id));
+
+                tableService.ServeTable(table.Id);
+                //OrderView orderView = new OrderView(table, bill, staff);
                 OrderView orderView = new OrderView(table);
                 this.Close();
                 orderView.Show();              
+            }
+            else if (table.TableStatus == 2)
+            {
+                OrderView orderView = new OrderView(table);
+                this.Close();
+                orderView.Show();
             }
         }
     }
