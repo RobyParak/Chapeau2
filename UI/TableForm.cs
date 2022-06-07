@@ -184,7 +184,7 @@ namespace UI
             if (table.TableStatus == 0)
             {
                 SeatTable(table.Id);
-                billService.CreateEmptyBill();
+                billService.CreateEmptyBill(table.Id);
             }
             else if (table.TableStatus == 1)
             {
@@ -192,13 +192,14 @@ namespace UI
 
                 tableService.ServeTable(table.Id);
                 //OrderView orderView = new OrderView(table, bill, staff);
-                OrderView orderView = new OrderView(table);
+                OrderView orderView = new OrderView(table,bill,staff);
                 this.Close();
                 orderView.Show();              
             }
             else if (table.TableStatus == 2)
             {
-                OrderView orderView = new OrderView(table);
+                Bill bill = billService.GetBillById(billService.GetBillIdByTableId(table.Id));
+                OrderView orderView = new OrderView(table, bill, staff);
                 this.Close();
                 orderView.Show();
             }
