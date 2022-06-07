@@ -21,6 +21,8 @@ namespace DAL
 
         public Staff ReadStaff(DataTable dataTable)
         { 
+            // do samething as tableDao (delete constructor)
+            
             Staff staff = new Staff();
             if (dataTable.Rows.Count >= 1)
             {

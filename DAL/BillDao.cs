@@ -59,5 +59,42 @@ namespace DAL
             }
             return bills;
         }
+
+        public int GetBillIdByTableId(int tableId)
+        {
+            string query = "SELECT B.Bill_ID FROM Bill AS B JOIN[Order] AS O ON O.Bill_ID = B.Bill_ID JOIN[Tables] AS T ON O.Table_ID = T.Table_ID WHERE T.Table_ID = @tableId AND O.Is_Paid = 0; ";
+            SqlParameter[] sqlParameters = { new SqlParameter("@tableId", tableId) };
+            var dataTable = ExecuteSelectQuery(query, sqlParameters);
+            int billId = (int)dataTable.Rows[0]["Bill_ID"];
+            return billId;
+        }
+
+        public Bill GetBillById(int billId)
+        {
+            string query = "SELECT Bill_ID, Amount_Due, Tips, Total_Due, Comment, VAT, Payment_Method FROM Bill WHERE Bill_ID = @billId ; ";
+            SqlParameter[] sqlParameters = { new SqlParameter("@billId", billId) };
+            return ReadTables(ExecuteSelectQuery(query, sqlParameters))[0];
+        }
+
+        private List<Bill> ReadTables(DataTable dataTable)
+        {
+            List<Bill> bills = new List<Bill>();
+
+            foreach (DataRow dr in dataTable.Rows)
+            {
+                Bill bill = new Bill()
+                {
+                    BillId = (int)dr["Bill_ID"],
+                    AmountDue = (int)dr["Amount_Due"],
+                    Tip = (double)dr["Tips"],
+                    TotalDue = (double)dr["Total_Due"],
+                    Feedback = (string)dr["Comment"],
+                    VAT = (double)dr["VAT"],
+                    PaymentMethod = ((string)dr["Payment_Method"] == "Cash" ? PaymentType.Cash : PaymentType.Card)
+                };
+                bills.Add(bill);
+            }
+            return bills;
+        }
     }
 }

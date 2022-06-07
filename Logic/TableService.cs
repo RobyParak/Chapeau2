@@ -20,9 +20,14 @@ namespace Logic
             tableDao.Db_Seat_Table(tableId);
         }
 
-        public void ServerTable(int tableId)
+        public void ServeTable(int tableId)
         {
             tableDao.Db_Serve_Table(tableId);
+        }
+
+        public void ChangeTableToAvailable(int tableId)
+        {
+            tableDao.Db_Change_Table_to_Available(tableId);
         }
     }
 }
