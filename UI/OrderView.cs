@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using DAL;
+using Login;
 using Model;
 using Service;
 
@@ -16,32 +17,21 @@ namespace UI
     public partial class OrderView : Form
     {
         Table _table;
-        int _billId; //Ask Roby
+        Bill _bill;
+        Staff _staff;
         OrderService _orderService;
         DishService _dishService;
         DrinkService _drinkService;
-        BillService _billService;
-        public OrderView(Table table)
-        {
-            InitializeComponent();
-            InitMenu();
-            _table = table;
-            _billService = new BillService();
-            _billId = _billService.CreateEmptyBill();
-            labelTableNumber.Text += table.Id;
-            _orderService = new OrderService();
-            List<Order> orders = _orderService.GetAllOrdersForTable(_table.Id);
-            _dishService = new DishService();
-            _drinkService = new DrinkService();
-            DisplayOrders(orders);
-        }
 
-        public OrderView(Table table, int billId)
+        public OrderView(Table table, Bill bill, Staff staff)
         {
             InitializeComponent();
             InitMenu();
+            btnLogout.Text = "Logout";
+            lblLogout.Text = "Logged in as: " + staff.FirstName;
             _table = table;
-            _billId = billId;
+            _bill = bill;
+            _staff = staff;
             labelTableNumber.Text += table.Id;
             _orderService = new OrderService();
             List<Order> orders = _orderService.GetAllOrdersForTable(_table.Id);
@@ -167,10 +157,11 @@ namespace UI
             Dish dish = _dishService.GetDishById(int.Parse(selectedRow.SubItems[0].Text));
             Order order = new Order()
             {
-                BillId = _billId,
+                BillId = _bill.BillId,
                 TableId = _table.Id,
                 Quantity = int.Parse(textBoxQuantity.Text)
             };
+            _bill.Orders.Add(order);
             _orderService.CreateOrder(order, dish);
             List<Order> orders = _orderService.GetAllOrdersForTable(_table.Id);
             DisplayOrders(orders);
@@ -415,10 +406,11 @@ namespace UI
             Drink drink = _drinkService.GetDrinkById(int.Parse(selectedRow.SubItems[0].Text));
             Order order = new Order()
             {
-                BillId = _billId,
+                BillId = _bill.BillId,
                 TableId = _table.Id,
                 Quantity = int.Parse(textBoxQuantity.Text)
             };
+            _bill.Orders.Add(order);
             _orderService.CreateOrder(order, drink);
             List<Order> orders = _orderService.GetAllOrdersForTable(_table.Id);
             DisplayOrders(orders);
@@ -497,8 +489,32 @@ namespace UI
         private void buttonBill_Click(object sender, EventArgs e)
         {
             //RP coding this:
-            Payment payementForm = new Payment(_table, _billId);
+            Payment payementForm = new Payment(_table, _bill);
             payementForm.ShowDialog();
+        }
+
+        private void btnLogout_Click(object sender, EventArgs e)
+        {
+            DialogResult dialogResult = MessageBox.Show("Are you sure you want to logout?", "Logout", MessageBoxButtons.YesNo);
+
+            if (dialogResult == DialogResult.Yes)
+            {
+                LoginForm login = new LoginForm();
+
+                this.Close();
+                login.ShowDialog();
+            }
+            else
+            {
+                return;
+            }
+        }
+
+        private void buttonBack_Click(object sender, EventArgs e)
+        {
+            TableForm tableForm = new TableForm(_staff);
+            this.Close();
+            tableForm.Show();
         }
     }
 }

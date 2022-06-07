@@ -153,9 +153,9 @@ namespace UI
             else if (table.TableStatus == 1)
             {
                 tableService.ServerTable(table.Id);
-                OrderView orderView = new OrderView(table);
+                //OrderView orderView = new OrderView(table);
                 this.Close();
-                orderView.Show();              
+                //orderView.Show();              
             }
         }
     }

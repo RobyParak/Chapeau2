@@ -13,6 +13,4 @@ public class Bill
     public string Feedback { get; set; }
     public List<Order> Orders { get; set; }
 
-    public List<Order> orders { get; set; }
-
 }

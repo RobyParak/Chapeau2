@@ -34,6 +34,8 @@ namespace DAL
             ExecuteEditQuery(query, sqlParametersLastQuery);
         }
 
+
+
         public void UpdateOrder(int orderId, int quantity,string comment)
         {
             string query = "UPDATE Order_Item SET Quantity = @Quantity, Comments = @Comment WHERE Order_ID = @OrderId ; ";

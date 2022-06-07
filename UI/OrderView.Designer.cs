@@ -75,6 +75,9 @@ namespace UI
             this.labelComment = new System.Windows.Forms.Label();
             this.textBoxComment = new System.Windows.Forms.TextBox();
             this.buttonBill = new System.Windows.Forms.Button();
+            this.btnLogout = new System.Windows.Forms.Button();
+            this.lblLogout = new System.Windows.Forms.Label();
+            this.buttonBack = new System.Windows.Forms.Button();
             this.panelMenu.SuspendLayout();
             this.groupBoxDrinks.SuspendLayout();
             this.groupBoxDinner.SuspendLayout();
@@ -85,10 +88,9 @@ namespace UI
             // labelTableNumber
             // 
             this.labelTableNumber.AutoSize = true;
-            this.labelTableNumber.Location = new System.Drawing.Point(17, 30);
-            this.labelTableNumber.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.labelTableNumber.Location = new System.Drawing.Point(12, 18);
             this.labelTableNumber.Name = "labelTableNumber";
-            this.labelTableNumber.Size = new System.Drawing.Size(131, 25);
+            this.labelTableNumber.Size = new System.Drawing.Size(87, 15);
             this.labelTableNumber.TabIndex = 0;
             this.labelTableNumber.Text = "Table Number: ";
             // 
@@ -102,10 +104,9 @@ namespace UI
             this.Comment});
             this.listViewOrders.FullRowSelect = true;
             this.listViewOrders.HideSelection = false;
-            this.listViewOrders.Location = new System.Drawing.Point(17, 150);
-            this.listViewOrders.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.listViewOrders.Location = new System.Drawing.Point(12, 90);
             this.listViewOrders.Name = "listViewOrders";
-            this.listViewOrders.Size = new System.Drawing.Size(368, 872);
+            this.listViewOrders.Size = new System.Drawing.Size(259, 525);
             this.listViewOrders.TabIndex = 1;
             this.listViewOrders.UseCompatibleStateImageBehavior = false;
             this.listViewOrders.View = System.Windows.Forms.View.Details;
@@ -135,10 +136,9 @@ namespace UI
             // 
             // buttonMenu
             // 
-            this.buttonMenu.Location = new System.Drawing.Point(416, 520);
-            this.buttonMenu.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.buttonMenu.Location = new System.Drawing.Point(291, 312);
             this.buttonMenu.Name = "buttonMenu";
-            this.buttonMenu.Size = new System.Drawing.Size(71, 83);
+            this.buttonMenu.Size = new System.Drawing.Size(50, 50);
             this.buttonMenu.TabIndex = 2;
             this.buttonMenu.Text = "Menu";
             this.buttonMenu.UseVisualStyleBackColor = true;
@@ -158,37 +158,33 @@ namespace UI
             this.panelMenu.Controls.Add(this.buttonDrinks);
             this.panelMenu.Controls.Add(this.buttonDinner);
             this.panelMenu.Controls.Add(this.buttonLunch);
-            this.panelMenu.Location = new System.Drawing.Point(26, 705);
-            this.panelMenu.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.panelMenu.Location = new System.Drawing.Point(27, 230);
             this.panelMenu.Name = "panelMenu";
-            this.panelMenu.Size = new System.Drawing.Size(449, 592);
+            this.panelMenu.Size = new System.Drawing.Size(314, 355);
             this.panelMenu.TabIndex = 3;
             // 
             // textBoxQuantity
             // 
-            this.textBoxQuantity.Location = new System.Drawing.Point(257, 515);
-            this.textBoxQuantity.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.textBoxQuantity.Location = new System.Drawing.Point(180, 309);
             this.textBoxQuantity.Name = "textBoxQuantity";
-            this.textBoxQuantity.Size = new System.Drawing.Size(33, 31);
+            this.textBoxQuantity.Size = new System.Drawing.Size(24, 23);
             this.textBoxQuantity.TabIndex = 15;
             this.textBoxQuantity.Text = "1";
             // 
             // labelQuantity
             // 
             this.labelQuantity.AutoSize = true;
-            this.labelQuantity.Location = new System.Drawing.Point(176, 522);
-            this.labelQuantity.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.labelQuantity.Location = new System.Drawing.Point(123, 313);
             this.labelQuantity.Name = "labelQuantity";
-            this.labelQuantity.Size = new System.Drawing.Size(84, 25);
+            this.labelQuantity.Size = new System.Drawing.Size(56, 15);
             this.labelQuantity.TabIndex = 14;
             this.labelQuantity.Text = "Quantity:";
             // 
             // buttonAddDrinks
             // 
-            this.buttonAddDrinks.Location = new System.Drawing.Point(21, 510);
-            this.buttonAddDrinks.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.buttonAddDrinks.Location = new System.Drawing.Point(15, 306);
             this.buttonAddDrinks.Name = "buttonAddDrinks";
-            this.buttonAddDrinks.Size = new System.Drawing.Size(107, 38);
+            this.buttonAddDrinks.Size = new System.Drawing.Size(75, 23);
             this.buttonAddDrinks.TabIndex = 13;
             this.buttonAddDrinks.Text = "Add";
             this.buttonAddDrinks.UseVisualStyleBackColor = true;
@@ -202,21 +198,18 @@ namespace UI
             this.groupBoxDrinks.Controls.Add(this.buttonWine);
             this.groupBoxDrinks.Controls.Add(this.buttonBeer);
             this.groupBoxDrinks.Controls.Add(this.buttonSoft);
-            this.groupBoxDrinks.Location = new System.Drawing.Point(4, 200);
-            this.groupBoxDrinks.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.groupBoxDrinks.Location = new System.Drawing.Point(3, 120);
             this.groupBoxDrinks.Name = "groupBoxDrinks";
-            this.groupBoxDrinks.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.groupBoxDrinks.Size = new System.Drawing.Size(449, 63);
+            this.groupBoxDrinks.Size = new System.Drawing.Size(314, 38);
             this.groupBoxDrinks.TabIndex = 11;
             this.groupBoxDrinks.TabStop = false;
             // 
             // buttonWarm
             // 
             this.buttonWarm.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.buttonWarm.Location = new System.Drawing.Point(331, 18);
-            this.buttonWarm.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.buttonWarm.Location = new System.Drawing.Point(232, 11);
             this.buttonWarm.Name = "buttonWarm";
-            this.buttonWarm.Size = new System.Drawing.Size(73, 38);
+            this.buttonWarm.Size = new System.Drawing.Size(51, 23);
             this.buttonWarm.TabIndex = 8;
             this.buttonWarm.Text = "Warm";
             this.buttonWarm.UseVisualStyleBackColor = false;
@@ -225,10 +218,9 @@ namespace UI
             // buttonSpirits
             // 
             this.buttonSpirits.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.buttonSpirits.Location = new System.Drawing.Point(253, 18);
-            this.buttonSpirits.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.buttonSpirits.Location = new System.Drawing.Point(177, 11);
             this.buttonSpirits.Name = "buttonSpirits";
-            this.buttonSpirits.Size = new System.Drawing.Size(73, 38);
+            this.buttonSpirits.Size = new System.Drawing.Size(51, 23);
             this.buttonSpirits.TabIndex = 7;
             this.buttonSpirits.Text = "Spirits";
             this.buttonSpirits.UseVisualStyleBackColor = false;
@@ -237,10 +229,9 @@ namespace UI
             // buttonWine
             // 
             this.buttonWine.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.buttonWine.Location = new System.Drawing.Point(171, 18);
-            this.buttonWine.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.buttonWine.Location = new System.Drawing.Point(120, 11);
             this.buttonWine.Name = "buttonWine";
-            this.buttonWine.Size = new System.Drawing.Size(73, 38);
+            this.buttonWine.Size = new System.Drawing.Size(51, 23);
             this.buttonWine.TabIndex = 6;
             this.buttonWine.Text = "Wine";
             this.buttonWine.UseVisualStyleBackColor = false;
@@ -249,10 +240,9 @@ namespace UI
             // buttonBeer
             // 
             this.buttonBeer.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.buttonBeer.Location = new System.Drawing.Point(90, 18);
-            this.buttonBeer.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.buttonBeer.Location = new System.Drawing.Point(63, 11);
             this.buttonBeer.Name = "buttonBeer";
-            this.buttonBeer.Size = new System.Drawing.Size(73, 38);
+            this.buttonBeer.Size = new System.Drawing.Size(51, 23);
             this.buttonBeer.TabIndex = 5;
             this.buttonBeer.Text = "Beer";
             this.buttonBeer.UseVisualStyleBackColor = false;
@@ -261,10 +251,9 @@ namespace UI
             // buttonSoft
             // 
             this.buttonSoft.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.buttonSoft.Location = new System.Drawing.Point(9, 18);
-            this.buttonSoft.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.buttonSoft.Location = new System.Drawing.Point(6, 11);
             this.buttonSoft.Name = "buttonSoft";
-            this.buttonSoft.Size = new System.Drawing.Size(73, 38);
+            this.buttonSoft.Size = new System.Drawing.Size(51, 23);
             this.buttonSoft.TabIndex = 4;
             this.buttonSoft.Text = "Soft";
             this.buttonSoft.UseVisualStyleBackColor = false;
@@ -277,21 +266,18 @@ namespace UI
             this.groupBoxDinner.Controls.Add(this.buttonMainsDinner);
             this.groupBoxDinner.Controls.Add(this.buttonEntDinner);
             this.groupBoxDinner.Controls.Add(this.buttonStartersDinner);
-            this.groupBoxDinner.Location = new System.Drawing.Point(4, 267);
-            this.groupBoxDinner.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.groupBoxDinner.Location = new System.Drawing.Point(3, 160);
             this.groupBoxDinner.Name = "groupBoxDinner";
-            this.groupBoxDinner.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.groupBoxDinner.Size = new System.Drawing.Size(449, 63);
+            this.groupBoxDinner.Size = new System.Drawing.Size(314, 38);
             this.groupBoxDinner.TabIndex = 10;
             this.groupBoxDinner.TabStop = false;
             // 
             // buttonDessertsDinner
             // 
             this.buttonDessertsDinner.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.buttonDessertsDinner.Location = new System.Drawing.Point(331, 18);
-            this.buttonDessertsDinner.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.buttonDessertsDinner.Location = new System.Drawing.Point(232, 11);
             this.buttonDessertsDinner.Name = "buttonDessertsDinner";
-            this.buttonDessertsDinner.Size = new System.Drawing.Size(100, 38);
+            this.buttonDessertsDinner.Size = new System.Drawing.Size(70, 23);
             this.buttonDessertsDinner.TabIndex = 7;
             this.buttonDessertsDinner.Text = "Desserts";
             this.buttonDessertsDinner.UseVisualStyleBackColor = false;
@@ -300,10 +286,9 @@ namespace UI
             // buttonMainsDinner
             // 
             this.buttonMainsDinner.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.buttonMainsDinner.Location = new System.Drawing.Point(226, 18);
-            this.buttonMainsDinner.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.buttonMainsDinner.Location = new System.Drawing.Point(158, 11);
             this.buttonMainsDinner.Name = "buttonMainsDinner";
-            this.buttonMainsDinner.Size = new System.Drawing.Size(100, 38);
+            this.buttonMainsDinner.Size = new System.Drawing.Size(70, 23);
             this.buttonMainsDinner.TabIndex = 6;
             this.buttonMainsDinner.Text = "Mains";
             this.buttonMainsDinner.UseVisualStyleBackColor = false;
@@ -312,10 +297,9 @@ namespace UI
             // buttonEntDinner
             // 
             this.buttonEntDinner.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.buttonEntDinner.Location = new System.Drawing.Point(117, 18);
-            this.buttonEntDinner.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.buttonEntDinner.Location = new System.Drawing.Point(82, 11);
             this.buttonEntDinner.Name = "buttonEntDinner";
-            this.buttonEntDinner.Size = new System.Drawing.Size(100, 38);
+            this.buttonEntDinner.Size = new System.Drawing.Size(70, 23);
             this.buttonEntDinner.TabIndex = 5;
             this.buttonEntDinner.Text = "Entremets";
             this.buttonEntDinner.UseVisualStyleBackColor = false;
@@ -324,10 +308,9 @@ namespace UI
             // buttonStartersDinner
             // 
             this.buttonStartersDinner.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.buttonStartersDinner.Location = new System.Drawing.Point(9, 18);
-            this.buttonStartersDinner.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.buttonStartersDinner.Location = new System.Drawing.Point(6, 11);
             this.buttonStartersDinner.Name = "buttonStartersDinner";
-            this.buttonStartersDinner.Size = new System.Drawing.Size(100, 38);
+            this.buttonStartersDinner.Size = new System.Drawing.Size(70, 23);
             this.buttonStartersDinner.TabIndex = 4;
             this.buttonStartersDinner.Text = "Starters";
             this.buttonStartersDinner.UseVisualStyleBackColor = false;
@@ -339,21 +322,18 @@ namespace UI
             this.groupBoxLunch.Controls.Add(this.buttonStartersLunch);
             this.groupBoxLunch.Controls.Add(this.buttonMainsLunch);
             this.groupBoxLunch.Controls.Add(this.buttonDessertsLunch);
-            this.groupBoxLunch.Location = new System.Drawing.Point(13, 340);
-            this.groupBoxLunch.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.groupBoxLunch.Location = new System.Drawing.Point(9, 204);
             this.groupBoxLunch.Name = "groupBoxLunch";
-            this.groupBoxLunch.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.groupBoxLunch.Size = new System.Drawing.Size(449, 63);
+            this.groupBoxLunch.Size = new System.Drawing.Size(314, 38);
             this.groupBoxLunch.TabIndex = 9;
             this.groupBoxLunch.TabStop = false;
             // 
             // buttonStartersLunch
             // 
             this.buttonStartersLunch.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.buttonStartersLunch.Location = new System.Drawing.Point(9, 18);
-            this.buttonStartersLunch.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.buttonStartersLunch.Location = new System.Drawing.Point(6, 11);
             this.buttonStartersLunch.Name = "buttonStartersLunch";
-            this.buttonStartersLunch.Size = new System.Drawing.Size(107, 38);
+            this.buttonStartersLunch.Size = new System.Drawing.Size(75, 23);
             this.buttonStartersLunch.TabIndex = 4;
             this.buttonStartersLunch.Text = "Starters";
             this.buttonStartersLunch.UseVisualStyleBackColor = false;
@@ -362,10 +342,9 @@ namespace UI
             // buttonMainsLunch
             // 
             this.buttonMainsLunch.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.buttonMainsLunch.Location = new System.Drawing.Point(156, 18);
-            this.buttonMainsLunch.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.buttonMainsLunch.Location = new System.Drawing.Point(109, 11);
             this.buttonMainsLunch.Name = "buttonMainsLunch";
-            this.buttonMainsLunch.Size = new System.Drawing.Size(107, 38);
+            this.buttonMainsLunch.Size = new System.Drawing.Size(75, 23);
             this.buttonMainsLunch.TabIndex = 5;
             this.buttonMainsLunch.Text = "Mains";
             this.buttonMainsLunch.UseVisualStyleBackColor = false;
@@ -374,10 +353,9 @@ namespace UI
             // buttonDessertsLunch
             // 
             this.buttonDessertsLunch.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.buttonDessertsLunch.Location = new System.Drawing.Point(310, 18);
-            this.buttonDessertsLunch.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.buttonDessertsLunch.Location = new System.Drawing.Point(217, 11);
             this.buttonDessertsLunch.Name = "buttonDessertsLunch";
-            this.buttonDessertsLunch.Size = new System.Drawing.Size(107, 38);
+            this.buttonDessertsLunch.Size = new System.Drawing.Size(75, 23);
             this.buttonDessertsLunch.TabIndex = 6;
             this.buttonDessertsLunch.Text = "Desserts";
             this.buttonDessertsLunch.UseVisualStyleBackColor = false;
@@ -385,10 +363,9 @@ namespace UI
             // 
             // buttonAddDish
             // 
-            this.buttonAddDish.Location = new System.Drawing.Point(329, 515);
-            this.buttonAddDish.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.buttonAddDish.Location = new System.Drawing.Point(230, 309);
             this.buttonAddDish.Name = "buttonAddDish";
-            this.buttonAddDish.Size = new System.Drawing.Size(107, 38);
+            this.buttonAddDish.Size = new System.Drawing.Size(75, 23);
             this.buttonAddDish.TabIndex = 8;
             this.buttonAddDish.Text = "Add";
             this.buttonAddDish.UseVisualStyleBackColor = true;
@@ -403,10 +380,9 @@ namespace UI
             this.DishStock});
             this.listViewMenu.FullRowSelect = true;
             this.listViewMenu.HideSelection = false;
-            this.listViewMenu.Location = new System.Drawing.Point(19, 200);
-            this.listViewMenu.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.listViewMenu.Location = new System.Drawing.Point(13, 120);
             this.listViewMenu.Name = "listViewMenu";
-            this.listViewMenu.Size = new System.Drawing.Size(415, 284);
+            this.listViewMenu.Size = new System.Drawing.Size(292, 172);
             this.listViewMenu.TabIndex = 7;
             this.listViewMenu.UseCompatibleStateImageBehavior = false;
             this.listViewMenu.View = System.Windows.Forms.View.Details;
@@ -429,10 +405,9 @@ namespace UI
             // 
             // buttonClose
             // 
-            this.buttonClose.Location = new System.Drawing.Point(401, 5);
-            this.buttonClose.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.buttonClose.Location = new System.Drawing.Point(281, 3);
             this.buttonClose.Name = "buttonClose";
-            this.buttonClose.Size = new System.Drawing.Size(43, 45);
+            this.buttonClose.Size = new System.Drawing.Size(30, 27);
             this.buttonClose.TabIndex = 3;
             this.buttonClose.Text = "X";
             this.buttonClose.UseVisualStyleBackColor = true;
@@ -440,10 +415,9 @@ namespace UI
             // 
             // buttonDrinks
             // 
-            this.buttonDrinks.Location = new System.Drawing.Point(329, 60);
-            this.buttonDrinks.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.buttonDrinks.Location = new System.Drawing.Point(230, 36);
             this.buttonDrinks.Name = "buttonDrinks";
-            this.buttonDrinks.Size = new System.Drawing.Size(107, 38);
+            this.buttonDrinks.Size = new System.Drawing.Size(75, 23);
             this.buttonDrinks.TabIndex = 2;
             this.buttonDrinks.Text = "Drinks";
             this.buttonDrinks.UseVisualStyleBackColor = true;
@@ -451,10 +425,9 @@ namespace UI
             // 
             // buttonDinner
             // 
-            this.buttonDinner.Location = new System.Drawing.Point(174, 60);
-            this.buttonDinner.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.buttonDinner.Location = new System.Drawing.Point(122, 36);
             this.buttonDinner.Name = "buttonDinner";
-            this.buttonDinner.Size = new System.Drawing.Size(107, 38);
+            this.buttonDinner.Size = new System.Drawing.Size(75, 23);
             this.buttonDinner.TabIndex = 1;
             this.buttonDinner.Text = "Dinner";
             this.buttonDinner.UseVisualStyleBackColor = true;
@@ -463,10 +436,9 @@ namespace UI
             // buttonLunch
             // 
             this.buttonLunch.BackColor = System.Drawing.Color.DodgerBlue;
-            this.buttonLunch.Location = new System.Drawing.Point(19, 60);
-            this.buttonLunch.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.buttonLunch.Location = new System.Drawing.Point(13, 36);
             this.buttonLunch.Name = "buttonLunch";
-            this.buttonLunch.Size = new System.Drawing.Size(107, 38);
+            this.buttonLunch.Size = new System.Drawing.Size(75, 23);
             this.buttonLunch.TabIndex = 0;
             this.buttonLunch.Text = "Lunch";
             this.buttonLunch.UseVisualStyleBackColor = false;
@@ -474,10 +446,9 @@ namespace UI
             // 
             // buttonReduceOne
             // 
-            this.buttonReduceOne.Location = new System.Drawing.Point(419, 150);
-            this.buttonReduceOne.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.buttonReduceOne.Location = new System.Drawing.Point(293, 90);
             this.buttonReduceOne.Name = "buttonReduceOne";
-            this.buttonReduceOne.Size = new System.Drawing.Size(71, 83);
+            this.buttonReduceOne.Size = new System.Drawing.Size(50, 50);
             this.buttonReduceOne.TabIndex = 4;
             this.buttonReduceOne.Text = "-1";
             this.buttonReduceOne.UseVisualStyleBackColor = true;
@@ -485,10 +456,9 @@ namespace UI
             // 
             // buttonRemove
             // 
-            this.buttonRemove.Location = new System.Drawing.Point(419, 260);
-            this.buttonRemove.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.buttonRemove.Location = new System.Drawing.Point(293, 156);
             this.buttonRemove.Name = "buttonRemove";
-            this.buttonRemove.Size = new System.Drawing.Size(71, 83);
+            this.buttonRemove.Size = new System.Drawing.Size(50, 50);
             this.buttonRemove.TabIndex = 5;
             this.buttonRemove.Text = "-all";
             this.buttonRemove.UseVisualStyleBackColor = true;
@@ -496,10 +466,9 @@ namespace UI
             // 
             // buttonComment
             // 
-            this.buttonComment.Location = new System.Drawing.Point(419, 373);
-            this.buttonComment.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.buttonComment.Location = new System.Drawing.Point(293, 224);
             this.buttonComment.Name = "buttonComment";
-            this.buttonComment.Size = new System.Drawing.Size(71, 83);
+            this.buttonComment.Size = new System.Drawing.Size(50, 50);
             this.buttonComment.TabIndex = 6;
             this.buttonComment.Text = "Comment";
             this.buttonComment.UseVisualStyleBackColor = true;
@@ -511,18 +480,16 @@ namespace UI
             this.panelComment.Controls.Add(this.buttonDone);
             this.panelComment.Controls.Add(this.labelComment);
             this.panelComment.Controls.Add(this.textBoxComment);
-            this.panelComment.Location = new System.Drawing.Point(64, 373);
-            this.panelComment.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.panelComment.Location = new System.Drawing.Point(45, 224);
             this.panelComment.Name = "panelComment";
-            this.panelComment.Size = new System.Drawing.Size(423, 175);
+            this.panelComment.Size = new System.Drawing.Size(296, 105);
             this.panelComment.TabIndex = 7;
             // 
             // buttonCloseComment
             // 
-            this.buttonCloseComment.Location = new System.Drawing.Point(366, 10);
-            this.buttonCloseComment.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.buttonCloseComment.Location = new System.Drawing.Point(256, 6);
             this.buttonCloseComment.Name = "buttonCloseComment";
-            this.buttonCloseComment.Size = new System.Drawing.Size(43, 45);
+            this.buttonCloseComment.Size = new System.Drawing.Size(30, 27);
             this.buttonCloseComment.TabIndex = 4;
             this.buttonCloseComment.Text = "X";
             this.buttonCloseComment.UseVisualStyleBackColor = true;
@@ -530,10 +497,9 @@ namespace UI
             // 
             // buttonDone
             // 
-            this.buttonDone.Location = new System.Drawing.Point(297, 113);
-            this.buttonDone.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.buttonDone.Location = new System.Drawing.Point(208, 68);
             this.buttonDone.Name = "buttonDone";
-            this.buttonDone.Size = new System.Drawing.Size(107, 38);
+            this.buttonDone.Size = new System.Drawing.Size(75, 23);
             this.buttonDone.TabIndex = 2;
             this.buttonDone.Text = "Finalize";
             this.buttonDone.UseVisualStyleBackColor = true;
@@ -542,38 +508,68 @@ namespace UI
             // labelComment
             // 
             this.labelComment.AutoSize = true;
-            this.labelComment.Location = new System.Drawing.Point(37, 70);
-            this.labelComment.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.labelComment.Location = new System.Drawing.Point(26, 42);
             this.labelComment.Name = "labelComment";
-            this.labelComment.Size = new System.Drawing.Size(95, 25);
+            this.labelComment.Size = new System.Drawing.Size(64, 15);
             this.labelComment.TabIndex = 1;
             this.labelComment.Text = "Comment:";
             // 
             // textBoxComment
             // 
-            this.textBoxComment.Location = new System.Drawing.Point(137, 65);
-            this.textBoxComment.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.textBoxComment.Location = new System.Drawing.Point(96, 39);
             this.textBoxComment.Name = "textBoxComment";
-            this.textBoxComment.Size = new System.Drawing.Size(265, 31);
+            this.textBoxComment.Size = new System.Drawing.Size(187, 23);
             this.textBoxComment.TabIndex = 0;
             // 
             // buttonBill
             // 
-            this.buttonBill.Location = new System.Drawing.Point(416, 617);
-            this.buttonBill.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.buttonBill.Location = new System.Drawing.Point(291, 370);
             this.buttonBill.Name = "buttonBill";
-            this.buttonBill.Size = new System.Drawing.Size(71, 83);
+            this.buttonBill.Size = new System.Drawing.Size(50, 50);
             this.buttonBill.TabIndex = 0;
             this.buttonBill.Text = "Bill";
             this.buttonBill.UseVisualStyleBackColor = true;
             this.buttonBill.Click += new System.EventHandler(this.buttonBill_Click);
             // 
+            // btnLogout
+            // 
+            this.btnLogout.Location = new System.Drawing.Point(248, 11);
+            this.btnLogout.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnLogout.Name = "btnLogout";
+            this.btnLogout.Size = new System.Drawing.Size(93, 27);
+            this.btnLogout.TabIndex = 11;
+            this.btnLogout.UseVisualStyleBackColor = true;
+            this.btnLogout.Click += new System.EventHandler(this.btnLogout_Click);
+            // 
+            // lblLogout
+            // 
+            this.lblLogout.AutoSize = true;
+            this.lblLogout.Location = new System.Drawing.Point(136, 17);
+            this.lblLogout.Name = "lblLogout";
+            this.lblLogout.Size = new System.Drawing.Size(77, 15);
+            this.lblLogout.TabIndex = 12;
+            this.lblLogout.Text = "Logged in as:";
+            // 
+            // buttonBack
+            // 
+            this.buttonBack.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.buttonBack.Location = new System.Drawing.Point(12, 50);
+            this.buttonBack.Name = "buttonBack";
+            this.buttonBack.Size = new System.Drawing.Size(35, 34);
+            this.buttonBack.TabIndex = 13;
+            this.buttonBack.Text = "←";
+            this.buttonBack.UseVisualStyleBackColor = true;
+            this.buttonBack.Click += new System.EventHandler(this.buttonBack_Click);
+            // 
             // OrderView
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 25F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightSlateGray;
-            this.ClientSize = new System.Drawing.Size(491, 1050);
+            this.ClientSize = new System.Drawing.Size(344, 630);
+            this.Controls.Add(this.buttonBack);
+            this.Controls.Add(this.lblLogout);
+            this.Controls.Add(this.btnLogout);
             this.Controls.Add(this.buttonBill);
             this.Controls.Add(this.panelComment);
             this.Controls.Add(this.buttonComment);
@@ -583,7 +579,6 @@ namespace UI
             this.Controls.Add(this.buttonMenu);
             this.Controls.Add(this.listViewOrders);
             this.Controls.Add(this.labelTableNumber);
-            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "OrderView";
             this.Text = "Form1";
             this.panelMenu.ResumeLayout(false);
@@ -646,6 +641,9 @@ namespace UI
         private System.Windows.Forms.TextBox textBoxComment;
         private System.Windows.Forms.Button buttonCloseComment;
         private System.Windows.Forms.Button buttonBill;
+        private System.Windows.Forms.Button btnLogout;
+        private System.Windows.Forms.Label lblLogout;
+        private System.Windows.Forms.Button buttonBack;
     }
 }
 
