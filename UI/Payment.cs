@@ -182,7 +182,7 @@ namespace UI
             else
                 bill.Feedback = "Feedback not provided";
             //then call a method to write bill to database
-            salesService.UpdateBill(bill);
+            salesService.UpdateBill(bill, table);
             UpdateOrderStatus();
             UpdateCurrentTable();
             GoToTableviewForm();
@@ -192,7 +192,7 @@ namespace UI
         private void UpdateCurrentTable()
         {
             table.TableStatus = 0;
-            table.BillId = -1;
+            table.BillId = 0;
         }
         private void GoToTableviewForm()
         {
