@@ -17,9 +17,6 @@ namespace UI
         Staff staff;
         SalesService salesService;
 
-        //Asked Gerwin how else could this be done without global
-        //cannot be done, this global stays
-        List<OrderItem> orderItems;
         public Payment(Table table, Bill bill, Staff staff)
         {
             InitializeComponent();
@@ -35,12 +32,12 @@ namespace UI
             pnlPayment.Dock = DockStyle.Fill;
             pnlCashPayment.Hide();
             lblTableID.Text = table.Id.ToString();
-            orderItems = salesService.GetOrdersForBill(table.Id);
+            List<OrderItem> orderItems = salesService.GetOrdersForBill(table.Id);
             if (orderItems != null)
             {
                 DisplayOrder(orderItems);
-                DisplayVAT();
-                DisplayPrice();
+                DisplayVAT(orderItems);
+                DisplayPrice(orderItems);
             }
             else
             {   //maybe add a message box about this
@@ -59,10 +56,6 @@ namespace UI
                     listViewBill.Items.Add(li);
                 }
 
-                foreach (OrderItem orderItem in orderItems)
-                    bill.AmountDue += orderItem.Item.Price;
-
-                
            //this is for the cash panel because it must be different listview object
                 listViewOrderCashPannel.Items.Clear();
                 listViewOrderCashPannel.View = View.Details;
@@ -72,12 +65,17 @@ namespace UI
                     ListViewItem li = new ListViewItem(items);
                     listViewOrderCashPannel.Items.Add(li);
                 }
-                         
+            
         }
-        private void DisplayPrice()
+        private void CalculateAmountDue(List<OrderItem> orderItems)
         {
+            foreach (OrderItem orderItem in orderItems)
+                bill.AmountDue += orderItem.Item.Price;
+        }
+        private void DisplayPrice(List<OrderItem> orderItems)
+        {
+            CalculateAmountDue(orderItems);
             lblAmountDue.Text = "€ " + bill.AmountDue;
-          lblTotalDueCash.Text = "€ " + bill.TotalDue;
         }
 
         private void btnCard_Click(object sender, EventArgs e)
@@ -97,7 +95,6 @@ namespace UI
             pnlCardPayment.Hide();
             pnlFeedback.Show();
             pnlFeedback.Dock = DockStyle.Fill;
-            
             
         }
 
@@ -126,7 +123,6 @@ namespace UI
             pnlCashPayment.Show();
             pnlCashPayment.Dock = DockStyle.Fill;
            
-
         }
 
         private void UpdateOrderStatus()
@@ -141,7 +137,7 @@ namespace UI
 
 
 
-        private double CalculateVAT(int input)
+        private double CalculateVAT(int input, List<OrderItem> orderItems)
         {
             double vat = 0;
             foreach (OrderItem orderItem in orderItems)
@@ -151,10 +147,10 @@ namespace UI
             }
             return vat;
         }
-        private void DisplayVAT()
+        private void DisplayVAT(List<OrderItem> orderItems)
         {
-            double vat21 = CalculateVAT(21);
-            double vat6 = CalculateVAT(6);
+            double vat21 = CalculateVAT(21, orderItems);
+            double vat6 = CalculateVAT(6, orderItems);
             lblVAT21.Text = $"€ {vat21:0.00}";
             lblVAT6.Text = $"€ {vat6:0.00}";
             bill.VAT = vat21 + vat6;
@@ -183,6 +179,7 @@ namespace UI
                     MessageBox.Show("Total due must be higher than amount due");
 
             }
+            lblTotalDueCash.Text = "€ "+ bill.TotalDue.ToString();
         }
 
         private void btnEnterFeedback_Click(object sender, EventArgs e)
@@ -211,11 +208,6 @@ namespace UI
             Close();
             tableForm.ShowDialog();
         }
-        //private void btnGoToTableView_Click(object sender, EventArgs e)
-        //{
-
-
-        //}
 
         private void listViewBill_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -236,7 +228,7 @@ namespace UI
                     itemToAdd.Item.Price = double.Parse(li.SubItems[2].Text);
                     partialOrderForSplitting.Add(itemToAdd);
                     bill.AmountDue += itemToAdd.Item.Price;
-                    DisplayPrice();
+                    DisplayPrice(partialOrderForSplitting);
                 }
             }
             catch (Exception ex)
@@ -257,7 +249,7 @@ namespace UI
         {
             if (double.Parse(txtCashReceived.Text) > bill.TotalDue)
             {
-                double ChangeDue = bill.TotalDue - double.Parse(txtCashReceived.Text);
+                double ChangeDue = double.Parse(txtCashReceived.Text) - bill.TotalDue ;
                 lblChange.Text = "€ " + ChangeDue.ToString();
             }
             else
