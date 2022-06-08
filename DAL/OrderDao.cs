@@ -34,7 +34,7 @@ namespace DAL
             ExecuteEditQuery(query, sqlParametersSecondLastQuery);
             query = $"INSERT INTO dbo.[Order_Staff] VALUES( @OrderId , @StaffId ); ";
             SqlParameter[] sqlParametersLastQuery = { new SqlParameter("@OrderId", orderId), new SqlParameter("@StaffId", staff.StaffID) };
-            ExecuteEditQuery(query, sqlParametersSecondLastQuery);
+            ExecuteEditQuery(query, sqlParametersLastQuery);
         }
 
 
