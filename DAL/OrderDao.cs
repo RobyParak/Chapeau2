@@ -48,7 +48,7 @@ namespace DAL
 
         public void DeleterOrder(int orderId)
         {
-            string query = "DELETE FROM Order_Item WHERE Order_ID = @OrderId ; DELETE FROM[Order] WHERE Order_ID = @OrderId ; ";
+            string query = "DELETE FROM Order_Item WHERE Order_ID = @OrderId ; DELETE FROM Order_Staff WHERE Order_ID = @OrderId; DELETE FROM[Order] WHERE Order_ID = @OrderId ; ";
             SqlParameter[] sqlParameters = { new SqlParameter("@OrderId", orderId) };
             ExecuteEditQuery(query, sqlParameters);
         }
