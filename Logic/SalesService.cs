@@ -15,9 +15,9 @@ public class SalesService
     {
         salesDao.UpdateOrder(order);
     }
-    public void UpdateBill(Bill bill)
+    public void UpdateBill(Bill bill, Table table)
     {
-        salesDao.UpdateBill(bill);
+        salesDao.UpdateBill(bill, table);
     }
     public List<OrderItem> GetOrdersForBill(int tableId)
     {
