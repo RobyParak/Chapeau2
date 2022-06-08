@@ -211,11 +211,11 @@ namespace UI
             Close();
             tableForm.ShowDialog();
         }
-        private void btnGoToTableView_Click(object sender, EventArgs e)
-        {
+        //private void btnGoToTableView_Click(object sender, EventArgs e)
+        //{
 
 
-        }
+        //}
 
         private void listViewBill_SelectedIndexChanged(object sender, EventArgs e)
         {
