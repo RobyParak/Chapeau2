@@ -35,10 +35,10 @@ namespace DAL
             int paidStatus = 0;
             foreach (Order order in bill.Orders)
             {
-                if (order.IsPaid)
+                if (order.IsPaid == true)
                 { paidStatus = 1; }
-                string query = $"UPDATE [Order] SET Order_Paid = @Paid_status" +
-                   "Where Bill_ID = @BillId";
+                string query = $"UPDATE [Order] SET Is_Paid = @Paid_status" +
+                   " Where Bill_ID = @BillId";
                 SqlParameter[] sqlParameters = { new SqlParameter("@Paid_status", paidStatus),
             new SqlParameter("@BillId", bill.BillId)};
                 ExecuteEditQuery(query, sqlParameters);
@@ -53,6 +53,7 @@ namespace DAL
             " from Item Join [Order_Item] ON [Order_Item].Item_ID = Item.Item_ID" +
             " Join [Order] ON [Order].Order_ID = Order_Item.Order_ID" +
             " Where [Order].Table_ID = @TableId" +
+            " AND Is_Paid = 0" +
             " Group by Item_Name;";
             SqlParameter[] sqlParameters = { new SqlParameter("@TableId", tableId)};
             return ReadTables(ExecuteSelectQuery(query, sqlParameters));

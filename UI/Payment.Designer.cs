@@ -36,6 +36,11 @@
             this.Price = new System.Windows.Forms.ColumnHeader();
             this.pnlPayment = new System.Windows.Forms.Panel();
             this.label11 = new System.Windows.Forms.Label();
+            this.pnlCardPayment = new System.Windows.Forms.Panel();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.btnPaymentSuccessful = new System.Windows.Forms.Button();
+            this.btnBack = new System.Windows.Forms.Button();
+            this.label5 = new System.Windows.Forms.Label();
             this.btnBackToOrderViewFromPaymentMainPage = new System.Windows.Forms.Button();
             this.label10 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
@@ -58,11 +63,6 @@
             this.btnEnterFeedback = new System.Windows.Forms.Button();
             this.txtFeedback = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
-            this.pnlCardPayment = new System.Windows.Forms.Panel();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.btnPaymentSuccessful = new System.Windows.Forms.Button();
-            this.btnBack = new System.Windows.Forms.Button();
-            this.label5 = new System.Windows.Forms.Label();
             this.pnlCashPayment = new System.Windows.Forms.Panel();
             this.btnPaymentConfirmedCash = new System.Windows.Forms.Button();
             this.listViewOrderCashPannel = new System.Windows.Forms.ListView();
@@ -78,9 +78,9 @@
             this.label21 = new System.Windows.Forms.Label();
             this.label22 = new System.Windows.Forms.Label();
             this.pnlPayment.SuspendLayout();
-            this.pnlFeedback.SuspendLayout();
             this.pnlCardPayment.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            this.pnlFeedback.SuspendLayout();
             this.pnlCashPayment.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -152,6 +152,42 @@
             // 
             resources.ApplyResources(this.label11, "label11");
             this.label11.Name = "label11";
+            // 
+            // pnlCardPayment
+            // 
+            resources.ApplyResources(this.pnlCardPayment, "pnlCardPayment");
+            this.pnlCardPayment.Controls.Add(this.pictureBox2);
+            this.pnlCardPayment.Controls.Add(this.btnPaymentSuccessful);
+            this.pnlCardPayment.Controls.Add(this.btnBack);
+            this.pnlCardPayment.Controls.Add(this.label5);
+            this.pnlCardPayment.Name = "pnlCardPayment";
+            // 
+            // pictureBox2
+            // 
+            resources.ApplyResources(this.pictureBox2, "pictureBox2");
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.TabStop = false;
+            // 
+            // btnPaymentSuccessful
+            // 
+            resources.ApplyResources(this.btnPaymentSuccessful, "btnPaymentSuccessful");
+            this.btnPaymentSuccessful.ForeColor = System.Drawing.SystemColors.ButtonShadow;
+            this.btnPaymentSuccessful.Name = "btnPaymentSuccessful";
+            this.btnPaymentSuccessful.UseVisualStyleBackColor = true;
+            this.btnPaymentSuccessful.Click += new System.EventHandler(this.btnPaymentSuccessful_Click_1);
+            // 
+            // btnBack
+            // 
+            resources.ApplyResources(this.btnBack, "btnBack");
+            this.btnBack.ForeColor = System.Drawing.SystemColors.ButtonShadow;
+            this.btnBack.Name = "btnBack";
+            this.btnBack.UseVisualStyleBackColor = true;
+            this.btnBack.Click += new System.EventHandler(this.btnBack_Click_1);
+            // 
+            // label5
+            // 
+            resources.ApplyResources(this.label5, "label5");
+            this.label5.Name = "label5";
             // 
             // btnBackToOrderViewFromPaymentMainPage
             // 
@@ -288,42 +324,6 @@
             resources.ApplyResources(this.label6, "label6");
             this.label6.Name = "label6";
             // 
-            // pnlCardPayment
-            // 
-            resources.ApplyResources(this.pnlCardPayment, "pnlCardPayment");
-            this.pnlCardPayment.Controls.Add(this.pictureBox2);
-            this.pnlCardPayment.Controls.Add(this.btnPaymentSuccessful);
-            this.pnlCardPayment.Controls.Add(this.btnBack);
-            this.pnlCardPayment.Controls.Add(this.label5);
-            this.pnlCardPayment.Name = "pnlCardPayment";
-            // 
-            // pictureBox2
-            // 
-            resources.ApplyResources(this.pictureBox2, "pictureBox2");
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.TabStop = false;
-            // 
-            // btnPaymentSuccessful
-            // 
-            resources.ApplyResources(this.btnPaymentSuccessful, "btnPaymentSuccessful");
-            this.btnPaymentSuccessful.ForeColor = System.Drawing.SystemColors.ButtonShadow;
-            this.btnPaymentSuccessful.Name = "btnPaymentSuccessful";
-            this.btnPaymentSuccessful.UseVisualStyleBackColor = true;
-            this.btnPaymentSuccessful.Click += new System.EventHandler(this.btnPaymentSuccessful_Click_1);
-            // 
-            // btnBack
-            // 
-            resources.ApplyResources(this.btnBack, "btnBack");
-            this.btnBack.ForeColor = System.Drawing.SystemColors.ButtonShadow;
-            this.btnBack.Name = "btnBack";
-            this.btnBack.UseVisualStyleBackColor = true;
-            this.btnBack.Click += new System.EventHandler(this.btnBack_Click_1);
-            // 
-            // label5
-            // 
-            resources.ApplyResources(this.label5, "label5");
-            this.label5.Name = "label5";
-            // 
             // pnlCashPayment
             // 
             resources.ApplyResources(this.pnlCashPayment, "pnlCashPayment");
@@ -432,11 +432,11 @@
             this.Name = "Payment";
             this.pnlPayment.ResumeLayout(false);
             this.pnlPayment.PerformLayout();
-            this.pnlFeedback.ResumeLayout(false);
-            this.pnlFeedback.PerformLayout();
             this.pnlCardPayment.ResumeLayout(false);
             this.pnlCardPayment.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            this.pnlFeedback.ResumeLayout(false);
+            this.pnlFeedback.PerformLayout();
             this.pnlCashPayment.ResumeLayout(false);
             this.pnlCashPayment.PerformLayout();
             this.ResumeLayout(false);
