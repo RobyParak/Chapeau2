@@ -13,15 +13,15 @@ namespace DAL
         //update bill once it's paid
         public void UpdateBill(Bill bill, Table table)
         {
-            string query = "UPDATE Bill SET Amount_Due = @AmountDue, Tips = @Tip, Total_Due = @Total,VAT = @VAT, Comment = @Feedback, Payment_Method = @PayMethod" +
+            string query = "UPDATE Bill SET Amount_Due = @AmountDue, Tips = @Tip, Total_Due = @Total, Comment = @Feedback, VAT = @VAT, Payment_Method = @PayMethod" +
                 " from Bill join Tables on tables.Bill_ID = bill.Bill_ID" +
                 " where table_ID = @TableId";
 
             SqlParameter[] sqlParameters = { new SqlParameter("@AmountDue", bill.AmountDue),
                                              new SqlParameter("@Tip", bill.Tip),
                                              new SqlParameter("@Total", bill.TotalDue),
-                                             new SqlParameter("@VAT", bill.VAT),
                                              new SqlParameter("@Feedback", bill.Feedback),
+                                             new SqlParameter("@VAT", bill.VAT),
                                              new SqlParameter("@PayMethod", bill.PaymentMethod.ToString()),
                                              new SqlParameter("@TableId", table.Id)
                                            };
@@ -30,12 +30,19 @@ namespace DAL
         }
 
         //Update order as "paid" once the payment has been processed
-        public void UpdateOrder(Order order)
+        public void UpdateOrder(Bill bill)
         {
-            int paidStatus = (order.IsPaid) ? 1 : 0;
-            string query = $"UPDATE [Order] SET Order_Paid = @Paid_status";
-            SqlParameter[] sqlParameters = { new SqlParameter("@Paid_status", paidStatus) };
-            ExecuteEditQuery(query, sqlParameters);
+            int paidStatus = 0;
+            foreach (Order order in bill.Orders)
+            {
+                if (order.IsPaid)
+                { paidStatus = 1; }
+                string query = $"UPDATE [Order] SET Order_Paid = @Paid_status" +
+                   "Where Bill_ID = @BillId";
+                SqlParameter[] sqlParameters = { new SqlParameter("@Paid_status", paidStatus),
+            new SqlParameter("@BillId", bill.BillId)};
+                ExecuteEditQuery(query, sqlParameters);
+            }
         }
 
         public List<OrderItem> GetOrderItemsForBill(int tableId)

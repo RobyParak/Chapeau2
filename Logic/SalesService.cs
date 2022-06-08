@@ -11,9 +11,9 @@ public class SalesService
     {
         salesDao = new SalesDao();
     }
-    public void UpdateOrderStatus(Order order)
+    public void UpdateOrderStatus(Bill bill)
     {
-        salesDao.UpdateOrder(order);
+        salesDao.UpdateOrder(bill);
     }
     public void UpdateBill(Bill bill, Table table)
     {
