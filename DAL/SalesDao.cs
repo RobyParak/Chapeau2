@@ -13,13 +13,14 @@ namespace DAL
         //update bill once it's paid
         public void UpdateBill(Bill bill, Table table)
         {
-            string query = "UPDATE Bill SET Amount_Due = @AmountDue, Tips = @Tip, Total_Due = @Total, Comment = @Feedback, Payment_Method = @PayMethod"
-                + " join Tables on tables.Bill_ID = bill.Bill_ID" +
+            string query = "UPDATE Bill SET Amount_Due = @AmountDue, Tips = @Tip, Total_Due = @Total,VAT = @VAT, Comment = @Feedback, Payment_Method = @PayMethod" +
+                " from Bill join Tables on tables.Bill_ID = bill.Bill_ID" +
                 " where table_ID = @TableId";
 
             SqlParameter[] sqlParameters = { new SqlParameter("@AmountDue", bill.AmountDue),
                                              new SqlParameter("@Tip", bill.Tip),
                                              new SqlParameter("@Total", bill.TotalDue),
+                                             new SqlParameter("@VAT", bill.VAT),
                                              new SqlParameter("@Feedback", bill.Feedback),
                                              new SqlParameter("@PayMethod", bill.PaymentMethod.ToString()),
                                              new SqlParameter("@TableId", table.Id)

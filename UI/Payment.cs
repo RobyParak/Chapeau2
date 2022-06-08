@@ -145,8 +145,9 @@ namespace UI
         {
             double vat21 = CalculateVAT(21);
             double vat6 = CalculateVAT(6);
-            lblVAT21.Text = "€ " + vat21;
-            lblVAT6.Text = "€ " + vat6;
+            lblVAT21.Text = $"€ {vat21:0.00}";
+            lblVAT6.Text = $"€ {vat6:0.00}";
+            bill.VAT = vat21 + vat6;
         }
 
         private void btnCalculateTipAndTotal_Click(object sender, EventArgs e)
