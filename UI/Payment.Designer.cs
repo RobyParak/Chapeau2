@@ -63,6 +63,7 @@
             this.txtFeedback = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.pnlCashPayment = new System.Windows.Forms.Panel();
+            this.label12 = new System.Windows.Forms.Label();
             this.btnPaymentConfirmedCash = new System.Windows.Forms.Button();
             this.listViewOrderCashPannel = new System.Windows.Forms.ListView();
             this.columnHeader1 = new System.Windows.Forms.ColumnHeader();
@@ -76,7 +77,6 @@
             this.label20 = new System.Windows.Forms.Label();
             this.label21 = new System.Windows.Forms.Label();
             this.label22 = new System.Windows.Forms.Label();
-            this.label12 = new System.Windows.Forms.Label();
             this.pnlPayment.SuspendLayout();
             this.pnlCardPayment.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -330,6 +330,11 @@
             this.pnlCashPayment.Controls.Add(this.label22);
             this.pnlCashPayment.Name = "pnlCashPayment";
             // 
+            // label12
+            // 
+            resources.ApplyResources(this.label12, "label12");
+            this.label12.Name = "label12";
+            // 
             // btnPaymentConfirmedCash
             // 
             resources.ApplyResources(this.btnPaymentConfirmedCash, "btnPaymentConfirmedCash");
@@ -409,11 +414,6 @@
             // 
             resources.ApplyResources(this.label22, "label22");
             this.label22.Name = "label22";
-            // 
-            // label12
-            // 
-            resources.ApplyResources(this.label12, "label12");
-            this.label12.Name = "label12";
             // 
             // Payment
             // 
