@@ -57,6 +57,16 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="lblTableID.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI Semibold, 10pt, style=Bold</value>
+  </data>
+  <data name="lblTableID.Location" type="System.Drawing.Point, System.Drawing">
+    <value>19, 13</value>
+  </data>
+  <data name="lblTableID.Size" type="System.Drawing.Size, System.Drawing">
+    <value>53, 30</value>
+  </data>
   <data name="listViewBill.Items" mimetype="application/x-microsoft.net.object.binary.base64">
     <value>
         AAEAAAD/////AQAAAAAAAAAMAgAAAEZTeXN0ZW0uV2luZG93cy5Gb3JtcywgQ3VsdHVyZT1uZXV0cmFs
@@ -74,12 +84,107 @@
         aGljc1VuaXQBAAAAB3ZhbHVlX18ACAMAAAADAAAACw==
 </value>
   </data>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="listViewBill.Location" type="System.Drawing.Point, System.Drawing">
+    <value>19, 51</value>
+  </data>
+  <data name="listViewBill.Size" type="System.Drawing.Size, System.Drawing">
+    <value>461, 379</value>
+  </data>
+  <data name="label11.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 10pt</value>
+  </data>
+  <data name="label11.Location" type="System.Drawing.Point, System.Drawing">
+    <value>108, 15</value>
+  </data>
+  <data name="label11.Size" type="System.Drawing.Size, System.Drawing">
+    <value>249, 28</value>
+  </data>
+  <data name="btnBackToOrderViewFromPaymentMainPage.Location" type="System.Drawing.Point, System.Drawing">
+    <value>53, 708</value>
+  </data>
+  <data name="label10.Location" type="System.Drawing.Point, System.Drawing">
+    <value>338, 516</value>
+  </data>
+  <data name="label9.Location" type="System.Drawing.Point, System.Drawing">
+    <value>338, 473</value>
+  </data>
+  <data name="btnCalculateTipAndTotal.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 9pt</value>
+  </data>
+  <data name="btnCalculateTipAndTotal.Location" type="System.Drawing.Point, System.Drawing">
+    <value>338, 638</value>
+  </data>
+  <data name="btnCalculateTipAndTotal.Size" type="System.Drawing.Size, System.Drawing">
+    <value>96, 39</value>
+  </data>
+  <data name="lblVAT6.Location" type="System.Drawing.Point, System.Drawing">
+    <value>338, 584</value>
+  </data>
+  <data name="lblVAT21.Location" type="System.Drawing.Point, System.Drawing">
+    <value>338, 552</value>
+  </data>
+  <data name="label8.Location" type="System.Drawing.Point, System.Drawing">
+    <value>53, 593</value>
+  </data>
+  <data name="label7.Location" type="System.Drawing.Point, System.Drawing">
+    <value>53, 552</value>
+  </data>
+  <data name="btnCash.Location" type="System.Drawing.Point, System.Drawing">
+    <value>306, 708</value>
+  </data>
+  <data name="label4.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 10pt</value>
+  </data>
+  <data name="label4.Location" type="System.Drawing.Point, System.Drawing">
+    <value>53, 664</value>
+  </data>
+  <data name="label4.Size" type="System.Drawing.Size, System.Drawing">
+    <value>220, 28</value>
+  </data>
+  <data name="btnCard.Location" type="System.Drawing.Point, System.Drawing">
+    <value>178, 708</value>
+  </data>
+  <data name="txtTotalDue.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 11pt</value>
+  </data>
+  <data name="txtTotalDue.Location" type="System.Drawing.Point, System.Drawing">
+    <value>365, 515</value>
+  </data>
+  <data name="txtTotalDue.Size" type="System.Drawing.Size, System.Drawing">
+    <value>69, 37</value>
+  </data>
+  <data name="txtTip.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 11pt</value>
+  </data>
+  <data name="txtTip.Location" type="System.Drawing.Point, System.Drawing">
+    <value>365, 473</value>
+  </data>
+  <data name="txtTip.Size" type="System.Drawing.Size, System.Drawing">
+    <value>69, 37</value>
+  </data>
+  <data name="lblAmountDue.Location" type="System.Drawing.Point, System.Drawing">
+    <value>338, 434</value>
+  </data>
+  <data name="label3.Location" type="System.Drawing.Point, System.Drawing">
+    <value>53, 516</value>
+  </data>
+  <data name="label2.Location" type="System.Drawing.Point, System.Drawing">
+    <value>53, 476</value>
+  </data>
+  <data name="label1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>53, 435</value>
+  </data>
   <data name="pnlPayment.Location" type="System.Drawing.Point, System.Drawing">
-    <value>12, 56</value>
+    <value>16, 12</value>
   </data>
   <data name="pnlPayment.Size" type="System.Drawing.Size, System.Drawing">
-    <value>463, 644</value>
+    <value>463, 541</value>
+  </data>
+  <data name="pnlCardPayment.Location" type="System.Drawing.Point, System.Drawing">
+    <value>453, 625</value>
+  </data>
+  <data name="pnlCardPayment.Size" type="System.Drawing.Size, System.Drawing">
+    <value>447, 211</value>
   </data>
   <data name="pictureBox2.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -1439,6 +1544,9 @@
   <data name="pictureBox2.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
+  <data name="pictureBox2.Location" type="System.Drawing.Point, System.Drawing">
+    <value>105, 119</value>
+  </data>
   <data name="pictureBox2.Size" type="System.Drawing.Size, System.Drawing">
     <value>211, 197</value>
   </data>
@@ -1448,17 +1556,54 @@
   <data name="btnBack.Location" type="System.Drawing.Point, System.Drawing">
     <value>43, 613</value>
   </data>
-  <data name="pnlCardPayment.Location" type="System.Drawing.Point, System.Drawing">
-    <value>23, 29</value>
-  </data>
-  <data name="pnlCardPayment.Size" type="System.Drawing.Size, System.Drawing">
-    <value>447, 536</value>
-  </data>
   <data name="pnlFeedback.Location" type="System.Drawing.Point, System.Drawing">
-    <value>48, 11</value>
+    <value>16, 570</value>
   </data>
   <data name="pnlFeedback.Size" type="System.Drawing.Size, System.Drawing">
-    <value>402, 580</value>
+    <value>402, 248</value>
+  </data>
+  <data name="btnEnterFeedback.Location" type="System.Drawing.Point, System.Drawing">
+    <value>50, 400</value>
+  </data>
+  <data name="btnEnterFeedback.Size" type="System.Drawing.Size, System.Drawing">
+    <value>279, 38</value>
+  </data>
+  <data name="btnEnterFeedback.Text" xml:space="preserve">
+    <value>Enter and Back to tables</value>
+  </data>
+  <data name="txtFeedback.Location" type="System.Drawing.Point, System.Drawing">
+    <value>50, 160</value>
+  </data>
+  <data name="txtFeedback.Size" type="System.Drawing.Size, System.Drawing">
+    <value>279, 197</value>
+  </data>
+  <data name="label6.Location" type="System.Drawing.Point, System.Drawing">
+    <value>56, 79</value>
+  </data>
+  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="label12.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="label12.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 10pt</value>
+  </data>
+  <data name="label12.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="label12.Location" type="System.Drawing.Point, System.Drawing">
+    <value>150, 16</value>
+  </data>
+  <data name="label12.Size" type="System.Drawing.Size, System.Drawing">
+    <value>155, 28</value>
+  </data>
+  <data name="label12.TabIndex" type="System.Int32, mscorlib">
+    <value>34</value>
+  </data>
+  <data name="label12.Text" xml:space="preserve">
+    <value>Paying with cash</value>
+  </data>
+  <data name="btnPaymentConfirmedCash.Location" type="System.Drawing.Point, System.Drawing">
+    <value>130, 657</value>
   </data>
   <data name="listViewOrderCashPannel.Items" mimetype="application/x-microsoft.net.object.binary.base64">
     <value>
@@ -1477,10 +1622,55 @@
         aGljc1VuaXQBAAAAB3ZhbHVlX18ACAMAAAADAAAACw==
 </value>
   </data>
+  <data name="listViewOrderCashPannel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>10, 51</value>
+  </data>
+  <data name="listViewOrderCashPannel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>453, 379</value>
+  </data>
+  <data name="label14.Location" type="System.Drawing.Point, System.Drawing">
+    <value>338, 487</value>
+  </data>
+  <data name="btnCalculateChange.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 9pt</value>
+  </data>
+  <data name="btnCalculateChange.Location" type="System.Drawing.Point, System.Drawing">
+    <value>340, 585</value>
+  </data>
+  <data name="btnCalculateChange.Size" type="System.Drawing.Size, System.Drawing">
+    <value>94, 38</value>
+  </data>
+  <data name="lblChange.Location" type="System.Drawing.Point, System.Drawing">
+    <value>338, 539</value>
+  </data>
+  <data name="txtCashReceived.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 11pt</value>
+  </data>
+  <data name="txtCashReceived.Location" type="System.Drawing.Point, System.Drawing">
+    <value>365, 480</value>
+  </data>
+  <data name="txtCashReceived.Size" type="System.Drawing.Size, System.Drawing">
+    <value>69, 37</value>
+  </data>
+  <data name="lblTotalDueCash.Location" type="System.Drawing.Point, System.Drawing">
+    <value>338, 443</value>
+  </data>
+  <data name="label20.Location" type="System.Drawing.Point, System.Drawing">
+    <value>53, 539</value>
+  </data>
+  <data name="label21.Location" type="System.Drawing.Point, System.Drawing">
+    <value>53, 489</value>
+  </data>
+  <data name="label22.Location" type="System.Drawing.Point, System.Drawing">
+    <value>53, 444</value>
+  </data>
   <data name="pnlCashPayment.Location" type="System.Drawing.Point, System.Drawing">
-    <value>466, 12</value>
+    <value>84, 1</value>
   </data>
   <data name="pnlCashPayment.Size" type="System.Drawing.Size, System.Drawing">
-    <value>463, 798</value>
+    <value>463, 477</value>
+  </data>
+  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
+    <value>519, 784</value>
   </data>
 </root>

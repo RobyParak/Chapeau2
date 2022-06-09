@@ -59,7 +59,6 @@
             this.btnBack = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
             this.pnlFeedback = new System.Windows.Forms.Panel();
-            this.btnGoToTableView = new System.Windows.Forms.Button();
             this.btnEnterFeedback = new System.Windows.Forms.Button();
             this.txtFeedback = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
@@ -77,6 +76,7 @@
             this.label20 = new System.Windows.Forms.Label();
             this.label21 = new System.Windows.Forms.Label();
             this.label22 = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
             this.pnlPayment.SuspendLayout();
             this.pnlCardPayment.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -289,19 +289,10 @@
             // pnlFeedback
             // 
             resources.ApplyResources(this.pnlFeedback, "pnlFeedback");
-            this.pnlFeedback.Controls.Add(this.btnGoToTableView);
             this.pnlFeedback.Controls.Add(this.btnEnterFeedback);
             this.pnlFeedback.Controls.Add(this.txtFeedback);
             this.pnlFeedback.Controls.Add(this.label6);
             this.pnlFeedback.Name = "pnlFeedback";
-            // 
-            // btnGoToTableView
-            // 
-            resources.ApplyResources(this.btnGoToTableView, "btnGoToTableView");
-            this.btnGoToTableView.ForeColor = System.Drawing.SystemColors.ButtonShadow;
-            this.btnGoToTableView.Name = "btnGoToTableView";
-            this.btnGoToTableView.UseVisualStyleBackColor = true;
-            this.btnGoToTableView.Click += new System.EventHandler(this.btnGoToTableView_Click_1);
             // 
             // btnEnterFeedback
             // 
@@ -326,6 +317,7 @@
             // pnlCashPayment
             // 
             resources.ApplyResources(this.pnlCashPayment, "pnlCashPayment");
+            this.pnlCashPayment.Controls.Add(this.label12);
             this.pnlCashPayment.Controls.Add(this.btnPaymentConfirmedCash);
             this.pnlCashPayment.Controls.Add(this.listViewOrderCashPannel);
             this.pnlCashPayment.Controls.Add(this.label14);
@@ -418,6 +410,11 @@
             resources.ApplyResources(this.label22, "label22");
             this.label22.Name = "label22";
             // 
+            // label12
+            // 
+            resources.ApplyResources(this.label12, "label12");
+            this.label12.Name = "label12";
+            // 
             // Payment
             // 
             resources.ApplyResources(this, "$this");
@@ -467,7 +464,6 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox txtFeedback;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Button btnGoToTableView;
         private System.Windows.Forms.Button btnEnterFeedback;
         private System.Windows.Forms.Panel pnlCashPayment;
         private System.Windows.Forms.Label lblVAT6;
@@ -494,5 +490,6 @@
         private System.Windows.Forms.Button btnPaymentConfirmedCash;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Label label12;
     }
 }

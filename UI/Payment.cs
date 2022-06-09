@@ -238,8 +238,8 @@ namespace UI
 
         private void btnBackToOrderViewFromPaymentMainPage_Click(object sender, EventArgs e)
         {
-            OrderView orderForm = new OrderView(table, bill, staff);
             Close();
+            OrderView orderForm = new OrderView(table, bill, staff);
             orderForm.ShowDialog();
 
         }
