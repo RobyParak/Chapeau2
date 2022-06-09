@@ -75,6 +75,12 @@
 </value>
   </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="pnlPayment.Location" type="System.Drawing.Point, System.Drawing">
+    <value>12, 56</value>
+  </data>
+  <data name="pnlPayment.Size" type="System.Drawing.Size, System.Drawing">
+    <value>463, 644</value>
+  </data>
   <data name="pictureBox2.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAANMAAADFCAYAAADOiMdfAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAW
@@ -1443,10 +1449,10 @@
     <value>43, 613</value>
   </data>
   <data name="pnlCardPayment.Location" type="System.Drawing.Point, System.Drawing">
-    <value>286, 552</value>
+    <value>23, 29</value>
   </data>
   <data name="pnlCardPayment.Size" type="System.Drawing.Size, System.Drawing">
-    <value>447, 722</value>
+    <value>447, 536</value>
   </data>
   <data name="pnlFeedback.Location" type="System.Drawing.Point, System.Drawing">
     <value>48, 11</value>
@@ -1472,7 +1478,7 @@
 </value>
   </data>
   <data name="pnlCashPayment.Location" type="System.Drawing.Point, System.Drawing">
-    <value>25, 14</value>
+    <value>466, 12</value>
   </data>
   <data name="pnlCashPayment.Size" type="System.Drawing.Size, System.Drawing">
     <value>463, 798</value>
