@@ -53,7 +53,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.pnlCardPayment = new System.Windows.Forms.Panel();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.btnPaymentSuccessful = new System.Windows.Forms.Button();
             this.btnBack = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
@@ -62,8 +61,8 @@
             this.txtFeedback = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.pnlCashPayment = new System.Windows.Forms.Panel();
+            this.label4 = new System.Windows.Forms.Label();
             this.btnBackFromCashToMainPayment = new System.Windows.Forms.Button();
-            this.label12 = new System.Windows.Forms.Label();
             this.btnPaymentConfirmedCash = new System.Windows.Forms.Button();
             this.listViewOrderCashPannel = new System.Windows.Forms.ListView();
             this.columnHeader1 = new System.Windows.Forms.ColumnHeader();
@@ -77,11 +76,12 @@
             this.label20 = new System.Windows.Forms.Label();
             this.label21 = new System.Windows.Forms.Label();
             this.label22 = new System.Windows.Forms.Label();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pnlPayment.SuspendLayout();
             this.pnlCardPayment.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.pnlFeedback.SuspendLayout();
             this.pnlCashPayment.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
             // 
             // lblTableID
@@ -254,12 +254,6 @@
             resources.ApplyResources(this.pnlCardPayment, "pnlCardPayment");
             this.pnlCardPayment.Name = "pnlCardPayment";
             // 
-            // pictureBox2
-            // 
-            resources.ApplyResources(this.pictureBox2, "pictureBox2");
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.TabStop = false;
-            // 
             // btnPaymentSuccessful
             // 
             resources.ApplyResources(this.btnPaymentSuccessful, "btnPaymentSuccessful");
@@ -311,8 +305,8 @@
             // 
             // pnlCashPayment
             // 
+            this.pnlCashPayment.Controls.Add(this.label4);
             this.pnlCashPayment.Controls.Add(this.btnBackFromCashToMainPayment);
-            this.pnlCashPayment.Controls.Add(this.label12);
             this.pnlCashPayment.Controls.Add(this.btnPaymentConfirmedCash);
             this.pnlCashPayment.Controls.Add(this.listViewOrderCashPannel);
             this.pnlCashPayment.Controls.Add(this.label14);
@@ -326,6 +320,11 @@
             resources.ApplyResources(this.pnlCashPayment, "pnlCashPayment");
             this.pnlCashPayment.Name = "pnlCashPayment";
             // 
+            // label4
+            // 
+            resources.ApplyResources(this.label4, "label4");
+            this.label4.Name = "label4";
+            // 
             // btnBackFromCashToMainPayment
             // 
             resources.ApplyResources(this.btnBackFromCashToMainPayment, "btnBackFromCashToMainPayment");
@@ -333,11 +332,6 @@
             this.btnBackFromCashToMainPayment.Name = "btnBackFromCashToMainPayment";
             this.btnBackFromCashToMainPayment.UseVisualStyleBackColor = true;
             this.btnBackFromCashToMainPayment.Click += new System.EventHandler(this.btnBackFromCashToMainPayment_Click);
-            // 
-            // label12
-            // 
-            resources.ApplyResources(this.label12, "label12");
-            this.label12.Name = "label12";
             // 
             // btnPaymentConfirmedCash
             // 
@@ -419,6 +413,12 @@
             resources.ApplyResources(this.label22, "label22");
             this.label22.Name = "label22";
             // 
+            // pictureBox2
+            // 
+            resources.ApplyResources(this.pictureBox2, "pictureBox2");
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.TabStop = false;
+            // 
             // Payment
             // 
             resources.ApplyResources(this, "$this");
@@ -435,11 +435,11 @@
             this.pnlPayment.PerformLayout();
             this.pnlCardPayment.ResumeLayout(false);
             this.pnlCardPayment.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.pnlFeedback.ResumeLayout(false);
             this.pnlFeedback.PerformLayout();
             this.pnlCashPayment.ResumeLayout(false);
             this.pnlCashPayment.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -491,9 +491,9 @@
         private System.Windows.Forms.ColumnHeader columnHeader2;
         private System.Windows.Forms.ColumnHeader columnHeader3;
         private System.Windows.Forms.Button btnPaymentConfirmedCash;
-        private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Button btnBackFromCashToMainPayment;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.PictureBox pictureBox2;
     }
 }

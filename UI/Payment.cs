@@ -39,7 +39,7 @@ namespace UI
             if (orderItems != null)
             {
                 DisplayOrder(orderItems);
-      
+               
             }
             else
             {   //maybe add a message box about this
@@ -88,7 +88,6 @@ namespace UI
             }
             CalculateAmountDue(orderItems);
             DisplayPrice();
-            DisplayVAT(orderItems);
 
         }
         private void CalculateAmountDue(List<OrderItem> orderItems)
@@ -152,7 +151,12 @@ namespace UI
             pnlPayment.Hide();
             pnlCashPayment.Show();
             pnlCashPayment.Dock = DockStyle.Fill;
+            DisplayStuffForCashPanel();
+        }
+        private void DisplayStuffForCashPanel()
+        {
             DisplayOrderForCashPanel(orderItems);
+            lblTotalDueCash.Text = "€ " + bill.TotalDue.ToString();
         }
 
         private void UpdateOrderStatus()
@@ -188,7 +192,7 @@ namespace UI
 
         private void btnCalculateTipAndTotal_Click(object sender, EventArgs e)
         {
-            if ((txtTip.Text != null) && (txtTip.Text != ""))
+            if ((txtTip.Text != null) || (txtTip.Text != ""))
             {
                 bill.Tip = double.Parse(txtTip.Text);
                 bill.TotalDue = bill.AmountDue + bill.Tip;
@@ -209,7 +213,6 @@ namespace UI
                     MessageBox.Show("Total due must be higher than amount due");
 
             }
-            lblTotalDueCash.Text = "€ "+ bill.TotalDue.ToString();
         }
 
         private void btnEnterFeedback_Click(object sender, EventArgs e)
@@ -224,6 +227,8 @@ namespace UI
             UpdateOrderStatus();
             UpdateCurrentTable();
             GoToTableviewForm();
+
+            //TODO message box to go back to tableview?
         }
 
 
@@ -233,10 +238,9 @@ namespace UI
             table.BillId = 0;
         }
         private void GoToTableviewForm()
-        {
-           
-            TableForm tableForm = new TableForm(table, staff);
+        {           
             Close();
+            TableForm tableForm = new TableForm(table, staff);
             tableForm.ShowDialog();
         }
        

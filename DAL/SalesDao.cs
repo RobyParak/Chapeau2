@@ -40,7 +40,7 @@ namespace DAL
                 string query = $"UPDATE [Order] SET Is_Paid = @Paid_status" +
                    " Where table_ID = @TableId";
                 SqlParameter[] sqlParameters = { new SqlParameter("@Paid_status", paidStatus),
-            new SqlParameter("table_ID", table.Id)};
+            new SqlParameter("@Table_ID", table.Id)};
                 ExecuteEditQuery(query, sqlParameters);
             }
         }
