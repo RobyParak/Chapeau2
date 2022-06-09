@@ -239,12 +239,14 @@ namespace UI
             Close();
             tableForm.ShowDialog();
         }
-
+       
         private void listViewBill_SelectedIndexChanged(object sender, EventArgs e)
         {
-           
+
             OrderItem itemToAdd = new OrderItem();
             itemToAdd.Item = new Item();
+            //if (partialOrderForSplitting.Contains(itemToAdd))
+            //    MessageBox.Show("Item already selected");
             try
             {
                 if (listViewBill.SelectedItems.Count == 0)
@@ -258,10 +260,9 @@ namespace UI
                     itemToAdd.Item.ItemName = li.SubItems[1].Text;
                     itemToAdd.Item.Price = double.Parse(li.SubItems[2].Text);
 
-                if (partialOrderForSplitting.Contains(itemToAdd))
-                    MessageBox.Show("Item already selected");
-                else
-                    partialOrderForSplitting.Add(itemToAdd);
+
+
+                partialOrderForSplitting.Add(itemToAdd);
                 //change colour to show which item is selected:
                 listViewBill.SelectedItems[0].BackColor = Color.LightSteelBlue;
                 if (partialOrderForSplitting.Count == 1)
