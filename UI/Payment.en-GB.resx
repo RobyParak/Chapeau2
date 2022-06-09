@@ -180,12 +180,6 @@
   <data name="pnlPayment.Size" type="System.Drawing.Size, System.Drawing">
     <value>463, 541</value>
   </data>
-  <data name="pnlCardPayment.Location" type="System.Drawing.Point, System.Drawing">
-    <value>453, 625</value>
-  </data>
-  <data name="pnlCardPayment.Size" type="System.Drawing.Size, System.Drawing">
-    <value>447, 211</value>
-  </data>
   <data name="pictureBox2.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAANMAAADFCAYAAADOiMdfAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAW
@@ -1556,11 +1550,11 @@
   <data name="btnBack.Location" type="System.Drawing.Point, System.Drawing">
     <value>43, 613</value>
   </data>
-  <data name="pnlFeedback.Location" type="System.Drawing.Point, System.Drawing">
-    <value>16, 570</value>
+  <data name="pnlCardPayment.Location" type="System.Drawing.Point, System.Drawing">
+    <value>453, 625</value>
   </data>
-  <data name="pnlFeedback.Size" type="System.Drawing.Size, System.Drawing">
-    <value>402, 248</value>
+  <data name="pnlCardPayment.Size" type="System.Drawing.Size, System.Drawing">
+    <value>447, 211</value>
   </data>
   <data name="btnEnterFeedback.Location" type="System.Drawing.Point, System.Drawing">
     <value>50, 400</value>
@@ -1580,6 +1574,12 @@
   <data name="label6.Location" type="System.Drawing.Point, System.Drawing">
     <value>56, 79</value>
   </data>
+  <data name="pnlFeedback.Location" type="System.Drawing.Point, System.Drawing">
+    <value>16, 570</value>
+  </data>
+  <data name="pnlFeedback.Size" type="System.Drawing.Size, System.Drawing">
+    <value>402, 248</value>
+  </data>
   <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="label12.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -1590,14 +1590,8 @@
   <data name="label12.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
-  <data name="label12.Location" type="System.Drawing.Point, System.Drawing">
-    <value>150, 16</value>
-  </data>
   <data name="label12.Size" type="System.Drawing.Size, System.Drawing">
     <value>155, 28</value>
-  </data>
-  <data name="label12.TabIndex" type="System.Int32, mscorlib">
-    <value>34</value>
   </data>
   <data name="label12.Text" xml:space="preserve">
     <value>Paying with cash</value>
@@ -1672,5 +1666,8 @@
   </data>
   <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
     <value>519, 784</value>
+  </data>
+  <data name="$this.StartPosition" type="System.Windows.Forms.FormStartPosition, System.Windows.Forms">
+    <value>CenterScreen</value>
   </data>
 </root>
