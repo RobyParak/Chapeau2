@@ -17,6 +17,8 @@ namespace UI
         Staff staff;
         SalesService salesService;
 
+        List<OrderItem> partialOrderForSplitting;
+        List<OrderItem> orderItems;
         public Payment(Table table, Bill bill, Staff staff)
         {
             InitializeComponent();
@@ -32,7 +34,8 @@ namespace UI
             pnlPayment.Dock = DockStyle.Fill;
             pnlCashPayment.Hide();
             lblTableID.Text = table.Id.ToString();
-            List<OrderItem> orderItems = salesService.GetOrdersForBill(table.Id);
+            orderItems = salesService.GetOrdersForBill(table.Id);
+            partialOrderForSplitting = new List<OrderItem>();
             if (orderItems != null)
             {
                 DisplayOrder(orderItems);
@@ -55,15 +58,34 @@ namespace UI
                     listViewBill.Items.Add(li);
                 }
 
-           //this is for the cash panel because it must be different listview object
-                listViewOrderCashPannel.Items.Clear();
-                listViewOrderCashPannel.View = View.Details;
+            CalculateAmountDue(orderItems);
+            DisplayPrice();
+            DisplayVAT(orderItems);
+
+        }
+        private void DisplayOrderForCashPanel(List<OrderItem> orderItems)
+        {
+            //this is for the cash panel because it must be different listview object
+            listViewOrderCashPannel.Items.Clear();
+            listViewOrderCashPannel.View = View.Details;
+            if (listViewBill.SelectedItems.Count > 0)
+            {
+                foreach (OrderItem orderItem in partialOrderForSplitting)
+                {
+                    string[] items = { $"x{orderItem.Quantity}", orderItem.Item.ItemName, $"€{orderItem.Item.Price}" };
+                    ListViewItem li = new ListViewItem(items);
+                    listViewOrderCashPannel.Items.Add(li);
+                }
+            }
+            else
+            {
                 foreach (OrderItem orderItem in orderItems)
                 {
                     string[] items = { $"x{orderItem.Quantity}", orderItem.Item.ItemName, $"€{orderItem.Item.Price}" };
                     ListViewItem li = new ListViewItem(items);
                     listViewOrderCashPannel.Items.Add(li);
                 }
+            }
             CalculateAmountDue(orderItems);
             DisplayPrice();
             DisplayVAT(orderItems);
@@ -78,7 +100,14 @@ namespace UI
         {
             lblAmountDue.Text = "€ " + bill.AmountDue;
         }
-     
+
+        private void DisplayPrice(List<OrderItem> orderItems)
+        {
+            bill.AmountDue = 0;
+            CalculateAmountDue(orderItems);
+            lblAmountDue.Text = "€ " + bill.AmountDue;
+        }
+
 
         private void btnCard_Click(object sender, EventArgs e)
         {
@@ -123,7 +152,7 @@ namespace UI
             pnlPayment.Hide();
             pnlCashPayment.Show();
             pnlCashPayment.Dock = DockStyle.Fill;
-           
+            DisplayOrderForCashPanel(orderItems);
         }
 
         private void UpdateOrderStatus()
@@ -213,7 +242,7 @@ namespace UI
 
         private void listViewBill_SelectedIndexChanged(object sender, EventArgs e)
         {
-            List<OrderItem> partialOrderForSplitting = new List<OrderItem>();
+           
             OrderItem itemToAdd = new OrderItem();
             itemToAdd.Item = new Item();
             try
@@ -228,9 +257,17 @@ namespace UI
                     itemToAdd.Quantity = int.Parse(li.SubItems[0].Text);
                     itemToAdd.Item.ItemName = li.SubItems[1].Text;
                     itemToAdd.Item.Price = double.Parse(li.SubItems[2].Text);
+
+                if (partialOrderForSplitting.Contains(itemToAdd))
+                    MessageBox.Show("Item already selected");
+                else
                     partialOrderForSplitting.Add(itemToAdd);
-                
-                DisplayPrice();
+                //change colour to show which item is selected:
+                listViewBill.SelectedItems[0].BackColor = Color.LightSteelBlue;
+                if (partialOrderForSplitting.Count == 1)
+                    DisplayPrice(partialOrderForSplitting);
+                else
+                    DisplayPrice();
                 CalculateAmountDue(partialOrderForSplitting);
                 DisplayVAT(partialOrderForSplitting);
             }

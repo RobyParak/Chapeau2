@@ -63,6 +63,7 @@
             this.txtFeedback = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.pnlCashPayment = new System.Windows.Forms.Panel();
+            this.btnBackFromCashToMainPayment = new System.Windows.Forms.Button();
             this.label12 = new System.Windows.Forms.Label();
             this.btnPaymentConfirmedCash = new System.Windows.Forms.Button();
             this.listViewOrderCashPannel = new System.Windows.Forms.ListView();
@@ -77,7 +78,6 @@
             this.label20 = new System.Windows.Forms.Label();
             this.label21 = new System.Windows.Forms.Label();
             this.label22 = new System.Windows.Forms.Label();
-            this.btnBackFromCashToMainPayment = new System.Windows.Forms.Button();
             this.pnlPayment.SuspendLayout();
             this.pnlCardPayment.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -333,6 +333,14 @@
             this.pnlCashPayment.Controls.Add(this.label22);
             this.pnlCashPayment.Name = "pnlCashPayment";
             // 
+            // btnBackFromCashToMainPayment
+            // 
+            resources.ApplyResources(this.btnBackFromCashToMainPayment, "btnBackFromCashToMainPayment");
+            this.btnBackFromCashToMainPayment.ForeColor = System.Drawing.SystemColors.ButtonShadow;
+            this.btnBackFromCashToMainPayment.Name = "btnBackFromCashToMainPayment";
+            this.btnBackFromCashToMainPayment.UseVisualStyleBackColor = true;
+            this.btnBackFromCashToMainPayment.Click += new System.EventHandler(this.btnBackFromCashToMainPayment_Click);
+            // 
             // label12
             // 
             resources.ApplyResources(this.label12, "label12");
@@ -417,14 +425,6 @@
             // 
             resources.ApplyResources(this.label22, "label22");
             this.label22.Name = "label22";
-            // 
-            // btnBackFromCashToMainPayment
-            // 
-            resources.ApplyResources(this.btnBackFromCashToMainPayment, "btnBackFromCashToMainPayment");
-            this.btnBackFromCashToMainPayment.ForeColor = System.Drawing.SystemColors.ButtonShadow;
-            this.btnBackFromCashToMainPayment.Name = "btnBackFromCashToMainPayment";
-            this.btnBackFromCashToMainPayment.UseVisualStyleBackColor = true;
-            this.btnBackFromCashToMainPayment.Click += new System.EventHandler(this.btnBackFromCashToMainPayment_Click);
             // 
             // Payment
             // 
