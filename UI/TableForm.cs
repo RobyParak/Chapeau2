@@ -198,5 +198,10 @@ namespace UI
                 orderView.Show();
             }
         }
+
+        private void btnRefreshTabelData_Click(object sender, EventArgs e)
+        {
+            TableStatus();
+        }
     }
 }
