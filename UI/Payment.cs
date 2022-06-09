@@ -81,10 +81,9 @@ namespace UI
         private void btnCard_Click(object sender, EventArgs e)
         {
             //card payent opens a new panel where the payment is "being processed"
-
+            pnlPayment.Hide();
             bill.PaymentMethod = PaymentType.Card;
             pnlCardPayment.Show();
-            pnlPayment.Hide();
             pnlCardPayment.Dock = DockStyle.Fill;
         }
 

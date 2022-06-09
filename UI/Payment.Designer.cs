@@ -36,11 +36,6 @@
             this.Price = new System.Windows.Forms.ColumnHeader();
             this.pnlPayment = new System.Windows.Forms.Panel();
             this.label11 = new System.Windows.Forms.Label();
-            this.pnlCardPayment = new System.Windows.Forms.Panel();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.btnPaymentSuccessful = new System.Windows.Forms.Button();
-            this.btnBack = new System.Windows.Forms.Button();
-            this.label5 = new System.Windows.Forms.Label();
             this.btnBackToOrderViewFromPaymentMainPage = new System.Windows.Forms.Button();
             this.label10 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
@@ -58,6 +53,11 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.pnlCardPayment = new System.Windows.Forms.Panel();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.btnPaymentSuccessful = new System.Windows.Forms.Button();
+            this.btnBack = new System.Windows.Forms.Button();
+            this.label5 = new System.Windows.Forms.Label();
             this.pnlFeedback = new System.Windows.Forms.Panel();
             this.btnGoToTableView = new System.Windows.Forms.Button();
             this.btnEnterFeedback = new System.Windows.Forms.Button();
@@ -126,7 +126,6 @@
             // 
             resources.ApplyResources(this.pnlPayment, "pnlPayment");
             this.pnlPayment.Controls.Add(this.label11);
-            this.pnlPayment.Controls.Add(this.pnlCardPayment);
             this.pnlPayment.Controls.Add(this.btnBackToOrderViewFromPaymentMainPage);
             this.pnlPayment.Controls.Add(this.label10);
             this.pnlPayment.Controls.Add(this.label9);
@@ -152,42 +151,6 @@
             // 
             resources.ApplyResources(this.label11, "label11");
             this.label11.Name = "label11";
-            // 
-            // pnlCardPayment
-            // 
-            resources.ApplyResources(this.pnlCardPayment, "pnlCardPayment");
-            this.pnlCardPayment.Controls.Add(this.pictureBox2);
-            this.pnlCardPayment.Controls.Add(this.btnPaymentSuccessful);
-            this.pnlCardPayment.Controls.Add(this.btnBack);
-            this.pnlCardPayment.Controls.Add(this.label5);
-            this.pnlCardPayment.Name = "pnlCardPayment";
-            // 
-            // pictureBox2
-            // 
-            resources.ApplyResources(this.pictureBox2, "pictureBox2");
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.TabStop = false;
-            // 
-            // btnPaymentSuccessful
-            // 
-            resources.ApplyResources(this.btnPaymentSuccessful, "btnPaymentSuccessful");
-            this.btnPaymentSuccessful.ForeColor = System.Drawing.SystemColors.ButtonShadow;
-            this.btnPaymentSuccessful.Name = "btnPaymentSuccessful";
-            this.btnPaymentSuccessful.UseVisualStyleBackColor = true;
-            this.btnPaymentSuccessful.Click += new System.EventHandler(this.btnPaymentSuccessful_Click_1);
-            // 
-            // btnBack
-            // 
-            resources.ApplyResources(this.btnBack, "btnBack");
-            this.btnBack.ForeColor = System.Drawing.SystemColors.ButtonShadow;
-            this.btnBack.Name = "btnBack";
-            this.btnBack.UseVisualStyleBackColor = true;
-            this.btnBack.Click += new System.EventHandler(this.btnBack_Click_1);
-            // 
-            // label5
-            // 
-            resources.ApplyResources(this.label5, "label5");
-            this.label5.Name = "label5";
             // 
             // btnBackToOrderViewFromPaymentMainPage
             // 
@@ -286,6 +249,42 @@
             // 
             resources.ApplyResources(this.label1, "label1");
             this.label1.Name = "label1";
+            // 
+            // pnlCardPayment
+            // 
+            resources.ApplyResources(this.pnlCardPayment, "pnlCardPayment");
+            this.pnlCardPayment.Controls.Add(this.pictureBox2);
+            this.pnlCardPayment.Controls.Add(this.btnPaymentSuccessful);
+            this.pnlCardPayment.Controls.Add(this.btnBack);
+            this.pnlCardPayment.Controls.Add(this.label5);
+            this.pnlCardPayment.Name = "pnlCardPayment";
+            // 
+            // pictureBox2
+            // 
+            resources.ApplyResources(this.pictureBox2, "pictureBox2");
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.TabStop = false;
+            // 
+            // btnPaymentSuccessful
+            // 
+            resources.ApplyResources(this.btnPaymentSuccessful, "btnPaymentSuccessful");
+            this.btnPaymentSuccessful.ForeColor = System.Drawing.SystemColors.ButtonShadow;
+            this.btnPaymentSuccessful.Name = "btnPaymentSuccessful";
+            this.btnPaymentSuccessful.UseVisualStyleBackColor = true;
+            this.btnPaymentSuccessful.Click += new System.EventHandler(this.btnPaymentSuccessful_Click_1);
+            // 
+            // btnBack
+            // 
+            resources.ApplyResources(this.btnBack, "btnBack");
+            this.btnBack.ForeColor = System.Drawing.SystemColors.ButtonShadow;
+            this.btnBack.Name = "btnBack";
+            this.btnBack.UseVisualStyleBackColor = true;
+            this.btnBack.Click += new System.EventHandler(this.btnBack_Click_1);
+            // 
+            // label5
+            // 
+            resources.ApplyResources(this.label5, "label5");
+            this.label5.Name = "label5";
             // 
             // pnlFeedback
             // 
@@ -425,6 +424,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.WindowFrame;
             this.Controls.Add(this.pnlCashPayment);
+            this.Controls.Add(this.pnlCardPayment);
             this.Controls.Add(this.pnlFeedback);
             this.Controls.Add(this.pnlPayment);
             this.Cursor = System.Windows.Forms.Cursors.Arrow;
