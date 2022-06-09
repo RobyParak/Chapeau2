@@ -36,8 +36,7 @@ namespace UI
             if (orderItems != null)
             {
                 DisplayOrder(orderItems);
-                DisplayVAT(orderItems);
-                DisplayPrice(orderItems);
+      
             }
             else
             {   //maybe add a message box about this
@@ -51,7 +50,7 @@ namespace UI
                 listViewBill.View = View.Details;
                 foreach (OrderItem orderItem in orderItems)
                 {
-                    string[] items = { $"x{orderItem.Quantity}", orderItem.Item.ItemName, $"€{orderItem.Item.Price}" };
+                    string[] items = { $"{orderItem.Quantity}", orderItem.Item.ItemName, $"{orderItem.Item.Price}" };
                     ListViewItem li = new ListViewItem(items);
                     listViewBill.Items.Add(li);
                 }
@@ -65,18 +64,21 @@ namespace UI
                     ListViewItem li = new ListViewItem(items);
                     listViewOrderCashPannel.Items.Add(li);
                 }
-            
+            CalculateAmountDue(orderItems);
+            DisplayPrice();
+            DisplayVAT(orderItems);
+
         }
         private void CalculateAmountDue(List<OrderItem> orderItems)
         {
             foreach (OrderItem orderItem in orderItems)
                 bill.AmountDue += orderItem.Item.Price;
         }
-        private void DisplayPrice(List<OrderItem> orderItems)
+        private void DisplayPrice()
         {
-            CalculateAmountDue(orderItems);
             lblAmountDue.Text = "€ " + bill.AmountDue;
         }
+     
 
         private void btnCard_Click(object sender, EventArgs e)
         {
@@ -203,6 +205,7 @@ namespace UI
         }
         private void GoToTableviewForm()
         {
+           
             TableForm tableForm = new TableForm(table, staff);
             Close();
             tableForm.ShowDialog();
@@ -211,24 +214,25 @@ namespace UI
         private void listViewBill_SelectedIndexChanged(object sender, EventArgs e)
         {
             List<OrderItem> partialOrderForSplitting = new List<OrderItem>();
-            
+            OrderItem itemToAdd = new OrderItem();
+            itemToAdd.Item = new Item();
             try
             {
                 if (listViewBill.SelectedItems.Count == 0)
                 {
                     return;
                 }
-                else
-                {
-                    OrderItem itemToAdd = new OrderItem();
+                   //if an item is selected amountdue in bill must be 0 first
+
                     ListViewItem li = listViewBill.SelectedItems[0];
                     itemToAdd.Quantity = int.Parse(li.SubItems[0].Text);
                     itemToAdd.Item.ItemName = li.SubItems[1].Text;
                     itemToAdd.Item.Price = double.Parse(li.SubItems[2].Text);
                     partialOrderForSplitting.Add(itemToAdd);
-                    bill.AmountDue += itemToAdd.Item.Price;
-                    DisplayPrice(partialOrderForSplitting);
-                }
+                
+                DisplayPrice();
+                CalculateAmountDue(partialOrderForSplitting);
+                DisplayVAT(partialOrderForSplitting);
             }
             catch (Exception ex)
             {
@@ -272,6 +276,13 @@ namespace UI
             UpdateOrderStatus();
             UpdateCurrentTable();
             GoToTableviewForm();
+        }
+
+        private void btnBackFromCashToMainPayment_Click(object sender, EventArgs e)
+        {
+            pnlCashPayment.Hide();
+            pnlPayment.Show();
+            pnlPayment.Dock = DockStyle.Fill;
         }
     }
 }

@@ -77,6 +77,7 @@
             this.label20 = new System.Windows.Forms.Label();
             this.label21 = new System.Windows.Forms.Label();
             this.label22 = new System.Windows.Forms.Label();
+            this.btnBackFromCashToMainPayment = new System.Windows.Forms.Button();
             this.pnlPayment.SuspendLayout();
             this.pnlCardPayment.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -108,6 +109,7 @@
             this.listViewBill.Name = "listViewBill";
             this.listViewBill.Sorting = System.Windows.Forms.SortOrder.Ascending;
             this.listViewBill.UseCompatibleStateImageBehavior = false;
+            this.listViewBill.View = System.Windows.Forms.View.Details;
             this.listViewBill.SelectedIndexChanged += new System.EventHandler(this.listViewBill_SelectedIndexChanged);
             // 
             // Quantity
@@ -317,6 +319,7 @@
             // pnlCashPayment
             // 
             resources.ApplyResources(this.pnlCashPayment, "pnlCashPayment");
+            this.pnlCashPayment.Controls.Add(this.btnBackFromCashToMainPayment);
             this.pnlCashPayment.Controls.Add(this.label12);
             this.pnlCashPayment.Controls.Add(this.btnPaymentConfirmedCash);
             this.pnlCashPayment.Controls.Add(this.listViewOrderCashPannel);
@@ -415,6 +418,14 @@
             resources.ApplyResources(this.label22, "label22");
             this.label22.Name = "label22";
             // 
+            // btnBackFromCashToMainPayment
+            // 
+            resources.ApplyResources(this.btnBackFromCashToMainPayment, "btnBackFromCashToMainPayment");
+            this.btnBackFromCashToMainPayment.ForeColor = System.Drawing.SystemColors.ButtonShadow;
+            this.btnBackFromCashToMainPayment.Name = "btnBackFromCashToMainPayment";
+            this.btnBackFromCashToMainPayment.UseVisualStyleBackColor = true;
+            this.btnBackFromCashToMainPayment.Click += new System.EventHandler(this.btnBackFromCashToMainPayment_Click);
+            // 
             // Payment
             // 
             resources.ApplyResources(this, "$this");
@@ -491,5 +502,6 @@
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Button btnBackFromCashToMainPayment;
     }
 }
