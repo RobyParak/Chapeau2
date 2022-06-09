@@ -95,13 +95,13 @@
             // 
             // listViewBill
             // 
-            resources.ApplyResources(this.listViewBill, "listViewBill");
             this.listViewBill.AllowDrop = true;
             this.listViewBill.BackColor = System.Drawing.Color.WhiteSmoke;
             this.listViewBill.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.Quantity,
             this.Item,
             this.Price});
+            resources.ApplyResources(this.listViewBill, "listViewBill");
             this.listViewBill.FullRowSelect = true;
             this.listViewBill.HideSelection = false;
             this.listViewBill.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
@@ -126,7 +126,6 @@
             // 
             // pnlPayment
             // 
-            resources.ApplyResources(this.pnlPayment, "pnlPayment");
             this.pnlPayment.Controls.Add(this.label11);
             this.pnlPayment.Controls.Add(this.btnBackToOrderViewFromPaymentMainPage);
             this.pnlPayment.Controls.Add(this.label10);
@@ -147,6 +146,7 @@
             this.pnlPayment.Controls.Add(this.label1);
             this.pnlPayment.Controls.Add(this.listViewBill);
             this.pnlPayment.Controls.Add(this.lblTableID);
+            resources.ApplyResources(this.pnlPayment, "pnlPayment");
             this.pnlPayment.Name = "pnlPayment";
             // 
             // label11
@@ -254,11 +254,11 @@
             // 
             // pnlCardPayment
             // 
-            resources.ApplyResources(this.pnlCardPayment, "pnlCardPayment");
             this.pnlCardPayment.Controls.Add(this.pictureBox2);
             this.pnlCardPayment.Controls.Add(this.btnPaymentSuccessful);
             this.pnlCardPayment.Controls.Add(this.btnBack);
             this.pnlCardPayment.Controls.Add(this.label5);
+            resources.ApplyResources(this.pnlCardPayment, "pnlCardPayment");
             this.pnlCardPayment.Name = "pnlCardPayment";
             // 
             // pictureBox2
@@ -290,10 +290,10 @@
             // 
             // pnlFeedback
             // 
-            resources.ApplyResources(this.pnlFeedback, "pnlFeedback");
             this.pnlFeedback.Controls.Add(this.btnEnterFeedback);
             this.pnlFeedback.Controls.Add(this.txtFeedback);
             this.pnlFeedback.Controls.Add(this.label6);
+            resources.ApplyResources(this.pnlFeedback, "pnlFeedback");
             this.pnlFeedback.Name = "pnlFeedback";
             // 
             // btnEnterFeedback
@@ -318,7 +318,6 @@
             // 
             // pnlCashPayment
             // 
-            resources.ApplyResources(this.pnlCashPayment, "pnlCashPayment");
             this.pnlCashPayment.Controls.Add(this.btnBackFromCashToMainPayment);
             this.pnlCashPayment.Controls.Add(this.label12);
             this.pnlCashPayment.Controls.Add(this.btnPaymentConfirmedCash);
@@ -331,12 +330,13 @@
             this.pnlCashPayment.Controls.Add(this.label20);
             this.pnlCashPayment.Controls.Add(this.label21);
             this.pnlCashPayment.Controls.Add(this.label22);
+            resources.ApplyResources(this.pnlCashPayment, "pnlCashPayment");
             this.pnlCashPayment.Name = "pnlCashPayment";
             // 
             // btnBackFromCashToMainPayment
             // 
             resources.ApplyResources(this.btnBackFromCashToMainPayment, "btnBackFromCashToMainPayment");
-            this.btnBackFromCashToMainPayment.ForeColor = System.Drawing.SystemColors.ButtonShadow;
+            this.btnBackFromCashToMainPayment.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.btnBackFromCashToMainPayment.Name = "btnBackFromCashToMainPayment";
             this.btnBackFromCashToMainPayment.UseVisualStyleBackColor = true;
             this.btnBackFromCashToMainPayment.Click += new System.EventHandler(this.btnBackFromCashToMainPayment_Click);
@@ -356,13 +356,13 @@
             // 
             // listViewOrderCashPannel
             // 
-            resources.ApplyResources(this.listViewOrderCashPannel, "listViewOrderCashPannel");
             this.listViewOrderCashPannel.AllowDrop = true;
             this.listViewOrderCashPannel.BackColor = System.Drawing.Color.WhiteSmoke;
             this.listViewOrderCashPannel.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.columnHeader1,
             this.columnHeader2,
             this.columnHeader3});
+            resources.ApplyResources(this.listViewOrderCashPannel, "listViewOrderCashPannel");
             this.listViewOrderCashPannel.FullRowSelect = true;
             this.listViewOrderCashPannel.HideSelection = false;
             this.listViewOrderCashPannel.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
