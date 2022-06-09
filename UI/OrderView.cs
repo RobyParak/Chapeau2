@@ -492,6 +492,7 @@ namespace UI
         {
             //RP coding this:
             Payment payementForm = new Payment(_table, _bill, _staff);
+            this.Close();
             payementForm.ShowDialog();
         }
 

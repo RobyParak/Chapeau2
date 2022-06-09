@@ -57,6 +57,7 @@ namespace UI
 
             tableList = new List<Table>();
             tableService = new Logic.TableService();
+            billService = new BillService();
 
             buttonList = new List<Button>();
             buttonList.Add(btnTable1);
