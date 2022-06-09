@@ -41,6 +41,7 @@
             this.btnLogout = new System.Windows.Forms.Button();
             this.lblLogout = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.btnRefreshTabelData = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnTable1
@@ -182,11 +183,22 @@
             this.label1.TabIndex = 13;
             this.label1.Text = "Tables";
             // 
+            // btnRefreshTabelData
+            // 
+            this.btnRefreshTabelData.Location = new System.Drawing.Point(5, 10);
+            this.btnRefreshTabelData.Name = "btnRefreshTabelData";
+            this.btnRefreshTabelData.Size = new System.Drawing.Size(65, 44);
+            this.btnRefreshTabelData.TabIndex = 14;
+            this.btnRefreshTabelData.Text = "Refresh";
+            this.btnRefreshTabelData.UseVisualStyleBackColor = true;
+            this.btnRefreshTabelData.Click += new System.EventHandler(this.btnRefreshTabelData_Click);
+            // 
             // TableForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(363, 450);
+            this.Controls.Add(this.btnRefreshTabelData);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.lblLogout);
             this.Controls.Add(this.btnLogout);
@@ -222,5 +234,6 @@
         private System.Windows.Forms.Button btnLogout;
         private System.Windows.Forms.Label lblLogout;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button btnRefreshTabelData;
     }
 }
