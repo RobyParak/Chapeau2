@@ -45,7 +45,6 @@
             this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.btnCash = new System.Windows.Forms.Button();
-            this.label4 = new System.Windows.Forms.Label();
             this.btnCard = new System.Windows.Forms.Button();
             this.txtTotalDue = new System.Windows.Forms.TextBox();
             this.txtTip = new System.Windows.Forms.TextBox();
@@ -136,7 +135,6 @@
             this.pnlPayment.Controls.Add(this.label8);
             this.pnlPayment.Controls.Add(this.label7);
             this.pnlPayment.Controls.Add(this.btnCash);
-            this.pnlPayment.Controls.Add(this.label4);
             this.pnlPayment.Controls.Add(this.btnCard);
             this.pnlPayment.Controls.Add(this.txtTotalDue);
             this.pnlPayment.Controls.Add(this.txtTip);
@@ -207,11 +205,6 @@
             this.btnCash.Name = "btnCash";
             this.btnCash.UseVisualStyleBackColor = true;
             this.btnCash.Click += new System.EventHandler(this.btnCash_Click);
-            // 
-            // label4
-            // 
-            resources.ApplyResources(this.label4, "label4");
-            this.label4.Name = "label4";
             // 
             // btnCard
             // 
@@ -460,7 +453,6 @@
         private System.Windows.Forms.ColumnHeader Price;
         private System.Windows.Forms.Panel pnlPayment;
         private System.Windows.Forms.Panel pnlFeedback;
-        private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button btnCard;
         private System.Windows.Forms.TextBox txtTotalDue;
         private System.Windows.Forms.TextBox txtTip;
