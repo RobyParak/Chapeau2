@@ -162,7 +162,7 @@ namespace UI
             {
                 order.IsPaid = true;
             }
-            salesService.UpdateOrderStatus(bill);
+            salesService.UpdateOrderStatus(bill, table);
         }
 
 
@@ -301,8 +301,6 @@ namespace UI
         {
             PrintReceiptPopUp();
             UpdateOrderStatus();
-            //update table to available and set bill to Null
-            UpdateCurrentTable();
             pnlCashPayment.Hide();
             pnlFeedback.Show();
             pnlFeedback.Dock = DockStyle.Fill;
