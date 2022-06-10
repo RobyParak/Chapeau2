@@ -15,7 +15,7 @@ namespace UI
     {
         private Logic.TableService tableService;
         private BillService billService;
-
+        as
         private List<Table> tableList;
         private List<Button> buttonList;
         private Staff staff;
@@ -43,10 +43,9 @@ namespace UI
             buttonList.Add(btnTable9);
             buttonList.Add(btnTable10);
 
-            TableStatus();
-
             btnLogout.Text = "Logout";
             lblLogout.Text = "Logged in as: " + staff.FirstName;
+            TableStatus();
         }
 
         public TableForm(Table table, Staff staff)
@@ -107,11 +106,8 @@ namespace UI
                 login.ShowDialog();
             }
             else
-            {
                 return;
-            }
         }
-
 
         private void SeatTable(int tableId)
         {
@@ -122,7 +118,6 @@ namespace UI
                 tableService.SeatTable(tableId);
                 TableStatus();
             }
-
         }
 
         private void btnTable1_Click(object sender, EventArgs e)
