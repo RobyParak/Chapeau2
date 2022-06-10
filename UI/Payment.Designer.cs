@@ -53,6 +53,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.pnlCardPayment = new System.Windows.Forms.Panel();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.btnPaymentSuccessful = new System.Windows.Forms.Button();
             this.btnBack = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
@@ -76,12 +77,11 @@
             this.label20 = new System.Windows.Forms.Label();
             this.label21 = new System.Windows.Forms.Label();
             this.label22 = new System.Windows.Forms.Label();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pnlPayment.SuspendLayout();
             this.pnlCardPayment.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.pnlFeedback.SuspendLayout();
             this.pnlCashPayment.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
             // 
             // lblTableID
@@ -105,6 +105,7 @@
             this.listViewBill.HideSelection = false;
             this.listViewBill.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
             ((System.Windows.Forms.ListViewItem)(resources.GetObject("listViewBill.Items")))});
+            this.listViewBill.MultiSelect = false;
             this.listViewBill.Name = "listViewBill";
             this.listViewBill.Sorting = System.Windows.Forms.SortOrder.Ascending;
             this.listViewBill.UseCompatibleStateImageBehavior = false;
@@ -253,6 +254,12 @@
             this.pnlCardPayment.Controls.Add(this.label5);
             resources.ApplyResources(this.pnlCardPayment, "pnlCardPayment");
             this.pnlCardPayment.Name = "pnlCardPayment";
+            // 
+            // pictureBox2
+            // 
+            resources.ApplyResources(this.pictureBox2, "pictureBox2");
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.TabStop = false;
             // 
             // btnPaymentSuccessful
             // 
@@ -413,12 +420,6 @@
             resources.ApplyResources(this.label22, "label22");
             this.label22.Name = "label22";
             // 
-            // pictureBox2
-            // 
-            resources.ApplyResources(this.pictureBox2, "pictureBox2");
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.TabStop = false;
-            // 
             // Payment
             // 
             resources.ApplyResources(this, "$this");
@@ -435,11 +436,11 @@
             this.pnlPayment.PerformLayout();
             this.pnlCardPayment.ResumeLayout(false);
             this.pnlCardPayment.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.pnlFeedback.ResumeLayout(false);
             this.pnlFeedback.PerformLayout();
             this.pnlCashPayment.ResumeLayout(false);
             this.pnlCashPayment.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
 
         }
