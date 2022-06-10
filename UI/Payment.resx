@@ -93,6 +93,24 @@
   <data name="&gt;&gt;lblTableID.ZOrder" xml:space="preserve">
     <value>18</value>
   </data>
+  <data name="Quantity.Text" xml:space="preserve">
+    <value>Q</value>
+  </data>
+  <data name="Quantity.Width" type="System.Int32, mscorlib">
+    <value>40</value>
+  </data>
+  <data name="Item.Text" xml:space="preserve">
+    <value>Name</value>
+  </data>
+  <data name="Item.Width" type="System.Int32, mscorlib">
+    <value>330</value>
+  </data>
+  <data name="Price.Text" xml:space="preserve">
+    <value>€ Price</value>
+  </data>
+  <data name="Price.Width" type="System.Int32, mscorlib">
+    <value>70</value>
+  </data>
   <data name="listViewBill.Font" type="System.Drawing.Font, System.Drawing">
     <value>Segoe UI, 10pt</value>
   </data>
@@ -133,24 +151,6 @@
   </data>
   <data name="&gt;&gt;listViewBill.ZOrder" xml:space="preserve">
     <value>17</value>
-  </data>
-  <data name="Quantity.Text" xml:space="preserve">
-    <value>Q</value>
-  </data>
-  <data name="Quantity.Width" type="System.Int32, mscorlib">
-    <value>40</value>
-  </data>
-  <data name="Item.Text" xml:space="preserve">
-    <value>Name</value>
-  </data>
-  <data name="Item.Width" type="System.Int32, mscorlib">
-    <value>330</value>
-  </data>
-  <data name="Price.Text" xml:space="preserve">
-    <value>€ Price</value>
-  </data>
-  <data name="Price.Width" type="System.Int32, mscorlib">
-    <value>70</value>
   </data>
   <data name="label11.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -2112,63 +2112,6 @@
   <data name="&gt;&gt;pnlCardPayment.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
-  <data name="&gt;&gt;btnEnterFeedback.Name" xml:space="preserve">
-    <value>btnEnterFeedback</value>
-  </data>
-  <data name="&gt;&gt;btnEnterFeedback.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;btnEnterFeedback.Parent" xml:space="preserve">
-    <value>pnlFeedback</value>
-  </data>
-  <data name="&gt;&gt;btnEnterFeedback.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;txtFeedback.Name" xml:space="preserve">
-    <value>txtFeedback</value>
-  </data>
-  <data name="&gt;&gt;txtFeedback.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;txtFeedback.Parent" xml:space="preserve">
-    <value>pnlFeedback</value>
-  </data>
-  <data name="&gt;&gt;txtFeedback.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="&gt;&gt;label6.Name" xml:space="preserve">
-    <value>label6</value>
-  </data>
-  <data name="&gt;&gt;label6.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;label6.Parent" xml:space="preserve">
-    <value>pnlFeedback</value>
-  </data>
-  <data name="&gt;&gt;label6.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="pnlFeedback.Location" type="System.Drawing.Point, System.Drawing">
-    <value>478, 12</value>
-  </data>
-  <data name="pnlFeedback.Size" type="System.Drawing.Size, System.Drawing">
-    <value>402, 126</value>
-  </data>
-  <data name="pnlFeedback.TabIndex" type="System.Int32, mscorlib">
-    <value>3</value>
-  </data>
-  <data name="&gt;&gt;pnlFeedback.Name" xml:space="preserve">
-    <value>pnlFeedback</value>
-  </data>
-  <data name="&gt;&gt;pnlFeedback.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Panel, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;pnlFeedback.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;pnlFeedback.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
   <data name="btnEnterFeedback.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
     <value>System</value>
   </data>
@@ -2253,170 +2196,26 @@
   <data name="&gt;&gt;label6.ZOrder" xml:space="preserve">
     <value>2</value>
   </data>
-  <data name="&gt;&gt;label4.Name" xml:space="preserve">
-    <value>label4</value>
+  <data name="pnlFeedback.Location" type="System.Drawing.Point, System.Drawing">
+    <value>478, 12</value>
   </data>
-  <data name="&gt;&gt;label4.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="pnlFeedback.Size" type="System.Drawing.Size, System.Drawing">
+    <value>402, 126</value>
   </data>
-  <data name="&gt;&gt;label4.Parent" xml:space="preserve">
-    <value>pnlCashPayment</value>
-  </data>
-  <data name="&gt;&gt;label4.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;btnBackFromCashToMainPayment.Name" xml:space="preserve">
-    <value>btnBackFromCashToMainPayment</value>
-  </data>
-  <data name="&gt;&gt;btnBackFromCashToMainPayment.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;btnBackFromCashToMainPayment.Parent" xml:space="preserve">
-    <value>pnlCashPayment</value>
-  </data>
-  <data name="&gt;&gt;btnBackFromCashToMainPayment.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="&gt;&gt;btnPaymentConfirmedCash.Name" xml:space="preserve">
-    <value>btnPaymentConfirmedCash</value>
-  </data>
-  <data name="&gt;&gt;btnPaymentConfirmedCash.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;btnPaymentConfirmedCash.Parent" xml:space="preserve">
-    <value>pnlCashPayment</value>
-  </data>
-  <data name="&gt;&gt;btnPaymentConfirmedCash.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="&gt;&gt;listViewOrderCashPannel.Name" xml:space="preserve">
-    <value>listViewOrderCashPannel</value>
-  </data>
-  <data name="&gt;&gt;listViewOrderCashPannel.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ListView, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;listViewOrderCashPannel.Parent" xml:space="preserve">
-    <value>pnlCashPayment</value>
-  </data>
-  <data name="&gt;&gt;listViewOrderCashPannel.ZOrder" xml:space="preserve">
+  <data name="pnlFeedback.TabIndex" type="System.Int32, mscorlib">
     <value>3</value>
   </data>
-  <data name="&gt;&gt;label14.Name" xml:space="preserve">
-    <value>label14</value>
+  <data name="&gt;&gt;pnlFeedback.Name" xml:space="preserve">
+    <value>pnlFeedback</value>
   </data>
-  <data name="&gt;&gt;label14.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;label14.Parent" xml:space="preserve">
-    <value>pnlCashPayment</value>
-  </data>
-  <data name="&gt;&gt;label14.ZOrder" xml:space="preserve">
-    <value>4</value>
-  </data>
-  <data name="&gt;&gt;btnCalculateChange.Name" xml:space="preserve">
-    <value>btnCalculateChange</value>
-  </data>
-  <data name="&gt;&gt;btnCalculateChange.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;btnCalculateChange.Parent" xml:space="preserve">
-    <value>pnlCashPayment</value>
-  </data>
-  <data name="&gt;&gt;btnCalculateChange.ZOrder" xml:space="preserve">
-    <value>5</value>
-  </data>
-  <data name="&gt;&gt;lblChange.Name" xml:space="preserve">
-    <value>lblChange</value>
-  </data>
-  <data name="&gt;&gt;lblChange.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;lblChange.Parent" xml:space="preserve">
-    <value>pnlCashPayment</value>
-  </data>
-  <data name="&gt;&gt;lblChange.ZOrder" xml:space="preserve">
-    <value>6</value>
-  </data>
-  <data name="&gt;&gt;txtCashReceived.Name" xml:space="preserve">
-    <value>txtCashReceived</value>
-  </data>
-  <data name="&gt;&gt;txtCashReceived.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;txtCashReceived.Parent" xml:space="preserve">
-    <value>pnlCashPayment</value>
-  </data>
-  <data name="&gt;&gt;txtCashReceived.ZOrder" xml:space="preserve">
-    <value>7</value>
-  </data>
-  <data name="&gt;&gt;lblTotalDueCash.Name" xml:space="preserve">
-    <value>lblTotalDueCash</value>
-  </data>
-  <data name="&gt;&gt;lblTotalDueCash.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;lblTotalDueCash.Parent" xml:space="preserve">
-    <value>pnlCashPayment</value>
-  </data>
-  <data name="&gt;&gt;lblTotalDueCash.ZOrder" xml:space="preserve">
-    <value>8</value>
-  </data>
-  <data name="&gt;&gt;label20.Name" xml:space="preserve">
-    <value>label20</value>
-  </data>
-  <data name="&gt;&gt;label20.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;label20.Parent" xml:space="preserve">
-    <value>pnlCashPayment</value>
-  </data>
-  <data name="&gt;&gt;label20.ZOrder" xml:space="preserve">
-    <value>9</value>
-  </data>
-  <data name="&gt;&gt;label21.Name" xml:space="preserve">
-    <value>label21</value>
-  </data>
-  <data name="&gt;&gt;label21.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;label21.Parent" xml:space="preserve">
-    <value>pnlCashPayment</value>
-  </data>
-  <data name="&gt;&gt;label21.ZOrder" xml:space="preserve">
-    <value>10</value>
-  </data>
-  <data name="&gt;&gt;label22.Name" xml:space="preserve">
-    <value>label22</value>
-  </data>
-  <data name="&gt;&gt;label22.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;label22.Parent" xml:space="preserve">
-    <value>pnlCashPayment</value>
-  </data>
-  <data name="&gt;&gt;label22.ZOrder" xml:space="preserve">
-    <value>11</value>
-  </data>
-  <data name="pnlCashPayment.Location" type="System.Drawing.Point, System.Drawing">
-    <value>478, 155</value>
-  </data>
-  <data name="pnlCashPayment.Size" type="System.Drawing.Size, System.Drawing">
-    <value>463, 457</value>
-  </data>
-  <data name="pnlCashPayment.TabIndex" type="System.Int32, mscorlib">
-    <value>5</value>
-  </data>
-  <data name="&gt;&gt;pnlCashPayment.Name" xml:space="preserve">
-    <value>pnlCashPayment</value>
-  </data>
-  <data name="&gt;&gt;pnlCashPayment.Type" xml:space="preserve">
+  <data name="&gt;&gt;pnlFeedback.Type" xml:space="preserve">
     <value>System.Windows.Forms.Panel, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;pnlCashPayment.Parent" xml:space="preserve">
+  <data name="&gt;&gt;pnlFeedback.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <data name="&gt;&gt;pnlCashPayment.ZOrder" xml:space="preserve">
-    <value>0</value>
+  <data name="&gt;&gt;pnlFeedback.ZOrder" xml:space="preserve">
+    <value>2</value>
   </data>
   <data name="label4.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -2511,6 +2310,24 @@
   <data name="&gt;&gt;btnPaymentConfirmedCash.ZOrder" xml:space="preserve">
     <value>2</value>
   </data>
+  <data name="columnHeader1.Text" xml:space="preserve">
+    <value>Q</value>
+  </data>
+  <data name="columnHeader1.Width" type="System.Int32, mscorlib">
+    <value>40</value>
+  </data>
+  <data name="columnHeader2.Text" xml:space="preserve">
+    <value>Name</value>
+  </data>
+  <data name="columnHeader2.Width" type="System.Int32, mscorlib">
+    <value>330</value>
+  </data>
+  <data name="columnHeader3.Text" xml:space="preserve">
+    <value>Price</value>
+  </data>
+  <data name="columnHeader3.Width" type="System.Int32, mscorlib">
+    <value>70</value>
+  </data>
   <data name="listViewOrderCashPannel.Font" type="System.Drawing.Font, System.Drawing">
     <value>Segoe UI, 10pt</value>
   </data>
@@ -2551,24 +2368,6 @@
   </data>
   <data name="&gt;&gt;listViewOrderCashPannel.ZOrder" xml:space="preserve">
     <value>3</value>
-  </data>
-  <data name="columnHeader1.Text" xml:space="preserve">
-    <value>Q</value>
-  </data>
-  <data name="columnHeader1.Width" type="System.Int32, mscorlib">
-    <value>40</value>
-  </data>
-  <data name="columnHeader2.Text" xml:space="preserve">
-    <value>Name</value>
-  </data>
-  <data name="columnHeader2.Width" type="System.Int32, mscorlib">
-    <value>330</value>
-  </data>
-  <data name="columnHeader3.Text" xml:space="preserve">
-    <value>Price</value>
-  </data>
-  <data name="columnHeader3.Width" type="System.Int32, mscorlib">
-    <value>70</value>
   </data>
   <data name="label14.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -2806,6 +2605,27 @@
   </data>
   <data name="&gt;&gt;label22.ZOrder" xml:space="preserve">
     <value>11</value>
+  </data>
+  <data name="pnlCashPayment.Location" type="System.Drawing.Point, System.Drawing">
+    <value>478, 155</value>
+  </data>
+  <data name="pnlCashPayment.Size" type="System.Drawing.Size, System.Drawing">
+    <value>463, 457</value>
+  </data>
+  <data name="pnlCashPayment.TabIndex" type="System.Int32, mscorlib">
+    <value>5</value>
+  </data>
+  <data name="&gt;&gt;pnlCashPayment.Name" xml:space="preserve">
+    <value>pnlCashPayment</value>
+  </data>
+  <data name="&gt;&gt;pnlCashPayment.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;pnlCashPayment.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;pnlCashPayment.ZOrder" xml:space="preserve">
+    <value>0</value>
   </data>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
