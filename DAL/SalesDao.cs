@@ -58,8 +58,6 @@ namespace DAL
                 ExecuteEditQuery(query, sqlParameters);
             }
         }
-
-
         public List<OrderItem> GetOrderItemsForBill(int tableId)
         {
             //Need to get item name, quantity, price and VAT

@@ -490,10 +490,17 @@ namespace UI
 
         private void buttonBill_Click(object sender, EventArgs e)
         {
-            //RP coding this:
-            this.Close();
-            Payment payementForm = new Payment(_table, _bill, _staff);
-            payementForm.ShowDialog();
+            try
+            {
+                //RP coding this:
+                this.Close();
+                Payment payementForm = new Payment(_table, _bill, _staff);
+                payementForm.ShowDialog();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("An error occoured: ", ex.Message);
+            }
         }
 
         private void btnLogout_Click(object sender, EventArgs e)

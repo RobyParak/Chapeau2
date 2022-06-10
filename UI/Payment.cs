@@ -1,11 +1,7 @@
 ﻿using Model;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
 using System.Windows.Forms;
 
 namespace UI
@@ -28,7 +24,6 @@ namespace UI
             this.staff = staff;
             salesService = new SalesService();
             //listViewItems = new List<ListViewItem>();
-            //make method to show panel parsing it
             pnlFeedback.Hide();
             pnlPayment.Show();
             pnlCardPayment.Hide();
@@ -49,47 +44,58 @@ namespace UI
         }
         private void DisplayOrder(List<OrderItem> orderItems)
         {
-
-            listViewBill.Items.Clear();
-            listViewBill.View = View.Details;
-            foreach (OrderItem orderItem in orderItems)
+            try
             {
-                string[] items = { $"{orderItem.Quantity}", orderItem.Item.ItemName, $"{orderItem.Item.Price}" };
-                ListViewItem li = new ListViewItem(items);
-                this.listViewBill.Items.Add(li);
+                listViewBill.Items.Clear();
+                listViewBill.View = View.Details;
+                foreach (OrderItem orderItem in orderItems)
+                {
+                    string[] items = { $"{orderItem.Quantity}", orderItem.Item.ItemName, $"{orderItem.Item.Price}" };
+                    ListViewItem li = new ListViewItem(items);
+                    this.listViewBill.Items.Add(li);
+                }
+
+                DisplayPrice();
+                DisplayVAT(CalculateVAT(orderItems));
             }
-
-            CalculateAmountDue(orderItems);
-            DisplayPrice();
-            DisplayVAT(CalculateVAT(orderItems));
-
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
         private void DisplayOrderForCashPanel(List<OrderItem> orderItems)
         {
-            //this is for the cash panel because it must be different listview object
-            listViewOrderCashPannel.Items.Clear();
-            listViewOrderCashPannel.View = View.Details;
-            if (listViewBill.SelectedItems.Count > 0)
+            try
             {
-                foreach (OrderItem orderItem in partialOrderForSplitting)
+                //this is for the cash panel because it must be different listview object
+                listViewOrderCashPannel.Items.Clear();
+                listViewOrderCashPannel.View = View.Details;
+                if (listViewBill.SelectedItems.Count > 0)
                 {
-                    string[] items = { $"x{orderItem.Quantity}", orderItem.Item.ItemName, $"€{orderItem.Item.Price}" };
-                    ListViewItem li = new ListViewItem(items);
-                    listViewOrderCashPannel.Items.Add(li);
+                    foreach (OrderItem orderItem in partialOrderForSplitting)
+                    {
+                        string[] items = { $"x{orderItem.Quantity}", orderItem.Item.ItemName, $"€{orderItem.Item.Price}" };
+                        ListViewItem li = new ListViewItem(items);
+                        listViewOrderCashPannel.Items.Add(li);
+                    }
+                    orderItems = partialOrderForSplitting;
                 }
-                orderItems = partialOrderForSplitting;
+                else
+                {
+                    foreach (OrderItem orderItem in orderItems)
+                    {
+                        string[] items = { $"x{orderItem.Quantity}", orderItem.Item.ItemName, $"€{orderItem.Item.Price}" };
+                        ListViewItem li = new ListViewItem(items);
+                        listViewOrderCashPannel.Items.Add(li);
+                    }
+                }
+                CalculateAmountDue(orderItems);
+                DisplayPrice();
             }
-            else
+            catch (Exception ex)
             {
-                foreach (OrderItem orderItem in orderItems)
-                {
-                    string[] items = { $"x{orderItem.Quantity}", orderItem.Item.ItemName, $"€{orderItem.Item.Price}" };
-                    ListViewItem li = new ListViewItem(items);
-                    listViewOrderCashPannel.Items.Add(li);
-                }
+                MessageBox.Show(ex.Message);
             }
-            CalculateAmountDue(orderItems);
-            DisplayPrice();
 
         }
         private void CalculateAmountDue(List<OrderItem> orderItems)
@@ -99,6 +105,7 @@ namespace UI
         }
         private void DisplayPrice()
         {
+            CalculateAmountDue(orderItems);
             lblAmountDue.Text = "€ " + bill.AmountDue;
         }
 
@@ -122,7 +129,7 @@ namespace UI
 
         private void btnPaymentSuccessful_Click_1(object sender, EventArgs e)
         {
-            if (partialOrderForSplitting.Count > 0)
+            if (partialOrderForSplitting.Count != 0)
             {//this goes back to main payment page and removes paid items from the list
                 SplitBill();
             }
@@ -167,8 +174,13 @@ namespace UI
             DisplayOrderForCashPanel(orderItems);
             lblTotalDueCash.Text = "€ " + bill.TotalDue.ToString();
         }
+        private void DisplayStuffForCashPanel(List<OrderItem> orderItems)
+        {
+            DisplayOrderForCashPanel(orderItems);
+            lblTotalDueCash.Text = "€ " + bill.TotalDue.ToString();
+        }
 
-        private void UpdateOrderStatus()
+        private void UpdateOrderStatusForWholeBill()
         {
             //update the order status in the database
             foreach (Order order in bill.Orders)
@@ -177,12 +189,10 @@ namespace UI
             }
             salesService.UpdateOrderStatus(bill, table);
         }
-        private void UpdateOrderStatus(Table table, List<OrderItem> orderItems)
+        private void UpdateOrderStatusForSplitBill(Table table, List<OrderItem> orderItemsPartiallyPaid)
         {
-            salesService.UpdateOrderStatus(table, orderItems);
+            salesService.UpdateOrderStatus(table, orderItemsPartiallyPaid);
         }
-
-
 
         private double[] CalculateVAT(List<OrderItem> orderItems)
         {
@@ -207,25 +217,31 @@ namespace UI
 
         private void btnCalculateTipAndTotal_Click(object sender, EventArgs e)
         {
-            if (!string.IsNullOrEmpty(txtTip.Text))
+            try
             {
-                bill.Tip = double.Parse(txtTip.Text);
-                bill.TotalDue = bill.AmountDue + bill.Tip;
-                txtTotalDue.Text = bill.TotalDue.ToString();
-
-            }
-            else
-            {
-                if (double.Parse(txtTotalDue.Text) > bill.AmountDue)
+                if (!string.IsNullOrEmpty(txtTip.Text))
                 {
-                    bill.TotalDue = double.Parse(txtTotalDue.Text);
-                    bill.Tip = bill.TotalDue - bill.AmountDue;
-                    txtTip.Text = bill.Tip.ToString();
+                    bill.Tip = double.Parse(txtTip.Text);
+                    bill.TotalDue = bill.AmountDue + bill.Tip;
+                    txtTotalDue.Text = bill.TotalDue.ToString();
+
                 }
-
                 else
-                    MessageBox.Show("Total due must be higher than amount due");
+                {
+                    if (double.Parse(txtTotalDue.Text) > bill.AmountDue)
+                    {
+                        bill.TotalDue = double.Parse(txtTotalDue.Text);
+                        bill.Tip = bill.TotalDue - bill.AmountDue;
+                        txtTip.Text = bill.Tip.ToString();
+                    }
 
+                    else
+                        MessageBox.Show("Total due must be higher than amount due");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("An error occoured: ", ex.Message);
             }
         }
 
@@ -238,7 +254,7 @@ namespace UI
             //then call a method to write bill to database
             salesService.UpdateBill(bill, table);
             //Update orders in database to paid
-            UpdateOrderStatus();
+            UpdateOrderStatusForWholeBill();
             UpdateCurrentTable();
             GoToTableviewForm();
 
@@ -290,16 +306,13 @@ namespace UI
                     DisplayPrice(partialOrderForSplitting);
                 else
                     DisplayPrice();
-
                 CalculateAmountDue(partialOrderForSplitting);
                 DisplayVAT(CalculateVAT(partialOrderForSplitting));
-
             }
             catch (Exception ex)
             {
                 MessageBox.Show("An error occoured: ", ex.Message);
             }
-
         }
 
         private void btnBackToOrderViewFromPaymentMainPage_Click(object sender, EventArgs e)
@@ -328,14 +341,33 @@ namespace UI
             //DisplayOrder(orderItems);
 
             //as you can see above I tried a different approach before
-
             foreach (OrderItem item in partialOrderForSplitting)
+            {
                 item.IsPaid = true;
-            UpdateOrderStatus(table,partialOrderForSplitting);
-            pnlCashPayment.Hide();
-            pnlCardPayment.Hide();
-            pnlPayment.Show();
-            pnlPayment.Dock = DockStyle.Fill;
+                bill.AmountDue = -item.Item.Price;
+            }
+            UpdateOrderStatusForSplitBill(table, partialOrderForSplitting);
+            partialOrderForSplitting.Clear();
+            //get new orderItem list now that some have been paid
+            UpdateFirstPanel();
+        }
+        private void UpdateFirstPanel()
+        {
+            try
+            {
+                //get new orderItem list now that some have been paid
+                orderItems = salesService.GetOrdersForBill(table.Id);
+                //referesh main page listview
+                DisplayOrder(orderItems);
+                pnlCashPayment.Hide();
+                pnlCardPayment.Hide();
+                pnlPayment.Show();
+                pnlPayment.Dock = DockStyle.Fill;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("An error occoured: ", ex.Message);
+            }
         }
         private void btnPaymentConfirmedCash_Click(object sender, EventArgs e)
         {
@@ -353,14 +385,6 @@ namespace UI
             }
         }
 
-        //private void btnGoToTableView_Click_1(object sender, EventArgs e)
-        //{
-        //    //Update orders in database to paid
-        //    UpdateOrderStatus();
-        //    UpdateCurrentTable();
-        //    GoToTableviewForm();
-        //}
-
         private void btnBackFromCashToMainPayment_Click(object sender, EventArgs e)
         {
             pnlCashPayment.Hide();
@@ -369,5 +393,3 @@ namespace UI
         }
     }
 }
-
-
