@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 
@@ -16,7 +17,7 @@ namespace UI
         Bill bill;
         Staff staff;
         SalesService salesService;
-       // List<ListViewItem> listViewItems;
+        // List<ListViewItem> listViewItems;
         List<OrderItem> partialOrderForSplitting;
         List<OrderItem> orderItems;
         public Payment(Table table, Bill bill, Staff staff)
@@ -48,15 +49,15 @@ namespace UI
         }
         private void DisplayOrder(List<OrderItem> orderItems)
         {
-            
-                listViewBill.Items.Clear();
-                listViewBill.View = View.Details;
-                foreach (OrderItem orderItem in orderItems)
-                {
-                    string[] items = { $"{orderItem.Quantity}", orderItem.Item.ItemName, $"{orderItem.Item.Price}" };
-                    ListViewItem li = new ListViewItem(items);
-                    this.listViewBill.Items.Add(li);
-                }
+
+            listViewBill.Items.Clear();
+            listViewBill.View = View.Details;
+            foreach (OrderItem orderItem in orderItems)
+            {
+                string[] items = { $"{orderItem.Quantity}", orderItem.Item.ItemName, $"{orderItem.Item.Price}" };
+                ListViewItem li = new ListViewItem(items);
+                this.listViewBill.Items.Add(li);
+            }
 
             CalculateAmountDue(orderItems);
             DisplayPrice();
@@ -176,18 +177,22 @@ namespace UI
             }
             salesService.UpdateOrderStatus(bill, table);
         }
+        private void UpdateOrderStatus(Table table, List<OrderItem> orderItems)
+        {
+            salesService.UpdateOrderStatus(table, orderItems);
+        }
 
 
 
         private double[] CalculateVAT(List<OrderItem> orderItems)
         {
-            double[] vat = {0,0};
+            double[] vat = { 0, 0 };
             int vat6 = 6;
             foreach (OrderItem orderItem in orderItems)
             {
                 if (orderItem.Item.VAT == vat6)
                     vat[0] += (orderItem.Item.Price * orderItem.Item.VAT) / 100;
-               else
+                else
                     vat[1] += (orderItem.Item.Price * orderItem.Item.VAT) / 100;
             }
             bill.VAT = vat[0] + vat[1];
@@ -197,7 +202,7 @@ namespace UI
         {
             lblVAT21.Text = $"€ {vat[0]:0.00}";
             lblVAT6.Text = $"€ {vat[1]:0.00}";
-      
+
         }
 
         private void btnCalculateTipAndTotal_Click(object sender, EventArgs e)
@@ -211,13 +216,13 @@ namespace UI
             }
             else
             {
-                    if (double.Parse(txtTotalDue.Text) > bill.AmountDue)
-                    {
-                        bill.TotalDue = double.Parse(txtTotalDue.Text);
-                        bill.Tip = bill.TotalDue - bill.AmountDue;
-                        txtTip.Text = bill.Tip.ToString();
-                    }
-                
+                if (double.Parse(txtTotalDue.Text) > bill.AmountDue)
+                {
+                    bill.TotalDue = double.Parse(txtTotalDue.Text);
+                    bill.Tip = bill.TotalDue - bill.AmountDue;
+                    txtTip.Text = bill.Tip.ToString();
+                }
+
                 else
                     MessageBox.Show("Total due must be higher than amount due");
 
@@ -226,7 +231,7 @@ namespace UI
 
         private void btnEnterFeedback_Click(object sender, EventArgs e)
         {
-          if (txtFeedback.Text != "")
+            if (txtFeedback.Text != "")
                 bill.Feedback = txtFeedback.Text;
             else
                 bill.Feedback = "Feedback not provided";
@@ -246,12 +251,12 @@ namespace UI
             table.BillId = 0;
         }
         private void GoToTableviewForm()
-        {           
+        {
             Close();
             TableForm tableForm = new TableForm(table, staff);
             tableForm.ShowDialog();
         }
-        
+
         private void listViewBill_SelectedIndexChanged(object sender, EventArgs e)
         {
             OrderItem itemToAdd = new OrderItem();
@@ -282,7 +287,7 @@ namespace UI
                     this.listViewBill.SelectedItems[0].BackColor = Color.LightSteelBlue;
                 }
                 if (partialOrderForSplitting.Count == 1)
-                 DisplayPrice(partialOrderForSplitting);
+                    DisplayPrice(partialOrderForSplitting);
                 else
                     DisplayPrice();
 
@@ -294,7 +299,7 @@ namespace UI
             {
                 MessageBox.Show("An error occoured: ", ex.Message);
             }
-            
+
         }
 
         private void btnBackToOrderViewFromPaymentMainPage_Click(object sender, EventArgs e)
@@ -309,22 +314,28 @@ namespace UI
         {
             if (double.Parse(txtCashReceived.Text) > bill.TotalDue)
             {
-                double ChangeDue = double.Parse(txtCashReceived.Text) - bill.TotalDue ;
+                double ChangeDue = double.Parse(txtCashReceived.Text) - bill.TotalDue;
                 lblChange.Text = "€ " + ChangeDue.ToString();
             }
             else
                 MessageBox.Show("To calculate change a greater ammount than total due must be entered");
         }
         private void SplitBill()
-        {
+        {//remove the items paid for and updates the list
+            //List<OrderItem> result = (List<OrderItem>)orderItems.Except(partialOrderForSplitting).ToList();
+            //orderItems=result;
+            //partialOrderForSplitting.Clear();
+            //DisplayOrder(orderItems);
+
+            //as you can see above I tried a different approach before
+
             foreach (OrderItem item in partialOrderForSplitting)
-            { orderItems.Remove(item); }
-            partialOrderForSplitting.Clear();
+                item.IsPaid = true;
+            UpdateOrderStatus(table,partialOrderForSplitting);
             pnlCashPayment.Hide();
             pnlCardPayment.Hide();
             pnlPayment.Show();
             pnlPayment.Dock = DockStyle.Fill;
-            DisplayOrder(orderItems);
         }
         private void btnPaymentConfirmedCash_Click(object sender, EventArgs e)
         {
@@ -358,6 +369,5 @@ namespace UI
         }
     }
 }
-
 
 

@@ -40,10 +40,25 @@ namespace DAL
                 string query = $"UPDATE [Order] SET Is_Paid = @Paid_status" +
                    " Where table_ID = @TableId";
                 SqlParameter[] sqlParameters = { new SqlParameter("@Paid_status", paidStatus),
-            new SqlParameter("@Table_ID", table.Id)};
+            new SqlParameter("@TableId", table.Id)};
                 ExecuteEditQuery(query, sqlParameters);
             }
         }
+        public void UpdateOrder(Table table, List<OrderItem> orderItems)
+        {
+            int paidStatus = 0;
+            foreach (OrderItem item in orderItems)
+            {
+                if (item.IsPaid == true)
+                { paidStatus = 1; }
+                string query = $"UPDATE [Order] SET Is_Paid = @Paid_status" +
+                   " Where table_ID = @TableId";
+                SqlParameter[] sqlParameters = { new SqlParameter("@Paid_status", paidStatus),
+            new SqlParameter("@TableId", table.Id)};
+                ExecuteEditQuery(query, sqlParameters);
+            }
+        }
+
 
         public List<OrderItem> GetOrderItemsForBill(int tableId)
         {

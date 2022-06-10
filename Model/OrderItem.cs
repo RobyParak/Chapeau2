@@ -8,6 +8,7 @@ namespace Model
     {
         public Item Item { get; set; }
         public int Quantity { get; set; }
+        public bool IsPaid = false;
         
     }
 }
