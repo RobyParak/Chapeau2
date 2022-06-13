@@ -15,6 +15,7 @@ namespace UI
     {
         private Logic.TableService tableService;
         private BillService billService;
+        as
         private List<Table> tableList;
         private List<Button> buttonList;
         private Staff staff;
