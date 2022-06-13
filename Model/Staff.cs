@@ -11,7 +11,7 @@ namespace Model
         public int StaffID { get; set; }
         public int PassCode { get; set; }
         public enum RolesEnum { Waiter, Chef, Bartender, Manager}
-        public RolesEnum Role { get; set; }
+        public RolesEnum Roles { get; set; }
 
         //public Staff()
         //{
@@ -24,7 +24,7 @@ namespace Model
             LastName = lastName;
             StaffID = staffId;
             PassCode = passCode;
-            Role = roleEnum;
+            Roles = roleEnum;
         }
 
         public Staff()

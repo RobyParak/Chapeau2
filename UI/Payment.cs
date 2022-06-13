@@ -210,8 +210,8 @@ namespace UI
         }
         private void DisplayVAT(double[] vat)
         {
-            lblVAT21.Text = $"€ {vat[0]:0.00}";
-            lblVAT6.Text = $"€ {vat[1]:0.00}";
+            lblVAT6.Text = $"€ {vat[0]:0.00}";
+            lblVAT21.Text = $"€ {vat[1]:0.00}";
 
         }
 

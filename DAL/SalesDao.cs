@@ -66,7 +66,7 @@ namespace DAL
             " from Item Join [Order_Item] ON [Order_Item].Item_ID = Item.Item_ID" +
             " Join [Order] ON [Order].Order_ID = Order_Item.Order_ID" +
             " Where [Order].Table_ID = @TableId" +
-            " AND Is_Paid = 0" +
+            " AND [Order].Is_Paid = 0" +
             " Group by Item_Name;";
             SqlParameter[] sqlParameters = { new SqlParameter("@TableId", tableId)};
             return ReadTables(ExecuteSelectQuery(query, sqlParameters));

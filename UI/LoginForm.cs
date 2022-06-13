@@ -16,24 +16,22 @@ namespace Login
 {
     public partial class LoginForm : Form
     {
-        StaffService staffService;
-        
         public LoginForm()
         {
             InitializeComponent();
-            staffService = new StaffService();
         }
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
             try
             {
+                StaffService staffService = new StaffService();
                 Staff staff = staffService.LoginStaff(int.Parse(txtStaffID.Text), int.Parse(txtPassword.Text));
 
                 if (staff.PassCode != int.Parse(txtPassword.Text))
                     throw new Exception();
 
-                switch (staff.Role)
+                switch (staff.Roles)
                 {
                     case RolesEnum.Waiter:
                         TableForm tableForm = new TableForm(staff);

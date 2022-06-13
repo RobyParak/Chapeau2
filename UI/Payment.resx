@@ -91,7 +91,7 @@
     <value>pnlPayment</value>
   </data>
   <data name="&gt;&gt;lblTableID.ZOrder" xml:space="preserve">
-    <value>18</value>
+    <value>17</value>
   </data>
   <data name="Quantity.Text" xml:space="preserve">
     <value>Q</value>
@@ -150,34 +150,7 @@
     <value>pnlPayment</value>
   </data>
   <data name="&gt;&gt;listViewBill.ZOrder" xml:space="preserve">
-    <value>17</value>
-  </data>
-  <data name="label11.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="label11.Location" type="System.Drawing.Point, System.Drawing">
-    <value>100, 12</value>
-  </data>
-  <data name="label11.Size" type="System.Drawing.Size, System.Drawing">
-    <value>309, 32</value>
-  </data>
-  <data name="label11.TabIndex" type="System.Int32, mscorlib">
-    <value>19</value>
-  </data>
-  <data name="label11.Text" xml:space="preserve">
-    <value>To split the bill, select items</value>
-  </data>
-  <data name="&gt;&gt;label11.Name" xml:space="preserve">
-    <value>label11</value>
-  </data>
-  <data name="&gt;&gt;label11.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;label11.Parent" xml:space="preserve">
-    <value>pnlPayment</value>
-  </data>
-  <data name="&gt;&gt;label11.ZOrder" xml:space="preserve">
-    <value>0</value>
+    <value>16</value>
   </data>
   <data name="btnBackToOrderViewFromPaymentMainPage.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
     <value>System</value>
@@ -204,7 +177,7 @@
     <value>pnlPayment</value>
   </data>
   <data name="&gt;&gt;btnBackToOrderViewFromPaymentMainPage.ZOrder" xml:space="preserve">
-    <value>1</value>
+    <value>0</value>
   </data>
   <data name="label10.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -231,7 +204,7 @@
     <value>pnlPayment</value>
   </data>
   <data name="&gt;&gt;label10.ZOrder" xml:space="preserve">
-    <value>2</value>
+    <value>1</value>
   </data>
   <data name="label9.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -258,7 +231,7 @@
     <value>pnlPayment</value>
   </data>
   <data name="&gt;&gt;label9.ZOrder" xml:space="preserve">
-    <value>3</value>
+    <value>2</value>
   </data>
   <data name="btnCalculateTipAndTotal.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
     <value>System</value>
@@ -288,7 +261,7 @@
     <value>pnlPayment</value>
   </data>
   <data name="&gt;&gt;btnCalculateTipAndTotal.ZOrder" xml:space="preserve">
-    <value>4</value>
+    <value>3</value>
   </data>
   <data name="lblVAT6.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -315,7 +288,7 @@
     <value>pnlPayment</value>
   </data>
   <data name="&gt;&gt;lblVAT6.ZOrder" xml:space="preserve">
-    <value>5</value>
+    <value>4</value>
   </data>
   <data name="lblVAT21.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -342,7 +315,7 @@
     <value>pnlPayment</value>
   </data>
   <data name="&gt;&gt;lblVAT21.ZOrder" xml:space="preserve">
-    <value>6</value>
+    <value>5</value>
   </data>
   <data name="label8.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -369,7 +342,7 @@
     <value>pnlPayment</value>
   </data>
   <data name="&gt;&gt;label8.ZOrder" xml:space="preserve">
-    <value>7</value>
+    <value>6</value>
   </data>
   <data name="label7.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -396,7 +369,7 @@
     <value>pnlPayment</value>
   </data>
   <data name="&gt;&gt;label7.ZOrder" xml:space="preserve">
-    <value>8</value>
+    <value>7</value>
   </data>
   <data name="btnCash.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
     <value>System</value>
@@ -423,7 +396,7 @@
     <value>pnlPayment</value>
   </data>
   <data name="&gt;&gt;btnCash.ZOrder" xml:space="preserve">
-    <value>9</value>
+    <value>8</value>
   </data>
   <data name="btnCard.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
     <value>System</value>
@@ -450,7 +423,7 @@
     <value>pnlPayment</value>
   </data>
   <data name="&gt;&gt;btnCard.ZOrder" xml:space="preserve">
-    <value>10</value>
+    <value>9</value>
   </data>
   <data name="txtTotalDue.Font" type="System.Drawing.Font, System.Drawing">
     <value>Segoe UI, 10pt</value>
@@ -474,7 +447,7 @@
     <value>pnlPayment</value>
   </data>
   <data name="&gt;&gt;txtTotalDue.ZOrder" xml:space="preserve">
-    <value>11</value>
+    <value>10</value>
   </data>
   <data name="txtTip.Font" type="System.Drawing.Font, System.Drawing">
     <value>Segoe UI, 10pt</value>
@@ -498,7 +471,7 @@
     <value>pnlPayment</value>
   </data>
   <data name="&gt;&gt;txtTip.ZOrder" xml:space="preserve">
-    <value>12</value>
+    <value>11</value>
   </data>
   <data name="lblAmountDue.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -525,7 +498,7 @@
     <value>pnlPayment</value>
   </data>
   <data name="&gt;&gt;lblAmountDue.ZOrder" xml:space="preserve">
-    <value>13</value>
+    <value>12</value>
   </data>
   <data name="label3.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -552,7 +525,7 @@
     <value>pnlPayment</value>
   </data>
   <data name="&gt;&gt;label3.ZOrder" xml:space="preserve">
-    <value>14</value>
+    <value>13</value>
   </data>
   <data name="label2.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -579,7 +552,7 @@
     <value>pnlPayment</value>
   </data>
   <data name="&gt;&gt;label2.ZOrder" xml:space="preserve">
-    <value>15</value>
+    <value>14</value>
   </data>
   <data name="label1.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -606,7 +579,7 @@
     <value>pnlPayment</value>
   </data>
   <data name="&gt;&gt;label1.ZOrder" xml:space="preserve">
-    <value>16</value>
+    <value>15</value>
   </data>
   <data name="pnlPayment.Location" type="System.Drawing.Point, System.Drawing">
     <value>0, 12</value>
