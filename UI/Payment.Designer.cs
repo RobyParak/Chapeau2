@@ -35,7 +35,6 @@
             this.Item = new System.Windows.Forms.ColumnHeader();
             this.Price = new System.Windows.Forms.ColumnHeader();
             this.pnlPayment = new System.Windows.Forms.Panel();
-            this.label11 = new System.Windows.Forms.Label();
             this.btnBackToOrderViewFromPaymentMainPage = new System.Windows.Forms.Button();
             this.label10 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
@@ -126,7 +125,6 @@
             // 
             // pnlPayment
             // 
-            this.pnlPayment.Controls.Add(this.label11);
             this.pnlPayment.Controls.Add(this.btnBackToOrderViewFromPaymentMainPage);
             this.pnlPayment.Controls.Add(this.label10);
             this.pnlPayment.Controls.Add(this.label9);
@@ -147,11 +145,6 @@
             this.pnlPayment.Controls.Add(this.lblTableID);
             resources.ApplyResources(this.pnlPayment, "pnlPayment");
             this.pnlPayment.Name = "pnlPayment";
-            // 
-            // label11
-            // 
-            resources.ApplyResources(this.label11, "label11");
-            this.label11.Name = "label11";
             // 
             // btnBackToOrderViewFromPaymentMainPage
             // 
@@ -478,7 +471,6 @@
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Button btnBackToOrderViewFromPaymentMainPage;
-        private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Button btnCalculateChange;
         private System.Windows.Forms.Label lblChange;
