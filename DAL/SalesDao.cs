@@ -61,7 +61,7 @@ namespace DAL
         public List<OrderItem> GetOrderItemsForBill(int tableId)
         {
             //Need to get item name, quantity, price and VAT
-            string query = "Select Item_Name as [Name], count(Quantity)" +
+            string query = "Select Item_Name as [Name], SUM(Quantity)" +
             " as [Quantity], SUM(Price) as [Price], AVG(VAT) as [VAT]" +
             " from Item Join [Order_Item] ON [Order_Item].Item_ID = Item.Item_ID" +
             " Join [Order] ON [Order].Order_ID = Order_Item.Order_ID" +

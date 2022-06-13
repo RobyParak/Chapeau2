@@ -32,7 +32,7 @@ namespace DAL
                 staff.LastName = (string)dr["Last_Name"];
                 staff.StaffID = (int)dr["Staff_ID"];
                 staff.PassCode = (int)dr["Passcode"];
-                staff.Roles = (RolesEnum)(int)dr["Role"];
+                staff.Role = (RolesEnum)(int)dr["Role"];
             }
             return staff;
         }
