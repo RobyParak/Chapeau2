@@ -41,7 +41,6 @@
             this.btnLogout = new System.Windows.Forms.Button();
             this.lblLogout = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.btnRefreshTabelData = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
@@ -200,17 +199,6 @@
             this.label1.TabIndex = 13;
             this.label1.Text = "Tables";
             // 
-            // btnRefreshTabelData
-            // 
-            this.btnRefreshTabelData.Location = new System.Drawing.Point(6, 13);
-            this.btnRefreshTabelData.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.btnRefreshTabelData.Name = "btnRefreshTabelData";
-            this.btnRefreshTabelData.Size = new System.Drawing.Size(74, 59);
-            this.btnRefreshTabelData.TabIndex = 14;
-            this.btnRefreshTabelData.Text = "Refresh";
-            this.btnRefreshTabelData.UseVisualStyleBackColor = true;
-            this.btnRefreshTabelData.Click += new System.EventHandler(this.btnRefreshTabelData_Click);
-            // 
             // button1
             // 
             this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
@@ -296,7 +284,6 @@
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
-            this.Controls.Add(this.btnRefreshTabelData);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.lblLogout);
             this.Controls.Add(this.btnLogout);
@@ -333,7 +320,6 @@
         private System.Windows.Forms.Button btnLogout;
         private System.Windows.Forms.Label lblLogout;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button btnRefreshTabelData;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button3;

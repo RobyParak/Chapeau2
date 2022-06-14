@@ -12,9 +12,8 @@ namespace DAL
     {
         public Staff LoginStaff(int staffID, int passCode)
         {
-            string query = "select Staff_ID, First_Name, Last_Name, Passcode, Role from staff WHERE [Passcode] = @pass and [Staff_ID] = @ID ";
-            SqlParameter[] sqlParameters = { new SqlParameter ("@pass", passCode),
-                    new SqlParameter ("@ID", staffID) };
+            string query = "select Staff_ID, First_Name, Last_Name, Passcode, Role from staff WHERE [Staff_ID] = @ID ";
+            SqlParameter[] sqlParameters = {new SqlParameter ("@ID", staffID) };
 
             return ReadStaff(ExecuteSelectQuery(query, sqlParameters));
         }

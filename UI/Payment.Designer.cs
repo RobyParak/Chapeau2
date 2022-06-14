@@ -422,7 +422,6 @@
             this.Controls.Add(this.pnlCardPayment);
             this.Controls.Add(this.pnlFeedback);
             this.Controls.Add(this.pnlPayment);
-            this.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.Name = "Payment";
             this.pnlPayment.ResumeLayout(false);
