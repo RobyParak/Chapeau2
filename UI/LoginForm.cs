@@ -33,7 +33,7 @@ namespace Login
                 if (staff.PassCode != int.Parse(txtPassword.Text))
                     throw new Exception();
 
-                switch (staff.Roles)
+                switch (staff.Role)
                 {
                     case RolesEnum.Waiter:
                         TableForm tableForm = new TableForm(staff);
