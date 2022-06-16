@@ -1,4 +1,5 @@
-﻿using Model;
+﻿using Logic;
+using Model;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
@@ -13,6 +14,7 @@ namespace UI
         Bill bill;
         Staff staff;
         SalesService salesService;
+        TableService tableService;
         // List<ListViewItem> listViewItems;
         List<OrderItem> partialOrderForSplitting;
         List<OrderItem> orderItems;
@@ -23,6 +25,7 @@ namespace UI
             this.table = table;
             this.staff = staff;
             salesService = new SalesService();
+            tableService = new TableService();
             //listViewItems = new List<ListViewItem>();
             pnlFeedback.Hide();
             pnlPayment.Show();
@@ -264,7 +267,8 @@ namespace UI
         private void UpdateCurrentTable()
         {
             table.TableStatus = 0;
-            table.BillId = 0;
+            //table.BillId = 0;
+            tableService.ChangeTableToAvailable(table.Id);
         }
         private void GoToTableviewForm()
         {
