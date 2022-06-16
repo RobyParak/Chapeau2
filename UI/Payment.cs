@@ -15,8 +15,6 @@ namespace UI
         Staff staff;
         SalesService salesService;
         TableService tableService;
-        // List<ListViewItem> listViewItems;
-        List<OrderItem> partialOrderForSplitting;
         List<OrderItem> orderItems;
         public Payment(Table table, Bill bill, Staff staff)
         {
@@ -33,8 +31,12 @@ namespace UI
             pnlPayment.Dock = DockStyle.Fill;
             pnlCashPayment.Hide();
             lblTableID.Text = table.Id.ToString();
+            //if reopening the form the total would add to the previous one each time
+            //clearning the list prevents this issue
+            if (orderItems != null)
+            orderItems.Clear();
             orderItems = salesService.GetOrdersForBill(table.Id);
-            partialOrderForSplitting = new List<OrderItem>();
+            
             if (orderItems.Count > 0)
             {
                 DisplayOrder(orderItems);
@@ -53,7 +55,7 @@ namespace UI
                 listViewBill.View = View.Details;
                 foreach (OrderItem orderItem in orderItems)
                 {
-                    string[] items = { $"{orderItem.Quantity}", orderItem.Item.ItemName, $"{orderItem.Item.Price}" };
+                    string[] items = { $"{orderItem.Quantity}", orderItem.Item.ItemName, $"{orderItem.Item.Price:00.00}" };
                     ListViewItem li = new ListViewItem(items);
                     this.listViewBill.Items.Add(li);
                 }
@@ -73,26 +75,14 @@ namespace UI
                 //this is for the cash panel because it must be different listview object
                 listViewOrderCashPannel.Items.Clear();
                 listViewOrderCashPannel.View = View.Details;
-                if (listViewBill.SelectedItems.Count > 0)
-                {
-                    foreach (OrderItem orderItem in partialOrderForSplitting)
-                    {
-                        string[] items = { $"x{orderItem.Quantity}", orderItem.Item.ItemName, $"€{orderItem.Item.Price}" };
-                        ListViewItem li = new ListViewItem(items);
-                        listViewOrderCashPannel.Items.Add(li);
-                    }
-                    orderItems = partialOrderForSplitting;
-                }
-                else
-                {
+                
                     foreach (OrderItem orderItem in orderItems)
                     {
                         string[] items = { $"x{orderItem.Quantity}", orderItem.Item.ItemName, $"€{orderItem.Item.Price}" };
                         ListViewItem li = new ListViewItem(items);
                         listViewOrderCashPannel.Items.Add(li);
                     }
-                }
-                CalculateAmountDue(orderItems);
+                                CalculateAmountDue(orderItems);
                 DisplayPrice();
             }
             catch (Exception ex)
@@ -112,12 +102,6 @@ namespace UI
             lblAmountDue.Text = "€ " + bill.AmountDue;
         }
 
-        private void DisplayPrice(List<OrderItem> orderItems)
-        {
-            bill.AmountDue = 0;
-            CalculateAmountDue(orderItems);
-            lblAmountDue.Text = "€ " + bill.AmountDue;
-        }
 
 
         private void btnCard_Click(object sender, EventArgs e)
@@ -132,17 +116,11 @@ namespace UI
 
         private void btnPaymentSuccessful_Click_1(object sender, EventArgs e)
         {
-            if (partialOrderForSplitting.Count != 0)
-            {//this goes back to main payment page and removes paid items from the list
-                SplitBill();
-            }
-            else
-            {
-                PrintReceiptPopUp();
+           PrintReceiptPopUp();
                 pnlCardPayment.Hide();
                 pnlFeedback.Show();
                 pnlFeedback.Dock = DockStyle.Fill;
-            }
+            
         }
 
         private void btnBack_Click_1(object sender, EventArgs e)
@@ -177,11 +155,6 @@ namespace UI
             DisplayOrderForCashPanel(orderItems);
             lblTotalDueCash.Text = "€ " + bill.TotalDue.ToString();
         }
-        private void DisplayStuffForCashPanel(List<OrderItem> orderItems)
-        {
-            DisplayOrderForCashPanel(orderItems);
-            lblTotalDueCash.Text = "€ " + bill.TotalDue.ToString();
-        }
 
         private void UpdateOrderStatusForWholeBill()
         {
@@ -192,11 +165,7 @@ namespace UI
             }
             salesService.UpdateOrderStatus(bill, table);
         }
-        private void UpdateOrderStatusForSplitBill(Table table, List<OrderItem> orderItemsPartiallyPaid)
-        {
-            salesService.UpdateOrderStatus(table, orderItemsPartiallyPaid);
-        }
-
+       
         private double[] CalculateVAT(List<OrderItem> orderItems)
         {
             double[] vat = { 0, 0 };
@@ -215,9 +184,7 @@ namespace UI
         {
             lblVAT6.Text = $"€ {vat[0]:0.00}";
             lblVAT21.Text = $"€ {vat[1]:0.00}";
-
         }
-
         private void btnCalculateTipAndTotal_Click(object sender, EventArgs e)
         {
             try
@@ -279,51 +246,15 @@ namespace UI
 
         private void listViewBill_SelectedIndexChanged(object sender, EventArgs e)
         {
-            OrderItem itemToAdd = new OrderItem();
-            itemToAdd.Item = new Item();
-            try
-            {
-                if (listViewBill.SelectedItems.Count == 0)
-                {
-                    return;
-                }
-
-                ListViewItem selectedListViewItem = this.listViewBill.SelectedItems[0];
-                itemToAdd.Quantity = int.Parse(selectedListViewItem.SubItems[0].Text);
-                itemToAdd.Item.ItemName = selectedListViewItem.SubItems[1].Text;
-                itemToAdd.Item.Price = double.Parse(selectedListViewItem.SubItems[2].Text);
-                selectedListViewItem.Tag = itemToAdd;
-
-                //foreach(ListViewItem listViewItem in listViewBill.SelectedItems)
-                //{
-                //    if (selectedListViewItem == listViewItem)
-                //        MessageBox.Show("Item already selected");
-                if (partialOrderForSplitting.Contains((OrderItem)selectedListViewItem.Tag))
-                    MessageBox.Show("Item already selected");
-                else
-                {
-                    partialOrderForSplitting.Add((OrderItem)selectedListViewItem.Tag);
-                    //change colour to show which item is selected:
-                    this.listViewBill.SelectedItems[0].BackColor = Color.LightSteelBlue;
-                }
-                if (partialOrderForSplitting.Count == 1)
-                    DisplayPrice(partialOrderForSplitting);
-                else
-                    DisplayPrice();
-                CalculateAmountDue(partialOrderForSplitting);
-                DisplayVAT(CalculateVAT(partialOrderForSplitting));
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("An error occoured: ", ex.Message);
-            }
+            //must delete the event
         }
 
         private void btnBackToOrderViewFromPaymentMainPage_Click(object sender, EventArgs e)
         {
-            Close();
+          this.Hide();
             OrderView orderForm = new OrderView(table, bill, staff);
             orderForm.ShowDialog();
+            Close();
 
         }
 
@@ -338,35 +269,15 @@ namespace UI
                 MessageBox.Show("To calculate change a greater ammount than total due must be entered");
         }
         private void SplitBill()
-        {//remove the items paid for and updates the list
-            //List<OrderItem> result = (List<OrderItem>)orderItems.Except(partialOrderForSplitting).ToList();
-            //orderItems=result;
-            //partialOrderForSplitting.Clear();
-            //DisplayOrder(orderItems);
-
-            //as you can see above I tried a different approach before
-            foreach (OrderItem item in partialOrderForSplitting)
-            {
-                item.IsPaid = true;
-                bill.AmountDue = -item.Item.Price;
-            }
-            UpdateOrderStatusForSplitBill(table, partialOrderForSplitting);
-            partialOrderForSplitting.Clear();
-            //get new orderItem list now that some have been paid
-            UpdateFirstPanel();
-        }
+        {
+            //if not 
+            bill.PaymentMethod = PaymentType.Splitted_Cash_and_Card;
+         }
         private void UpdateFirstPanel()
         {
             try
             {
-                //get new orderItem list now that some have been paid
-                orderItems = salesService.GetOrdersForBill(table.Id);
-                //referesh main page listview
-                DisplayOrder(orderItems);
-                pnlCashPayment.Hide();
-                pnlCardPayment.Hide();
-                pnlPayment.Show();
-                pnlPayment.Dock = DockStyle.Fill;
+
             }
             catch (Exception ex)
             {
@@ -375,18 +286,18 @@ namespace UI
         }
         private void btnPaymentConfirmedCash_Click(object sender, EventArgs e)
         {
-            //If the order has been split this makes sure it does not update all items yet
-            if (partialOrderForSplitting.Count != 0)
-            {
-                SplitBill();
-            }
-            else
-            {
+            ////If the order has been split this makes sure it does not update all items yet
+            //if (partialOrderForSplitting.Count != 0)
+            //{
+            //    SplitBill();
+            //}
+            //else
+            //{
                 PrintReceiptPopUp();
                 pnlCashPayment.Hide();
                 pnlFeedback.Show();
                 pnlFeedback.Dock = DockStyle.Fill;
-            }
+            
         }
 
         private void btnBackFromCashToMainPayment_Click(object sender, EventArgs e)
@@ -394,6 +305,13 @@ namespace UI
             pnlCashPayment.Hide();
             pnlPayment.Show();
             pnlPayment.Dock = DockStyle.Fill;
+        }
+
+        private void btnSplitPayment_Click(object sender, EventArgs e)
+        {
+            pnlPayment.Hide();
+
+            SplitBill();
         }
     }
 }
