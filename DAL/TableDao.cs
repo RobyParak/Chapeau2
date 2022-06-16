@@ -50,8 +50,8 @@ namespace DAL
 
         public void Db_Change_Table_to_Available(int tableID)
         {
-            string query = $"Update [Tables] set [Status] = 0 Where [Table_ID] = '{tableID}'";
-            SqlParameter[] sqlParameters = new SqlParameter[0];
+            string query = $"Update [Tables] set [Status] = 0 Where [Table_ID] = @TableId";
+            SqlParameter[] sqlParameters = { new SqlParameter("@TableId", tableID) };
             ExecuteEditQuery(query, sqlParameters);
         }
     }
