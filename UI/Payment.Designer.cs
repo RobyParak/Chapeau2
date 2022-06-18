@@ -42,8 +42,8 @@
             this.btnCalculateTipAndTotal = new System.Windows.Forms.Button();
             this.lblVAT6 = new System.Windows.Forms.Label();
             this.lblVAT21 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
+            this.lblPriceIncl6VAT = new System.Windows.Forms.Label();
+            this.lblPriceIncl21VAT = new System.Windows.Forms.Label();
             this.btnCash = new System.Windows.Forms.Button();
             this.btnCard = new System.Windows.Forms.Button();
             this.txtTotalDue = new System.Windows.Forms.TextBox();
@@ -78,6 +78,7 @@
             this.label21 = new System.Windows.Forms.Label();
             this.label22 = new System.Windows.Forms.Label();
             this.pnlSplitPayment = new System.Windows.Forms.Panel();
+            this.btnBackFromSplit = new System.Windows.Forms.Button();
             this.btnNextPayment = new System.Windows.Forms.Button();
             this.btnProcessCardSplitPayment = new System.Windows.Forms.Button();
             this.rdBtnCash = new System.Windows.Forms.RadioButton();
@@ -147,8 +148,8 @@
             this.pnlPayment.Controls.Add(this.btnCalculateTipAndTotal);
             this.pnlPayment.Controls.Add(this.lblVAT6);
             this.pnlPayment.Controls.Add(this.lblVAT21);
-            this.pnlPayment.Controls.Add(this.label8);
-            this.pnlPayment.Controls.Add(this.label7);
+            this.pnlPayment.Controls.Add(this.lblPriceIncl6VAT);
+            this.pnlPayment.Controls.Add(this.lblPriceIncl21VAT);
             this.pnlPayment.Controls.Add(this.btnCash);
             this.pnlPayment.Controls.Add(this.btnCard);
             this.pnlPayment.Controls.Add(this.txtTotalDue);
@@ -168,6 +169,7 @@
             this.btnSplitPayment.ForeColor = System.Drawing.SystemColors.ButtonShadow;
             this.btnSplitPayment.Name = "btnSplitPayment";
             this.btnSplitPayment.UseVisualStyleBackColor = true;
+            this.btnSplitPayment.Click += new System.EventHandler(this.btnSplitPayment_Click);
             // 
             // btnBackToOrderViewFromPaymentMainPage
             // 
@@ -205,15 +207,15 @@
             resources.ApplyResources(this.lblVAT21, "lblVAT21");
             this.lblVAT21.Name = "lblVAT21";
             // 
-            // label8
+            // lblPriceIncl6VAT
             // 
-            resources.ApplyResources(this.label8, "label8");
-            this.label8.Name = "label8";
+            resources.ApplyResources(this.lblPriceIncl6VAT, "lblPriceIncl6VAT");
+            this.lblPriceIncl6VAT.Name = "lblPriceIncl6VAT";
             // 
-            // label7
+            // lblPriceIncl21VAT
             // 
-            resources.ApplyResources(this.label7, "label7");
-            this.label7.Name = "label7";
+            resources.ApplyResources(this.lblPriceIncl21VAT, "lblPriceIncl21VAT");
+            this.lblPriceIncl21VAT.Name = "lblPriceIncl21VAT";
             // 
             // btnCash
             // 
@@ -438,6 +440,7 @@
             // 
             // pnlSplitPayment
             // 
+            this.pnlSplitPayment.Controls.Add(this.btnBackFromSplit);
             this.pnlSplitPayment.Controls.Add(this.btnNextPayment);
             this.pnlSplitPayment.Controls.Add(this.btnProcessCardSplitPayment);
             this.pnlSplitPayment.Controls.Add(this.rdBtnCash);
@@ -453,12 +456,21 @@
             resources.ApplyResources(this.pnlSplitPayment, "pnlSplitPayment");
             this.pnlSplitPayment.Name = "pnlSplitPayment";
             // 
+            // btnBackFromSplit
+            // 
+            resources.ApplyResources(this.btnBackFromSplit, "btnBackFromSplit");
+            this.btnBackFromSplit.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.btnBackFromSplit.Name = "btnBackFromSplit";
+            this.btnBackFromSplit.UseVisualStyleBackColor = true;
+            this.btnBackFromSplit.Click += new System.EventHandler(this.btnBackFromSplit_Click);
+            // 
             // btnNextPayment
             // 
             resources.ApplyResources(this.btnNextPayment, "btnNextPayment");
             this.btnNextPayment.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.btnNextPayment.Name = "btnNextPayment";
             this.btnNextPayment.UseVisualStyleBackColor = true;
+            this.btnNextPayment.Click += new System.EventHandler(this.btnNextPayment_Click);
             // 
             // btnProcessCardSplitPayment
             // 
@@ -466,6 +478,7 @@
             this.btnProcessCardSplitPayment.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.btnProcessCardSplitPayment.Name = "btnProcessCardSplitPayment";
             this.btnProcessCardSplitPayment.UseVisualStyleBackColor = true;
+            this.btnProcessCardSplitPayment.Click += new System.EventHandler(this.btnProcessCardSplitPayment_Click);
             // 
             // rdBtnCash
             // 
@@ -473,6 +486,7 @@
             this.rdBtnCash.Name = "rdBtnCash";
             this.rdBtnCash.TabStop = true;
             this.rdBtnCash.UseVisualStyleBackColor = true;
+            this.rdBtnCash.CheckedChanged += new System.EventHandler(this.rdBtnCash_CheckedChanged);
             // 
             // radBtnPin
             // 
@@ -480,6 +494,7 @@
             this.radBtnPin.Name = "radBtnPin";
             this.radBtnPin.TabStop = true;
             this.radBtnPin.UseVisualStyleBackColor = true;
+            this.radBtnPin.CheckedChanged += new System.EventHandler(this.radBtnPin_CheckedChanged);
             // 
             // lblSplitRemainingToPay
             // 
@@ -575,8 +590,8 @@
         private System.Windows.Forms.Panel pnlCashPayment;
         private System.Windows.Forms.Label lblVAT6;
         private System.Windows.Forms.Label lblVAT21;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label lblPriceIncl6VAT;
+        private System.Windows.Forms.Label lblPriceIncl21VAT;
         private System.Windows.Forms.Button btnCalculateTipAndTotal;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label9;
@@ -612,5 +627,6 @@
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Button btnBackFromSplit;
     }
 }

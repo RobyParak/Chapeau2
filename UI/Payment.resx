@@ -103,7 +103,7 @@
     <value>Name</value>
   </data>
   <data name="Item.Width" type="System.Int32, mscorlib">
-    <value>280</value>
+    <value>285</value>
   </data>
   <data name="Price.Text" xml:space="preserve">
     <value>€ Price</value>
@@ -162,7 +162,7 @@
     <value>NoControl</value>
   </data>
   <data name="btnSplitPayment.Location" type="System.Drawing.Point, System.Drawing">
-    <value>349, 695</value>
+    <value>349, 707</value>
   </data>
   <data name="btnSplitPayment.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>4, 3, 4, 3</value>
@@ -191,8 +191,11 @@
   <data name="btnBackToOrderViewFromPaymentMainPage.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
     <value>System</value>
   </data>
+  <data name="btnBackToOrderViewFromPaymentMainPage.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
   <data name="btnBackToOrderViewFromPaymentMainPage.Location" type="System.Drawing.Point, System.Drawing">
-    <value>22, 695</value>
+    <value>22, 707</value>
   </data>
   <data name="btnBackToOrderViewFromPaymentMainPage.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>4, 3, 4, 3</value>
@@ -285,7 +288,7 @@
     <value>Segoe UI, 10pt</value>
   </data>
   <data name="btnCalculateTipAndTotal.Location" type="System.Drawing.Point, System.Drawing">
-    <value>342, 647</value>
+    <value>342, 648</value>
   </data>
   <data name="btnCalculateTipAndTotal.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>4, 3, 4, 3</value>
@@ -371,71 +374,74 @@
   <data name="&gt;&gt;lblVAT21.ZOrder" xml:space="preserve">
     <value>6</value>
   </data>
-  <data name="label8.AutoSize" type="System.Boolean, mscorlib">
+  <data name="lblPriceIncl6VAT.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
-  <data name="label8.Location" type="System.Drawing.Point, System.Drawing">
+  <data name="lblPriceIncl6VAT.Location" type="System.Drawing.Point, System.Drawing">
     <value>33, 610</value>
   </data>
-  <data name="label8.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+  <data name="lblPriceIncl6VAT.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>4, 0, 4, 0</value>
   </data>
-  <data name="label8.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="lblPriceIncl6VAT.Size" type="System.Drawing.Size, System.Drawing">
     <value>128, 32</value>
   </data>
-  <data name="label8.TabIndex" type="System.Int32, mscorlib">
+  <data name="lblPriceIncl6VAT.TabIndex" type="System.Int32, mscorlib">
     <value>12</value>
   </data>
-  <data name="label8.Text" xml:space="preserve">
+  <data name="lblPriceIncl6VAT.Text" xml:space="preserve">
     <value>VAT at  6%</value>
   </data>
-  <data name="&gt;&gt;label8.Name" xml:space="preserve">
-    <value>label8</value>
+  <data name="&gt;&gt;lblPriceIncl6VAT.Name" xml:space="preserve">
+    <value>lblPriceIncl6VAT</value>
   </data>
-  <data name="&gt;&gt;label8.Type" xml:space="preserve">
+  <data name="&gt;&gt;lblPriceIncl6VAT.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;label8.Parent" xml:space="preserve">
+  <data name="&gt;&gt;lblPriceIncl6VAT.Parent" xml:space="preserve">
     <value>pnlPayment</value>
   </data>
-  <data name="&gt;&gt;label8.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;lblPriceIncl6VAT.ZOrder" xml:space="preserve">
     <value>7</value>
   </data>
-  <data name="label7.AutoSize" type="System.Boolean, mscorlib">
+  <data name="lblPriceIncl21VAT.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
-  <data name="label7.Location" type="System.Drawing.Point, System.Drawing">
+  <data name="lblPriceIncl21VAT.Location" type="System.Drawing.Point, System.Drawing">
     <value>33, 568</value>
   </data>
-  <data name="label7.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+  <data name="lblPriceIncl21VAT.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>4, 0, 4, 0</value>
   </data>
-  <data name="label7.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="lblPriceIncl21VAT.Size" type="System.Drawing.Size, System.Drawing">
     <value>134, 32</value>
   </data>
-  <data name="label7.TabIndex" type="System.Int32, mscorlib">
+  <data name="lblPriceIncl21VAT.TabIndex" type="System.Int32, mscorlib">
     <value>11</value>
   </data>
-  <data name="label7.Text" xml:space="preserve">
+  <data name="lblPriceIncl21VAT.Text" xml:space="preserve">
     <value>VAT at 21%</value>
   </data>
-  <data name="&gt;&gt;label7.Name" xml:space="preserve">
-    <value>label7</value>
+  <data name="&gt;&gt;lblPriceIncl21VAT.Name" xml:space="preserve">
+    <value>lblPriceIncl21VAT</value>
   </data>
-  <data name="&gt;&gt;label7.Type" xml:space="preserve">
+  <data name="&gt;&gt;lblPriceIncl21VAT.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;label7.Parent" xml:space="preserve">
+  <data name="&gt;&gt;lblPriceIncl21VAT.Parent" xml:space="preserve">
     <value>pnlPayment</value>
   </data>
-  <data name="&gt;&gt;label7.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;lblPriceIncl21VAT.ZOrder" xml:space="preserve">
     <value>8</value>
   </data>
   <data name="btnCash.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
     <value>System</value>
   </data>
+  <data name="btnCash.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
   <data name="btnCash.Location" type="System.Drawing.Point, System.Drawing">
-    <value>241, 695</value>
+    <value>241, 707</value>
   </data>
   <data name="btnCash.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>4, 3, 4, 3</value>
@@ -464,8 +470,11 @@
   <data name="btnCard.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
     <value>System</value>
   </data>
+  <data name="btnCard.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
   <data name="btnCard.Location" type="System.Drawing.Point, System.Drawing">
-    <value>128, 695</value>
+    <value>128, 707</value>
   </data>
   <data name="btnCard.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>4, 3, 4, 3</value>
@@ -666,13 +675,13 @@
     <value>16</value>
   </data>
   <data name="pnlPayment.Location" type="System.Drawing.Point, System.Drawing">
-    <value>7, 144</value>
+    <value>22, 651</value>
   </data>
   <data name="pnlPayment.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>4, 3, 4, 3</value>
   </data>
   <data name="pnlPayment.Size" type="System.Drawing.Size, System.Drawing">
-    <value>446, 628</value>
+    <value>446, 89</value>
   </data>
   <data name="pnlPayment.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
@@ -2730,13 +2739,13 @@
     <value>11</value>
   </data>
   <data name="pnlCashPayment.Location" type="System.Drawing.Point, System.Drawing">
-    <value>7, 12</value>
+    <value>371, 449</value>
   </data>
   <data name="pnlCashPayment.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>4, 3, 4, 3</value>
   </data>
   <data name="pnlCashPayment.Size" type="System.Drawing.Size, System.Drawing">
-    <value>440, 113</value>
+    <value>317, 113</value>
   </data>
   <data name="pnlCashPayment.TabIndex" type="System.Int32, mscorlib">
     <value>5</value>
@@ -2753,6 +2762,33 @@
   <data name="&gt;&gt;pnlCashPayment.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
+  <data name="btnBackFromSplit.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 11pt</value>
+  </data>
+  <data name="btnBackFromSplit.Location" type="System.Drawing.Point, System.Drawing">
+    <value>21, 436</value>
+  </data>
+  <data name="btnBackFromSplit.Size" type="System.Drawing.Size, System.Drawing">
+    <value>76, 38</value>
+  </data>
+  <data name="btnBackFromSplit.TabIndex" type="System.Int32, mscorlib">
+    <value>12</value>
+  </data>
+  <data name="btnBackFromSplit.Text" xml:space="preserve">
+    <value>Back</value>
+  </data>
+  <data name="&gt;&gt;btnBackFromSplit.Name" xml:space="preserve">
+    <value>btnBackFromSplit</value>
+  </data>
+  <data name="&gt;&gt;btnBackFromSplit.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;btnBackFromSplit.Parent" xml:space="preserve">
+    <value>pnlSplitPayment</value>
+  </data>
+  <data name="&gt;&gt;btnBackFromSplit.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
   <data name="btnNextPayment.Enabled" type="System.Boolean, mscorlib">
     <value>False</value>
   </data>
@@ -2763,7 +2799,7 @@
     <value>260, 437</value>
   </data>
   <data name="btnNextPayment.Size" type="System.Drawing.Size, System.Drawing">
-    <value>135, 34</value>
+    <value>135, 38</value>
   </data>
   <data name="btnNextPayment.TabIndex" type="System.Int32, mscorlib">
     <value>11</value>
@@ -2781,7 +2817,7 @@
     <value>pnlSplitPayment</value>
   </data>
   <data name="&gt;&gt;btnNextPayment.ZOrder" xml:space="preserve">
-    <value>0</value>
+    <value>1</value>
   </data>
   <data name="btnProcessCardSplitPayment.Enabled" type="System.Boolean, mscorlib">
     <value>False</value>
@@ -2790,10 +2826,10 @@
     <value>Segoe UI, 10pt</value>
   </data>
   <data name="btnProcessCardSplitPayment.Location" type="System.Drawing.Point, System.Drawing">
-    <value>36, 438</value>
+    <value>113, 437</value>
   </data>
   <data name="btnProcessCardSplitPayment.Size" type="System.Drawing.Size, System.Drawing">
-    <value>135, 34</value>
+    <value>135, 38</value>
   </data>
   <data name="btnProcessCardSplitPayment.TabIndex" type="System.Int32, mscorlib">
     <value>10</value>
@@ -2811,7 +2847,7 @@
     <value>pnlSplitPayment</value>
   </data>
   <data name="&gt;&gt;btnProcessCardSplitPayment.ZOrder" xml:space="preserve">
-    <value>1</value>
+    <value>2</value>
   </data>
   <data name="rdBtnCash.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -2838,7 +2874,7 @@
     <value>pnlSplitPayment</value>
   </data>
   <data name="&gt;&gt;rdBtnCash.ZOrder" xml:space="preserve">
-    <value>2</value>
+    <value>3</value>
   </data>
   <data name="radBtnPin.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -2865,7 +2901,7 @@
     <value>pnlSplitPayment</value>
   </data>
   <data name="&gt;&gt;radBtnPin.ZOrder" xml:space="preserve">
-    <value>3</value>
+    <value>4</value>
   </data>
   <data name="lblSplitRemainingToPay.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -2895,7 +2931,7 @@
     <value>pnlSplitPayment</value>
   </data>
   <data name="&gt;&gt;lblSplitRemainingToPay.ZOrder" xml:space="preserve">
-    <value>4</value>
+    <value>5</value>
   </data>
   <data name="label17.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -2925,7 +2961,7 @@
     <value>pnlSplitPayment</value>
   </data>
   <data name="&gt;&gt;label17.ZOrder" xml:space="preserve">
-    <value>5</value>
+    <value>6</value>
   </data>
   <data name="textBox1.Font" type="System.Drawing.Font, System.Drawing">
     <value>Segoe UI, 11pt</value>
@@ -2949,7 +2985,7 @@
     <value>pnlSplitPayment</value>
   </data>
   <data name="&gt;&gt;textBox1.ZOrder" xml:space="preserve">
-    <value>6</value>
+    <value>7</value>
   </data>
   <data name="label15.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -2979,7 +3015,7 @@
     <value>pnlSplitPayment</value>
   </data>
   <data name="&gt;&gt;label15.ZOrder" xml:space="preserve">
-    <value>7</value>
+    <value>8</value>
   </data>
   <data name="lblSplitTotalDue.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -3006,7 +3042,7 @@
     <value>pnlSplitPayment</value>
   </data>
   <data name="&gt;&gt;lblSplitTotalDue.ZOrder" xml:space="preserve">
-    <value>8</value>
+    <value>9</value>
   </data>
   <data name="label13.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -3033,7 +3069,7 @@
     <value>pnlSplitPayment</value>
   </data>
   <data name="&gt;&gt;label13.ZOrder" xml:space="preserve">
-    <value>9</value>
+    <value>10</value>
   </data>
   <data name="label12.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -3060,7 +3096,7 @@
     <value>pnlSplitPayment</value>
   </data>
   <data name="&gt;&gt;label12.ZOrder" xml:space="preserve">
-    <value>10</value>
+    <value>11</value>
   </data>
   <data name="label11.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -3087,13 +3123,13 @@
     <value>pnlSplitPayment</value>
   </data>
   <data name="&gt;&gt;label11.ZOrder" xml:space="preserve">
-    <value>11</value>
+    <value>12</value>
   </data>
   <data name="pnlSplitPayment.Location" type="System.Drawing.Point, System.Drawing">
-    <value>12, 9</value>
+    <value>7, 12</value>
   </data>
   <data name="pnlSplitPayment.Size" type="System.Drawing.Size, System.Drawing">
-    <value>432, 760</value>
+    <value>432, 529</value>
   </data>
   <data name="pnlSplitPayment.TabIndex" type="System.Int32, mscorlib">
     <value>6</value>
