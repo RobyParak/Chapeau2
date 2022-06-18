@@ -24,7 +24,6 @@ namespace UI
             this.staff = staff;
             salesService = new SalesService();
             tableService = new TableService();
-            //listViewItems = new List<ListViewItem>();
             pnlFeedback.Hide();
             pnlPayment.Show();
             pnlCardPayment.Hide();
@@ -32,6 +31,10 @@ namespace UI
             pnlCashPayment.Hide();
             pnlSplitPayment.Hide();
             lblTableID.Text = table.Id.ToString();
+            //added this so if the form is reloaded the items won't be entered in the list twice
+            if (orderItems != null)
+                orderItems.Clear();
+
             orderItems = salesService.GetOrdersForBill(table.Id);
                       if (orderItems.Count > 0)
             {
@@ -57,7 +60,8 @@ namespace UI
                 }
 
                 DisplayPrice();
-                DisplayVAT(CalculateVAT(orderItems));
+                DisplayVAT(CalculateVAT(orderItems),TotalPriceIncludingVATButDivivedByVATPercentage());
+                
             }
             catch (Exception ex)
             {
@@ -149,12 +153,7 @@ namespace UI
             DisplayOrderForCashPanel(orderItems);
             lblTotalDueCash.Text = $"€ {bill.TotalDue.ToString():00.00}";
         }
-        private void DisplayStuffForCashPanel(List<OrderItem> orderItems)
-        {
-            DisplayOrderForCashPanel(orderItems);
-            lblTotalDueCash.Text = $"€ {bill.TotalDue.ToString():00.00}";
-        }
-
+      
         private void UpdateOrderStatusForWholeBill()
         {
             //update the order status in the database
@@ -165,7 +164,6 @@ namespace UI
             salesService.UpdateOrderStatus(bill, table);
         }
     
-
         private double[] CalculateVAT(List<OrderItem> orderItems)
         {
             double[] vat = { 0, 0 };
@@ -180,11 +178,28 @@ namespace UI
             bill.VAT = vat[0] + vat[1];
             return vat;
         }
-        private void DisplayVAT(double[] vat)
+        private double[] TotalPriceIncludingVATButDivivedByVATPercentage()
+        {
+            
+                double[] priceWithVAT = { 0, 0, };
+                int vat6 = 6;
+            foreach (OrderItem orderItem in orderItems)
+            {
+                if (orderItem.Item.VAT == vat6)
+                    priceWithVAT[0] += orderItem.Item.Price;
+                else
+                    priceWithVAT[1] += orderItem.Item.Price;
+                  
+            }
+            return priceWithVAT;
+
+        }
+        private void DisplayVAT(double[] vat, double[] priceInclVAT)
         {
             lblVAT6.Text = $"€ {vat[0]:00.00}";
             lblVAT21.Text = $"€ {vat[1]:00.00}";
-
+            lblPriceIncl6VAT.Text += $" of €{priceInclVAT[0]:00.00}";
+            lblPriceIncl21VAT.Text += $" of €{priceInclVAT[1]:00.00}";
         }
 
         private void btnCalculateTipAndTotal_Click(object sender, EventArgs e)
@@ -315,8 +330,7 @@ namespace UI
         }
         private void btnPaymentConfirmedCash_Click(object sender, EventArgs e)
         {
-           
-                //SplitBill();
+               //SplitBill();
             
                 PrintReceiptPopUp();
                 pnlCashPayment.Hide();
@@ -330,6 +344,48 @@ namespace UI
             pnlCashPayment.Hide();
             pnlPayment.Show();
             pnlPayment.Dock = DockStyle.Fill;
+        }
+
+        private void btnSplitPayment_Click(object sender, EventArgs e)
+        {
+            pnlSplitPayment.Show();
+            pnlPayment.Hide();
+            pnlSplitPayment.Dock = DockStyle.Fill;
+        }
+
+        private void btnBackFromSplit_Click(object sender, EventArgs e)
+        {
+            pnlSplitPayment.Hide();
+            pnlPayment.Show();
+            pnlPayment.Dock= DockStyle.Fill;    
+
+        }
+
+        private void radBtnPin_CheckedChanged(object sender, EventArgs e)
+        {
+            if (radBtnPin.Checked)
+                btnProcessCardSplitPayment.Enabled = true;
+        }
+
+        private void rdBtnCash_CheckedChanged(object sender, EventArgs e)
+        {
+            if (rdBtnCash.Checked)
+            {
+                btnNextPayment.Enabled = true;
+                btnProcessCardSplitPayment.Enabled = false;
+            }
+        }
+
+        private void btnProcessCardSplitPayment_Click(object sender, EventArgs e)
+        {
+            pnlSplitPayment.Hide();
+            pnlCardPayment.Show();
+            pnlCardPayment.Dock = DockStyle.Fill;
+        }
+
+        private void btnNextPayment_Click(object sender, EventArgs e)
+        {
+            //if remaining not 0 then repeat split payment
         }
     }
 }
