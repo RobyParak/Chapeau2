@@ -85,7 +85,7 @@
             this.radBtnPin = new System.Windows.Forms.RadioButton();
             this.lblSplitRemainingToPay = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtEnteredAmountToPayForSplitting = new System.Windows.Forms.TextBox();
             this.label15 = new System.Windows.Forms.Label();
             this.lblSplitTotalDue = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
@@ -125,7 +125,6 @@
             this.listViewBill.Sorting = System.Windows.Forms.SortOrder.Ascending;
             this.listViewBill.UseCompatibleStateImageBehavior = false;
             this.listViewBill.View = System.Windows.Forms.View.Details;
-            this.listViewBill.SelectedIndexChanged += new System.EventHandler(this.listViewBill_SelectedIndexChanged);
             // 
             // Quantity
             // 
@@ -447,7 +446,7 @@
             this.pnlSplitPayment.Controls.Add(this.radBtnPin);
             this.pnlSplitPayment.Controls.Add(this.lblSplitRemainingToPay);
             this.pnlSplitPayment.Controls.Add(this.label17);
-            this.pnlSplitPayment.Controls.Add(this.textBox1);
+            this.pnlSplitPayment.Controls.Add(this.txtEnteredAmountToPayForSplitting);
             this.pnlSplitPayment.Controls.Add(this.label15);
             this.pnlSplitPayment.Controls.Add(this.lblSplitTotalDue);
             this.pnlSplitPayment.Controls.Add(this.label13);
@@ -506,10 +505,10 @@
             resources.ApplyResources(this.label17, "label17");
             this.label17.Name = "label17";
             // 
-            // textBox1
+            // txtEnteredAmountToPayForSplitting
             // 
-            resources.ApplyResources(this.textBox1, "textBox1");
-            this.textBox1.Name = "textBox1";
+            resources.ApplyResources(this.txtEnteredAmountToPayForSplitting, "txtEnteredAmountToPayForSplitting");
+            this.txtEnteredAmountToPayForSplitting.Name = "txtEnteredAmountToPayForSplitting";
             // 
             // label15
             // 
@@ -621,7 +620,7 @@
         private System.Windows.Forms.RadioButton radBtnPin;
         private System.Windows.Forms.Label lblSplitRemainingToPay;
         private System.Windows.Forms.Label label17;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtEnteredAmountToPayForSplitting;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Label lblSplitTotalDue;
         private System.Windows.Forms.Label label13;
