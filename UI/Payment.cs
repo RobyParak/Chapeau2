@@ -30,6 +30,7 @@ namespace UI
             pnlCardPayment.Hide();
             pnlPayment.Dock = DockStyle.Fill;
             pnlCashPayment.Hide();
+            pnlSplitPayment.Hide();
             lblTableID.Text = table.Id.ToString();
             orderItems = salesService.GetOrdersForBill(table.Id);
                       if (orderItems.Count > 0)
@@ -94,14 +95,6 @@ namespace UI
             CalculateAmountDue(orderItems);
             lblAmountDue.Text = $"€ {bill.AmountDue:00.00}";
         }
-
-        private void DisplayPrice(List<OrderItem> orderItems)
-        {
-            bill.AmountDue = 0;
-            CalculateAmountDue(orderItems);
-            lblAmountDue.Text = "€ " + bill.AmountDue;
-        }
-
 
         private void btnCard_Click(object sender, EventArgs e)
         {
