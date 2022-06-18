@@ -377,7 +377,7 @@ namespace UI
             //if remaining not 0 then repeat split payment
             AddAmountToSubTotal();
             lblSplitTotalDue.Text = $"{(bill.TotalDue - subtotal):00.00}";
-            lblSplitRemainingToPay.Text = "€ ";
+            
             rdBtnCash.Checked = false;
             btnNextPayment.Enabled = false;
             if (subtotal >= bill.TotalDue)
@@ -386,6 +386,8 @@ namespace UI
                 pnlFeedback.Show();
                 pnlFeedback.Dock = DockStyle.Fill;
             }
+            lblSplitRemainingToPay.Text = "€ ";
+            txtEnteredAmountToPayForSplitting.Clear();
         }
         //do a method to remove paid from total and show a new total due
         private void showRemainingToPayForSplitBill()
