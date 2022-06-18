@@ -76,6 +76,7 @@
             this.label20 = new System.Windows.Forms.Label();
             this.label21 = new System.Windows.Forms.Label();
             this.label22 = new System.Windows.Forms.Label();
+            this.btnSplitPayment = new System.Windows.Forms.Button();
             this.pnlPayment.SuspendLayout();
             this.pnlCardPayment.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -125,6 +126,7 @@
             // 
             // pnlPayment
             // 
+            this.pnlPayment.Controls.Add(this.btnSplitPayment);
             this.pnlPayment.Controls.Add(this.btnBackToOrderViewFromPaymentMainPage);
             this.pnlPayment.Controls.Add(this.label10);
             this.pnlPayment.Controls.Add(this.label9);
@@ -413,6 +415,13 @@
             resources.ApplyResources(this.label22, "label22");
             this.label22.Name = "label22";
             // 
+            // btnSplitPayment
+            // 
+            resources.ApplyResources(this.btnSplitPayment, "btnSplitPayment");
+            this.btnSplitPayment.ForeColor = System.Drawing.SystemColors.ButtonShadow;
+            this.btnSplitPayment.Name = "btnSplitPayment";
+            this.btnSplitPayment.UseVisualStyleBackColor = true;
+            // 
             // Payment
             // 
             resources.ApplyResources(this, "$this");
@@ -487,5 +496,6 @@
         private System.Windows.Forms.Button btnBackFromCashToMainPayment;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.Button btnSplitPayment;
     }
 }
