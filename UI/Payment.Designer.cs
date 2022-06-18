@@ -35,6 +35,7 @@
             this.Item = new System.Windows.Forms.ColumnHeader();
             this.Price = new System.Windows.Forms.ColumnHeader();
             this.pnlPayment = new System.Windows.Forms.Panel();
+            this.btnSplitPayment = new System.Windows.Forms.Button();
             this.btnBackToOrderViewFromPaymentMainPage = new System.Windows.Forms.Button();
             this.label10 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
@@ -76,7 +77,6 @@
             this.label20 = new System.Windows.Forms.Label();
             this.label21 = new System.Windows.Forms.Label();
             this.label22 = new System.Windows.Forms.Label();
-            this.btnSplitPayment = new System.Windows.Forms.Button();
             this.pnlPayment.SuspendLayout();
             this.pnlCardPayment.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -147,6 +147,13 @@
             this.pnlPayment.Controls.Add(this.lblTableID);
             resources.ApplyResources(this.pnlPayment, "pnlPayment");
             this.pnlPayment.Name = "pnlPayment";
+            // 
+            // btnSplitPayment
+            // 
+            resources.ApplyResources(this.btnSplitPayment, "btnSplitPayment");
+            this.btnSplitPayment.ForeColor = System.Drawing.SystemColors.ButtonShadow;
+            this.btnSplitPayment.Name = "btnSplitPayment";
+            this.btnSplitPayment.UseVisualStyleBackColor = true;
             // 
             // btnBackToOrderViewFromPaymentMainPage
             // 
@@ -414,13 +421,6 @@
             // 
             resources.ApplyResources(this.label22, "label22");
             this.label22.Name = "label22";
-            // 
-            // btnSplitPayment
-            // 
-            resources.ApplyResources(this.btnSplitPayment, "btnSplitPayment");
-            this.btnSplitPayment.ForeColor = System.Drawing.SystemColors.ButtonShadow;
-            this.btnSplitPayment.Name = "btnSplitPayment";
-            this.btnSplitPayment.UseVisualStyleBackColor = true;
             // 
             // Payment
             // 
