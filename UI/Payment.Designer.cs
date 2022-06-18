@@ -41,8 +41,8 @@
             this.btnCalculateTipAndTotal = new System.Windows.Forms.Button();
             this.lblVAT6 = new System.Windows.Forms.Label();
             this.lblVAT21 = new System.Windows.Forms.Label();
-            this.lblVAT6OF = new System.Windows.Forms.Label();
-            this.lblVAT21OF = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
             this.btnCash = new System.Windows.Forms.Button();
             this.btnCard = new System.Windows.Forms.Button();
             this.txtTotalDue = new System.Windows.Forms.TextBox();
@@ -110,6 +110,7 @@
             this.listViewBill.Sorting = System.Windows.Forms.SortOrder.Ascending;
             this.listViewBill.UseCompatibleStateImageBehavior = false;
             this.listViewBill.View = System.Windows.Forms.View.Details;
+            this.listViewBill.SelectedIndexChanged += new System.EventHandler(this.listViewBill_SelectedIndexChanged);
             // 
             // Quantity
             // 
@@ -132,8 +133,8 @@
             this.pnlPayment.Controls.Add(this.btnCalculateTipAndTotal);
             this.pnlPayment.Controls.Add(this.lblVAT6);
             this.pnlPayment.Controls.Add(this.lblVAT21);
-            this.pnlPayment.Controls.Add(this.lblVAT6OF);
-            this.pnlPayment.Controls.Add(this.lblVAT21OF);
+            this.pnlPayment.Controls.Add(this.label8);
+            this.pnlPayment.Controls.Add(this.label7);
             this.pnlPayment.Controls.Add(this.btnCash);
             this.pnlPayment.Controls.Add(this.btnCard);
             this.pnlPayment.Controls.Add(this.txtTotalDue);
@@ -183,15 +184,15 @@
             resources.ApplyResources(this.lblVAT21, "lblVAT21");
             this.lblVAT21.Name = "lblVAT21";
             // 
-            // lblVAT6OF
+            // label8
             // 
-            resources.ApplyResources(this.lblVAT6OF, "lblVAT6OF");
-            this.lblVAT6OF.Name = "lblVAT6OF";
+            resources.ApplyResources(this.label8, "label8");
+            this.label8.Name = "label8";
             // 
-            // lblVAT21OF
+            // label7
             // 
-            resources.ApplyResources(this.lblVAT21OF, "lblVAT21OF");
-            this.lblVAT21OF.Name = "lblVAT21OF";
+            resources.ApplyResources(this.label7, "label7");
+            this.label7.Name = "label7";
             // 
             // btnCash
             // 
@@ -420,17 +421,16 @@
             this.btnSplitPayment.ForeColor = System.Drawing.SystemColors.ButtonShadow;
             this.btnSplitPayment.Name = "btnSplitPayment";
             this.btnSplitPayment.UseVisualStyleBackColor = true;
-            this.btnSplitPayment.Click += new System.EventHandler(this.btnSplitPayment_Click);
             // 
             // Payment
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.WindowFrame;
-            this.Controls.Add(this.pnlFeedback);
-            this.Controls.Add(this.pnlCardPayment);
-            this.Controls.Add(this.pnlPayment);
             this.Controls.Add(this.pnlCashPayment);
+            this.Controls.Add(this.pnlCardPayment);
+            this.Controls.Add(this.pnlFeedback);
+            this.Controls.Add(this.pnlPayment);
             this.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.Name = "Payment";
             this.pnlPayment.ResumeLayout(false);
@@ -473,8 +473,8 @@
         private System.Windows.Forms.Panel pnlCashPayment;
         private System.Windows.Forms.Label lblVAT6;
         private System.Windows.Forms.Label lblVAT21;
-        private System.Windows.Forms.Label lblVAT6OF;
-        private System.Windows.Forms.Label lblVAT21OF;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Button btnCalculateTipAndTotal;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label9;
@@ -489,7 +489,6 @@
         private System.Windows.Forms.Label label22;
         private System.Windows.Forms.ListView listViewOrderCashPannel;
         private System.Windows.Forms.ColumnHeader columnHeader1;
-        private System.Windows.Forms.Button btnSplitPayment;
         private System.Windows.Forms.ColumnHeader columnHeader2;
         private System.Windows.Forms.ColumnHeader columnHeader3;
         private System.Windows.Forms.Button btnPaymentConfirmedCash;
@@ -497,6 +496,6 @@
         private System.Windows.Forms.Button btnBackFromCashToMainPayment;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.PictureBox pictureBox2;
-        private System.Windows.Forms.ColumnHeader columnHeader1;
+        private System.Windows.Forms.Button btnSplitPayment;
     }
 }
