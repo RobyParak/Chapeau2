@@ -16,6 +16,8 @@ namespace UI
         SalesService salesService;
         TableService tableService;
         List<OrderItem> orderItems;
+        bool splitPayment = false;
+        double subtotal = 0;
         public Payment(Table table, Bill bill, Staff staff)
         {
             InitializeComponent();
@@ -36,7 +38,7 @@ namespace UI
                 orderItems.Clear();
 
             orderItems = salesService.GetOrdersForBill(table.Id);
-                      if (orderItems.Count > 0)
+            if (orderItems.Count > 0)
             {
                 DisplayOrder(orderItems);
             }
@@ -60,8 +62,8 @@ namespace UI
                 }
 
                 DisplayPrice();
-                DisplayVAT(CalculateVAT(orderItems),TotalPriceIncludingVATButDivivedByVATPercentage());
-                
+                DisplayVAT(CalculateVAT(orderItems), TotalPriceIncludingVATButDivivedByVATPercentage());
+
             }
             catch (Exception ex)
             {
@@ -72,14 +74,14 @@ namespace UI
         {
             try
             {
-                
-                    foreach (OrderItem orderItem in orderItems)
-                    {
-                        string[] items = { $"x{orderItem.Quantity}", orderItem.Item.ItemName, $"€{orderItem.Item.Price}" };
-                        ListViewItem li = new ListViewItem(items);
-                        listViewOrderCashPannel.Items.Add(li);
-                    }
-                
+
+                foreach (OrderItem orderItem in orderItems)
+                {
+                    string[] items = { $"x{orderItem.Quantity}", orderItem.Item.ItemName, $"€{orderItem.Item.Price}" };
+                    ListViewItem li = new ListViewItem(items);
+                    listViewOrderCashPannel.Items.Add(li);
+                }
+
                 CalculateAmountDue(orderItems);
                 DisplayPrice();
             }
@@ -111,14 +113,27 @@ namespace UI
 
 
         private void btnPaymentSuccessful_Click_1(object sender, EventArgs e)
-        { 
-            //SplitBill();
-                        
+        {
+            if ((splitPayment == true) & (subtotal != bill.TotalDue))
+
+            {
+                lblSplitTotalDue.Text = $"{(bill.TotalDue - subtotal):00.00}";
+                lblSplitRemainingToPay.Text = "€ ";
+
+                pnlSplitPayment.Show();
+                pnlCardPayment.Hide();
+                pnlSplitPayment.Dock = DockStyle.Fill;
+            }
+
+            else
+            {
+
                 PrintReceiptPopUp();
                 pnlCardPayment.Hide();
                 pnlFeedback.Show();
                 pnlFeedback.Dock = DockStyle.Fill;
-            
+            }
+
         }
 
         private void btnBack_Click_1(object sender, EventArgs e)
@@ -151,9 +166,9 @@ namespace UI
         private void DisplayStuffForCashPanel()
         {
             DisplayOrderForCashPanel(orderItems);
-            lblTotalDueCash.Text = $"€ {bill.TotalDue.ToString():00.00}";
+            lblTotalDueCash.Text = $"€ {bill.TotalDue:00.00}";
         }
-      
+
         private void UpdateOrderStatusForWholeBill()
         {
             //update the order status in the database
@@ -163,7 +178,7 @@ namespace UI
             }
             salesService.UpdateOrderStatus(bill, table);
         }
-    
+
         private double[] CalculateVAT(List<OrderItem> orderItems)
         {
             double[] vat = { 0, 0 };
@@ -180,16 +195,16 @@ namespace UI
         }
         private double[] TotalPriceIncludingVATButDivivedByVATPercentage()
         {
-            
-                double[] priceWithVAT = { 0, 0, };
-                int vat6 = 6;
+
+            double[] priceWithVAT = { 0, 0, };
+            int vat6 = 6;
             foreach (OrderItem orderItem in orderItems)
             {
                 if (orderItem.Item.VAT == vat6)
                     priceWithVAT[0] += orderItem.Item.Price;
                 else
                     priceWithVAT[1] += orderItem.Item.Price;
-                  
+
             }
             return priceWithVAT;
 
@@ -206,11 +221,13 @@ namespace UI
         {
             try
             {
-                if (!string.IsNullOrEmpty(txtTip.Text))
+                if (string.IsNullOrEmpty(txtTip.Text) && string.IsNullOrEmpty(txtTotalDue.Text))
+                    bill.TotalDue = bill.AmountDue;
+                else if (!string.IsNullOrEmpty(txtTip.Text))
                 {
                     bill.Tip = double.Parse(txtTip.Text);
                     bill.TotalDue = bill.AmountDue + bill.Tip;
-                    txtTotalDue.Text = $"{bill.TotalDue.ToString():00.00}";
+                    txtTotalDue.Text = $"{bill.TotalDue:00.00}";
 
                 }
                 else
@@ -219,7 +236,7 @@ namespace UI
                     {
                         bill.TotalDue = double.Parse(txtTotalDue.Text);
                         bill.Tip = bill.TotalDue - bill.AmountDue;
-                        txtTip.Text = $"{bill.Tip.ToString():00.00}";
+                        txtTip.Text = $"{bill.Tip:00.00}";
                     }
 
                     else
@@ -259,35 +276,6 @@ namespace UI
             tableForm.ShowDialog();
         }
 
-        private void listViewBill_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            OrderItem itemToAdd = new OrderItem();
-            itemToAdd.Item = new Item();
-            try
-            {
-                if (listViewBill.SelectedItems.Count == 0)
-                {
-                    return;
-                }
-
-                ListViewItem selectedListViewItem = this.listViewBill.SelectedItems[0];
-                itemToAdd.Quantity = int.Parse(selectedListViewItem.SubItems[0].Text);
-                itemToAdd.Item.ItemName = selectedListViewItem.SubItems[1].Text;
-                itemToAdd.Item.Price = double.Parse(selectedListViewItem.SubItems[2].Text);
-                selectedListViewItem.Tag = itemToAdd;
-
-                //foreach(ListViewItem listViewItem in listViewBill.SelectedItems)
-                //{
-                //    if (selectedListViewItem == listViewItem)
-                //        MessageBox.Show("Item already selected");
-               
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("An error occoured: ", ex.Message);
-            }
-        }
-
         private void btnBackToOrderViewFromPaymentMainPage_Click(object sender, EventArgs e)
         {
             Close();
@@ -301,42 +289,22 @@ namespace UI
             if (double.Parse(txtCashReceived.Text) > bill.TotalDue)
             {
                 double ChangeDue = double.Parse(txtCashReceived.Text) - bill.TotalDue;
-                lblChange.Text = "€ " + ChangeDue.ToString();
+                lblChange.Text = $"€ {ChangeDue:00.00}";
             }
             else
                 MessageBox.Show("To calculate change a greater ammount than total due must be entered");
         }
-        private void SplitBill()
+        private void AddAmountToSubTotal()
         {
-            UpdateFirstPanel();
-        }
-        private void UpdateFirstPanel()
-        {
-            try
-            {
-                //get new orderItem list now that some have been paid
-                orderItems = salesService.GetOrdersForBill(table.Id);
-                //referesh main page listview
-                DisplayOrder(orderItems);
-                pnlCashPayment.Hide();
-                pnlCardPayment.Hide();
-                pnlPayment.Show();
-                pnlPayment.Dock = DockStyle.Fill;
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("An error occoured: ", ex.Message);
-            }
+            subtotal += double.Parse(txtEnteredAmountToPayForSplitting.Text);
         }
         private void btnPaymentConfirmedCash_Click(object sender, EventArgs e)
         {
-               //SplitBill();
-            
-                PrintReceiptPopUp();
-                pnlCashPayment.Hide();
-                pnlFeedback.Show();
-                pnlFeedback.Dock = DockStyle.Fill;
-            
+            PrintReceiptPopUp();
+            pnlCashPayment.Hide();
+            pnlFeedback.Show();
+            pnlFeedback.Dock = DockStyle.Fill;
+
         }
 
         private void btnBackFromCashToMainPayment_Click(object sender, EventArgs e)
@@ -348,36 +316,57 @@ namespace UI
 
         private void btnSplitPayment_Click(object sender, EventArgs e)
         {
+            splitPayment = true;
             pnlSplitPayment.Show();
             pnlPayment.Hide();
             pnlSplitPayment.Dock = DockStyle.Fill;
+            lblSplitTotalDue.Text = $"€ {bill.TotalDue:00.00}";
         }
 
         private void btnBackFromSplit_Click(object sender, EventArgs e)
         {
             pnlSplitPayment.Hide();
             pnlPayment.Show();
-            pnlPayment.Dock= DockStyle.Fill;    
-
+            pnlPayment.Dock = DockStyle.Fill;
+            splitPayment = false;
         }
 
         private void radBtnPin_CheckedChanged(object sender, EventArgs e)
         {
-            if (radBtnPin.Checked)
-                btnProcessCardSplitPayment.Enabled = true;
+
+            if (!string.IsNullOrEmpty(txtEnteredAmountToPayForSplitting.Text))
+            {
+                showRemainingToPayForSplitBill();
+                if (radBtnPin.Checked)
+                {
+                    btnProcessCardSplitPayment.Enabled = true;
+                    btnNextPayment.Enabled = false;
+                }
+            }
+            else
+                MessageBox.Show("Please enter amount you wish to pay, first");
         }
 
         private void rdBtnCash_CheckedChanged(object sender, EventArgs e)
         {
-            if (rdBtnCash.Checked)
+
+            if (!string.IsNullOrEmpty(txtEnteredAmountToPayForSplitting.Text))
             {
-                btnNextPayment.Enabled = true;
-                btnProcessCardSplitPayment.Enabled = false;
+                showRemainingToPayForSplitBill();
+                if (rdBtnCash.Checked)
+                {
+                    btnNextPayment.Enabled = true;
+                    btnProcessCardSplitPayment.Enabled = false;
+                }
             }
+            else
+                MessageBox.Show("Please enter amount you wish to pay, first");
+
         }
 
         private void btnProcessCardSplitPayment_Click(object sender, EventArgs e)
         {
+            AddAmountToSubTotal();
             pnlSplitPayment.Hide();
             pnlCardPayment.Show();
             pnlCardPayment.Dock = DockStyle.Fill;
@@ -386,6 +375,22 @@ namespace UI
         private void btnNextPayment_Click(object sender, EventArgs e)
         {
             //if remaining not 0 then repeat split payment
+            AddAmountToSubTotal();
+            lblSplitTotalDue.Text = $"{(bill.TotalDue - subtotal):00.00}";
+            lblSplitRemainingToPay.Text = "€ ";
+            rdBtnCash.Checked = false;
+            btnNextPayment.Enabled = false;
+            if (subtotal >= bill.TotalDue)
+            {
+                pnlSplitPayment.Hide();
+                pnlFeedback.Show();
+                pnlFeedback.Dock = DockStyle.Fill;
+            }
+        }
+        //do a method to remove paid from total and show a new total due
+        private void showRemainingToPayForSplitBill()
+        {
+            lblSplitRemainingToPay.Text = $"€ {(bill.TotalDue - subtotal - double.Parse(txtEnteredAmountToPayForSplitting.Text)):00.00}";
         }
     }
 }

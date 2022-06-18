@@ -2963,28 +2963,28 @@
   <data name="&gt;&gt;label17.ZOrder" xml:space="preserve">
     <value>6</value>
   </data>
-  <data name="textBox1.Font" type="System.Drawing.Font, System.Drawing">
+  <data name="txtEnteredAmountToPayForSplitting.Font" type="System.Drawing.Font, System.Drawing">
     <value>Segoe UI, 11pt</value>
   </data>
-  <data name="textBox1.Location" type="System.Drawing.Point, System.Drawing">
+  <data name="txtEnteredAmountToPayForSplitting.Location" type="System.Drawing.Point, System.Drawing">
     <value>310, 187</value>
   </data>
-  <data name="textBox1.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="txtEnteredAmountToPayForSplitting.Size" type="System.Drawing.Size, System.Drawing">
     <value>79, 37</value>
   </data>
-  <data name="textBox1.TabIndex" type="System.Int32, mscorlib">
+  <data name="txtEnteredAmountToPayForSplitting.TabIndex" type="System.Int32, mscorlib">
     <value>5</value>
   </data>
-  <data name="&gt;&gt;textBox1.Name" xml:space="preserve">
-    <value>textBox1</value>
+  <data name="&gt;&gt;txtEnteredAmountToPayForSplitting.Name" xml:space="preserve">
+    <value>txtEnteredAmountToPayForSplitting</value>
   </data>
-  <data name="&gt;&gt;textBox1.Type" xml:space="preserve">
+  <data name="&gt;&gt;txtEnteredAmountToPayForSplitting.Type" xml:space="preserve">
     <value>System.Windows.Forms.TextBox, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;textBox1.Parent" xml:space="preserve">
+  <data name="&gt;&gt;txtEnteredAmountToPayForSplitting.Parent" xml:space="preserve">
     <value>pnlSplitPayment</value>
   </data>
-  <data name="&gt;&gt;textBox1.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;txtEnteredAmountToPayForSplitting.ZOrder" xml:space="preserve">
     <value>7</value>
   </data>
   <data name="label15.AutoSize" type="System.Boolean, mscorlib">
