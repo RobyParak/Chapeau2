@@ -77,11 +77,25 @@
             this.label20 = new System.Windows.Forms.Label();
             this.label21 = new System.Windows.Forms.Label();
             this.label22 = new System.Windows.Forms.Label();
+            this.pnlSplitPayment = new System.Windows.Forms.Panel();
+            this.btnNextPayment = new System.Windows.Forms.Button();
+            this.btnProcessCardSplitPayment = new System.Windows.Forms.Button();
+            this.rdBtnCash = new System.Windows.Forms.RadioButton();
+            this.radBtnPin = new System.Windows.Forms.RadioButton();
+            this.lblSplitRemainingToPay = new System.Windows.Forms.Label();
+            this.label17 = new System.Windows.Forms.Label();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.label15 = new System.Windows.Forms.Label();
+            this.lblSplitTotalDue = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
             this.pnlPayment.SuspendLayout();
             this.pnlCardPayment.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.pnlFeedback.SuspendLayout();
             this.pnlCashPayment.SuspendLayout();
+            this.pnlSplitPayment.SuspendLayout();
             this.SuspendLayout();
             // 
             // lblTableID
@@ -422,11 +436,97 @@
             resources.ApplyResources(this.label22, "label22");
             this.label22.Name = "label22";
             // 
+            // pnlSplitPayment
+            // 
+            this.pnlSplitPayment.Controls.Add(this.btnNextPayment);
+            this.pnlSplitPayment.Controls.Add(this.btnProcessCardSplitPayment);
+            this.pnlSplitPayment.Controls.Add(this.rdBtnCash);
+            this.pnlSplitPayment.Controls.Add(this.radBtnPin);
+            this.pnlSplitPayment.Controls.Add(this.lblSplitRemainingToPay);
+            this.pnlSplitPayment.Controls.Add(this.label17);
+            this.pnlSplitPayment.Controls.Add(this.textBox1);
+            this.pnlSplitPayment.Controls.Add(this.label15);
+            this.pnlSplitPayment.Controls.Add(this.lblSplitTotalDue);
+            this.pnlSplitPayment.Controls.Add(this.label13);
+            this.pnlSplitPayment.Controls.Add(this.label12);
+            this.pnlSplitPayment.Controls.Add(this.label11);
+            resources.ApplyResources(this.pnlSplitPayment, "pnlSplitPayment");
+            this.pnlSplitPayment.Name = "pnlSplitPayment";
+            // 
+            // btnNextPayment
+            // 
+            resources.ApplyResources(this.btnNextPayment, "btnNextPayment");
+            this.btnNextPayment.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.btnNextPayment.Name = "btnNextPayment";
+            this.btnNextPayment.UseVisualStyleBackColor = true;
+            // 
+            // btnProcessCardSplitPayment
+            // 
+            resources.ApplyResources(this.btnProcessCardSplitPayment, "btnProcessCardSplitPayment");
+            this.btnProcessCardSplitPayment.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.btnProcessCardSplitPayment.Name = "btnProcessCardSplitPayment";
+            this.btnProcessCardSplitPayment.UseVisualStyleBackColor = true;
+            // 
+            // rdBtnCash
+            // 
+            resources.ApplyResources(this.rdBtnCash, "rdBtnCash");
+            this.rdBtnCash.Name = "rdBtnCash";
+            this.rdBtnCash.TabStop = true;
+            this.rdBtnCash.UseVisualStyleBackColor = true;
+            // 
+            // radBtnPin
+            // 
+            resources.ApplyResources(this.radBtnPin, "radBtnPin");
+            this.radBtnPin.Name = "radBtnPin";
+            this.radBtnPin.TabStop = true;
+            this.radBtnPin.UseVisualStyleBackColor = true;
+            // 
+            // lblSplitRemainingToPay
+            // 
+            resources.ApplyResources(this.lblSplitRemainingToPay, "lblSplitRemainingToPay");
+            this.lblSplitRemainingToPay.Name = "lblSplitRemainingToPay";
+            // 
+            // label17
+            // 
+            resources.ApplyResources(this.label17, "label17");
+            this.label17.Name = "label17";
+            // 
+            // textBox1
+            // 
+            resources.ApplyResources(this.textBox1, "textBox1");
+            this.textBox1.Name = "textBox1";
+            // 
+            // label15
+            // 
+            resources.ApplyResources(this.label15, "label15");
+            this.label15.Name = "label15";
+            // 
+            // lblSplitTotalDue
+            // 
+            resources.ApplyResources(this.lblSplitTotalDue, "lblSplitTotalDue");
+            this.lblSplitTotalDue.Name = "lblSplitTotalDue";
+            // 
+            // label13
+            // 
+            resources.ApplyResources(this.label13, "label13");
+            this.label13.Name = "label13";
+            // 
+            // label12
+            // 
+            resources.ApplyResources(this.label12, "label12");
+            this.label12.Name = "label12";
+            // 
+            // label11
+            // 
+            resources.ApplyResources(this.label11, "label11");
+            this.label11.Name = "label11";
+            // 
             // Payment
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.WindowFrame;
+            this.Controls.Add(this.pnlSplitPayment);
             this.Controls.Add(this.pnlCashPayment);
             this.Controls.Add(this.pnlCardPayment);
             this.Controls.Add(this.pnlFeedback);
@@ -442,6 +542,8 @@
             this.pnlFeedback.PerformLayout();
             this.pnlCashPayment.ResumeLayout(false);
             this.pnlCashPayment.PerformLayout();
+            this.pnlSplitPayment.ResumeLayout(false);
+            this.pnlSplitPayment.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -497,5 +599,18 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.Button btnSplitPayment;
+        private System.Windows.Forms.Panel pnlSplitPayment;
+        private System.Windows.Forms.Button btnNextPayment;
+        private System.Windows.Forms.Button btnProcessCardSplitPayment;
+        private System.Windows.Forms.RadioButton rdBtnCash;
+        private System.Windows.Forms.RadioButton radBtnPin;
+        private System.Windows.Forms.Label lblSplitRemainingToPay;
+        private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.Label lblSplitTotalDue;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Label label11;
     }
 }
