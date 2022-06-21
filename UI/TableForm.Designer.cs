@@ -49,12 +49,13 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
+            this.button5 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnTable1
             // 
             this.btnTable1.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.btnTable1.Location = new System.Drawing.Point(134, 111);
+            this.btnTable1.Location = new System.Drawing.Point(152, 188);
             this.btnTable1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnTable1.Name = "btnTable1";
             this.btnTable1.Size = new System.Drawing.Size(45, 46);
@@ -66,7 +67,7 @@
             // btnTable2
             // 
             this.btnTable2.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.btnTable2.Location = new System.Drawing.Point(232, 111);
+            this.btnTable2.Location = new System.Drawing.Point(250, 188);
             this.btnTable2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnTable2.Name = "btnTable2";
             this.btnTable2.Size = new System.Drawing.Size(45, 46);
@@ -78,7 +79,7 @@
             // btnTable3
             // 
             this.btnTable3.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.btnTable3.Location = new System.Drawing.Point(134, 192);
+            this.btnTable3.Location = new System.Drawing.Point(152, 269);
             this.btnTable3.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnTable3.Name = "btnTable3";
             this.btnTable3.Size = new System.Drawing.Size(45, 46);
@@ -90,7 +91,7 @@
             // btnTable4
             // 
             this.btnTable4.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.btnTable4.Location = new System.Drawing.Point(232, 192);
+            this.btnTable4.Location = new System.Drawing.Point(250, 269);
             this.btnTable4.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnTable4.Name = "btnTable4";
             this.btnTable4.Size = new System.Drawing.Size(45, 46);
@@ -102,7 +103,7 @@
             // btnTable5
             // 
             this.btnTable5.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.btnTable5.Location = new System.Drawing.Point(134, 284);
+            this.btnTable5.Location = new System.Drawing.Point(152, 361);
             this.btnTable5.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnTable5.Name = "btnTable5";
             this.btnTable5.Size = new System.Drawing.Size(45, 46);
@@ -114,7 +115,7 @@
             // btnTable6
             // 
             this.btnTable6.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.btnTable6.Location = new System.Drawing.Point(232, 284);
+            this.btnTable6.Location = new System.Drawing.Point(250, 361);
             this.btnTable6.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnTable6.Name = "btnTable6";
             this.btnTable6.Size = new System.Drawing.Size(45, 46);
@@ -126,7 +127,7 @@
             // btnTable7
             // 
             this.btnTable7.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.btnTable7.Location = new System.Drawing.Point(134, 364);
+            this.btnTable7.Location = new System.Drawing.Point(152, 441);
             this.btnTable7.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnTable7.Name = "btnTable7";
             this.btnTable7.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
@@ -139,7 +140,7 @@
             // btnTable8
             // 
             this.btnTable8.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.btnTable8.Location = new System.Drawing.Point(232, 364);
+            this.btnTable8.Location = new System.Drawing.Point(250, 441);
             this.btnTable8.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnTable8.Name = "btnTable8";
             this.btnTable8.Size = new System.Drawing.Size(45, 46);
@@ -151,7 +152,7 @@
             // btnTable9
             // 
             this.btnTable9.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.btnTable9.Location = new System.Drawing.Point(134, 454);
+            this.btnTable9.Location = new System.Drawing.Point(152, 531);
             this.btnTable9.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnTable9.Name = "btnTable9";
             this.btnTable9.Size = new System.Drawing.Size(45, 46);
@@ -163,7 +164,7 @@
             // btnTable10
             // 
             this.btnTable10.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.btnTable10.Location = new System.Drawing.Point(232, 454);
+            this.btnTable10.Location = new System.Drawing.Point(250, 531);
             this.btnTable10.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnTable10.Name = "btnTable10";
             this.btnTable10.Size = new System.Drawing.Size(45, 46);
@@ -193,7 +194,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label1.Location = new System.Drawing.Point(154, 53);
+            this.label1.Location = new System.Drawing.Point(169, 71);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(106, 41);
             this.label1.TabIndex = 13;
@@ -202,7 +203,7 @@
             // button1
             // 
             this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.button1.Location = new System.Drawing.Point(71, 528);
+            this.button1.Location = new System.Drawing.Point(89, 702);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(19, 24);
             this.button1.TabIndex = 15;
@@ -210,7 +211,7 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(71, 564);
+            this.button2.Location = new System.Drawing.Point(89, 738);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(19, 24);
             this.button2.TabIndex = 16;
@@ -219,7 +220,7 @@
             // button3
             // 
             this.button3.BackColor = System.Drawing.SystemColors.MenuHighlight;
-            this.button3.Location = new System.Drawing.Point(258, 528);
+            this.button3.Location = new System.Drawing.Point(276, 702);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(19, 24);
             this.button3.TabIndex = 17;
@@ -228,7 +229,7 @@
             // button4
             // 
             this.button4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            this.button4.Location = new System.Drawing.Point(258, 564);
+            this.button4.Location = new System.Drawing.Point(276, 738);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(19, 24);
             this.button4.TabIndex = 18;
@@ -237,7 +238,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(108, 530);
+            this.label2.Location = new System.Drawing.Point(126, 704);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(60, 20);
             this.label2.TabIndex = 19;
@@ -246,7 +247,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(108, 566);
+            this.label3.Location = new System.Drawing.Point(126, 740);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(71, 20);
             this.label3.TabIndex = 20;
@@ -255,7 +256,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(304, 532);
+            this.label4.Location = new System.Drawing.Point(322, 706);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(54, 20);
             this.label4.TabIndex = 21;
@@ -264,18 +265,28 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(304, 566);
+            this.label5.Location = new System.Drawing.Point(322, 740);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(55, 20);
             this.label5.TabIndex = 22;
             this.label5.Text = "Seated";
             // 
+            // button5
+            // 
+            this.button5.Location = new System.Drawing.Point(2, 280);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(27, 190);
+            this.button5.TabIndex = 23;
+            this.button5.Text = "CLOAKROOM";
+            this.button5.UseVisualStyleBackColor = true;
+            // 
             // TableForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.LightSteelBlue;
-            this.ClientSize = new System.Drawing.Size(415, 600);
+            this.BackColor = System.Drawing.SystemColors.WindowFrame;
+            this.ClientSize = new System.Drawing.Size(455, 793);
+            this.Controls.Add(this.button5);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
@@ -328,5 +339,6 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Button button5;
     }
 }

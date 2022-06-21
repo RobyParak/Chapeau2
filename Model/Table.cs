@@ -6,10 +6,10 @@ namespace Model
 {
     public class Table
     {
-        public Table()
-        {
+        //public Table()
+        //{
 
-        }
+        //}
         
         public Table(int id, int status)
         {

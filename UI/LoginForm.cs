@@ -11,13 +11,14 @@ using Service;
 using Model;
 using UI;
 using static Model.Staff;
+using System.Security.Cryptography;
 
 namespace Login
 {
     public partial class LoginForm : Form
     {
         StaffService staffService;
-        
+
         public LoginForm()
         {
             InitializeComponent();
@@ -28,10 +29,12 @@ namespace Login
         {
             try
             {
-                Staff staff = staffService.LoginStaff(int.Parse(txtStaffID.Text), int.Parse(txtPassword.Text));
+                string hash = HashPinCode(txtPassword.Text);
+                
+                Staff staff = staffService.LoginStaff(hash);
 
-                if (staff.PassCode != int.Parse(txtPassword.Text))
-                    throw new Exception();
+               //if (staff.Hash != txtPassword.Text)
+               //    throw new Exception();
 
                 switch (staff.Role)
                 {
@@ -61,6 +64,17 @@ namespace Login
             {
                 MessageBox.Show("Incorrect username or password!\nTry again");
             }
+        }
+
+        private string HashPinCode(string input, string salt = "InHolland")
+        {
+            byte[] bytes = Encoding.UTF8.GetBytes(input + salt);
+            var sHA256ManagedString = new SHA256Managed();
+            byte[] hash = sHA256ManagedString.ComputeHash(bytes);
+            string testPinCode = Convert.ToBase64String(hash).ToString();
+
+            //MessageBox.Show(testPinCode);
+            return Convert.ToBase64String(hash);
         }
     }
 }
