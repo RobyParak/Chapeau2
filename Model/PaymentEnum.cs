@@ -5,5 +5,5 @@ using System.Text;
 namespace Model
 {
     public enum PaymentType
-    {Cash, Card}
+    {Cash, Card, Split_Payment}
 }
