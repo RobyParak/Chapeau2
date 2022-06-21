@@ -9,7 +9,7 @@ namespace Model
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public int StaffID { get; set; }
-        public int PassCode { get; set; }
+        public string Hash { get; set; }
         public enum RolesEnum { Waiter, Chef, Bartender, Manager}
         public RolesEnum Role { get; set; }
 
@@ -18,14 +18,14 @@ namespace Model
 
         //}
 
-        public Staff(string firstName, string lastName, int staffId, int passCode, RolesEnum role)
-        {
-            FirstName = firstName;
-            LastName = lastName;
-            StaffID = staffId;
-            PassCode = passCode;
-            Role = role;
-        }
+        //public Staff(string firstName, string lastName, int staffId, int passCode, RolesEnum role)
+        //{
+        //    FirstName = firstName;
+        //    LastName = lastName;
+        //    StaffID = staffId;
+        //    PassCode = passCode;
+        //    Role = role;
+        //}
 
         public Staff()
         {
