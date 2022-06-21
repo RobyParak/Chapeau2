@@ -27,38 +27,16 @@ namespace Login
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
+            string hash = HashPinCode(txtPassword.Text);
+
             try
             {
-                string hash = HashPinCode(txtPassword.Text);
-                
                 Staff staff = staffService.LoginStaff(hash);
 
-               //if (staff.Hash != txtPassword.Text)
-               //    throw new Exception();
+                if (staff.Hash != hash)
+                    throw new Exception();
 
-                switch (staff.Role)
-                {
-                    case RolesEnum.Waiter:
-                        TableForm tableForm = new TableForm(staff);
-                        tableForm.Show();
-                        this.Hide();
-                        break;
-                    case RolesEnum.Chef:
-                        KitchenViewForm kitchenViewForm = new KitchenViewForm(staff);
-                        kitchenViewForm.ShowDialog();
-                        this.Hide();
-                        break;
-                    case RolesEnum.Bartender:
-                        BarViewForm barViewForm = new BarViewForm(staff);
-                        barViewForm.ShowDialog();
-                        this.Hide();
-                        break;
-                    case RolesEnum.Manager:
-                        ManagerForm managerForm = new ManagerForm(staff);
-                        managerForm.ShowDialog();
-                        this.Hide();
-                        break;
-                }
+                RedirectStaff(staff);
             }
             catch (Exception)
             {
@@ -71,10 +49,43 @@ namespace Login
             byte[] bytes = Encoding.UTF8.GetBytes(input + salt);
             var sHA256ManagedString = new SHA256Managed();
             byte[] hash = sHA256ManagedString.ComputeHash(bytes);
-            string testPinCode = Convert.ToBase64String(hash).ToString();
+            //string testPinCode = Convert.ToBase64String(hash).ToString();
 
             //MessageBox.Show(testPinCode);
             return Convert.ToBase64String(hash);
+        }
+
+        private void RedirectStaff(Staff staff)
+        {
+            switch (staff.Role)
+            {
+                case RolesEnum.Waiter:
+                    TableForm tableForm = new TableForm(staff);
+                    tableForm.Show();
+                    this.Hide();
+                    break;
+                case RolesEnum.Chef:
+                    KitchenViewForm kitchenViewForm = new KitchenViewForm(staff);
+                    kitchenViewForm.ShowDialog();
+                    this.Hide();
+                    break;
+                case RolesEnum.Bartender:
+                    BarViewForm barViewForm = new BarViewForm(staff);
+                    barViewForm.ShowDialog();
+                    this.Hide();
+                    break;
+                case RolesEnum.Manager:
+                    ManagerForm managerForm = new ManagerForm(staff);
+                    managerForm.ShowDialog();
+                    this.Hide();
+                    break;
+            }
+
+        }
+
+        private void btnForgotPassword_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Contact the manager for a password change");
         }
     }
 }

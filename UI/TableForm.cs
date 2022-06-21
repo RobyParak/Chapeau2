@@ -42,39 +42,45 @@ namespace UI
             buttonList.Add(btnTable9);
             buttonList.Add(btnTable10);
 
-            btnLogout.Text = "Logout";
-            lblLogout.Text = "Logged in as: " + staff.FirstName;
+            btnOptions.Text = staff.FirstName;
             TableStatus();
+
+            pnlOptions.Visible = false;
+            lblStaffName.Text = staff.FirstName;
+            DateTime time = DateTime.Now;
+            lblTime.Text = $"{time.Hour:00}:{time.Minute:00}";
         }
 
-        public TableForm(Table table, Staff staff)
-        {
-            InitializeComponent();
+        //public TableForm(Table table, Staff staff)
+        //{
+        //    InitializeComponent();
 
-            this.staff = staff;
+        //    this.staff = staff;
 
-            tableList = new List<Table>();
-            tableService = new Logic.TableService();
-            billService = new BillService();
+        //    tableList = new List<Table>();
+        //    tableService = new Logic.TableService();
+        //    billService = new BillService();
 
-            buttonList = new List<Button>();
-            buttonList.Add(btnTable1);
-            buttonList.Add(btnTable2);
-            buttonList.Add(btnTable3);
-            buttonList.Add(btnTable4);
-            buttonList.Add(btnTable5);
-            buttonList.Add(btnTable6);
-            buttonList.Add(btnTable7);
-            buttonList.Add(btnTable8);
-            buttonList.Add(btnTable9);
-            buttonList.Add(btnTable10);
+        //    buttonList = new List<Button>();
+        //    buttonList.Add(btnTable1);
+        //    buttonList.Add(btnTable2);
+        //    buttonList.Add(btnTable3);
+        //    buttonList.Add(btnTable4);
+        //    buttonList.Add(btnTable5);
+        //    buttonList.Add(btnTable6);
+        //    buttonList.Add(btnTable7);
+        //    buttonList.Add(btnTable8);
+        //    buttonList.Add(btnTable9);
+        //    buttonList.Add(btnTable10);
 
-            btnLogout.Text = "Logout";
-            lblLogout.Text = "Logged in as: " + staff.FirstName;
+        //    btnLogout.Text = "Logout";
+        //    btnOptions.Text = staff.FirstName;
 
-            tableService.ChangeTableToAvailable(table.Id);
-            TableStatus();
-        }
+        //    tableService.ChangeTableToAvailable(table.Id);
+        //    TableStatus();
+
+        //    pnlOptions.Visible = false;
+        //}
 
         private void TableStatus()
         {
@@ -91,23 +97,14 @@ namespace UI
                 else
                     buttonList[i].BackColor = Color.Gold;
             }
-
-
         }
 
         private void btnLogout_Click(object sender, EventArgs e)
         {
-            DialogResult dialogResult = MessageBox.Show("Are you sure you want to logout?", "Logout", MessageBoxButtons.YesNo);
-
-            if (dialogResult == DialogResult.Yes)
-            {
                 LoginForm login = new LoginForm();
 
                 this.Close();
                 login.ShowDialog();
-            }
-            else
-                return;
         }
 
         private void SeatTable(int tableId)
@@ -194,6 +191,21 @@ namespace UI
                 this.Close();
                 orderView.Show();
             }
+        }
+
+        private void btnOptions_Click(object sender, EventArgs e)
+        {
+            pnlOptions.Visible = true;
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("You dont have permission for the stock");
+        }
+
+        private void btnBack_Click(object sender, EventArgs e)
+        {
+            pnlOptions.Visible = false;
         }
     }
 }
