@@ -272,7 +272,7 @@ namespace UI
         private void GoToTableviewForm()
         {
             Close();
-            TableForm tableForm = new TableForm(table, staff);
+            TableForm tableForm = new TableForm(staff);
             tableForm.ShowDialog();
         }
 

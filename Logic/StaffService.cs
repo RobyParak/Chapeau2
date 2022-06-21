@@ -17,9 +17,7 @@ namespace Service
 
         public Staff LoginStaff(string hash)
         {
-            Staff staff = staffDao.LoginStaff(hash);
-
-            return staff;
+            return staffDao.LoginStaff(hash);
         }
     }
 }
