@@ -10,10 +10,10 @@ namespace DAL
 {
     public class StaffDao : BaseDao
     {
-        public Staff LoginStaff(int staffID, int passCode)
+        public Staff LoginStaff(string hash)
         {
-            string query = "select Staff_ID, First_Name, Last_Name, Passcode, Role from staff WHERE [Staff_ID] = @ID ";
-            SqlParameter[] sqlParameters = {new SqlParameter ("@ID", staffID) };
+            string query = "select Staff_ID, First_Name, Last_Name,Role from staff WHERE [Hash] = @Hash";
+            SqlParameter[] sqlParameters = { new SqlParameter("@Hash", hash) };
 
             return ReadStaff(ExecuteSelectQuery(query, sqlParameters));
         }
@@ -30,7 +30,7 @@ namespace DAL
                 staff.FirstName = (string)dr["First_Name"];
                 staff.LastName = (string)dr["Last_Name"];
                 staff.StaffID = (int)dr["Staff_ID"];
-                staff.PassCode = (int)dr["Passcode"];
+                //staff.Hash = (string)dr["Hash"];
                 staff.Role = (RolesEnum)(int)dr["Role"];
             }
             return staff;
