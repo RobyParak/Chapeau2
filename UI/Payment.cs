@@ -254,6 +254,9 @@ namespace UI
 
         private void btnEnterFeedback_Click(object sender, EventArgs e)
         {
+            //if the payment has been split then update payment method here
+            if (splitPayment == true)
+                bill.PaymentMethod = PaymentType.Split_Payment;
             if (txtFeedback.Text != "")
                 bill.Feedback = txtFeedback.Text;
             else
