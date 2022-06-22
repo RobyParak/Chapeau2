@@ -19,6 +19,8 @@ namespace UI
         private List<Button> buttonList;
         private Staff staff;
 
+        private DateTime currentTime;
+
         public TableForm(Staff staff)
         {
             // overal toevoegen
@@ -47,8 +49,8 @@ namespace UI
 
             pnlOptions.Visible = false;
             lblStaffName.Text = staff.FirstName;
-            DateTime time = DateTime.Now;
-            lblTime.Text = $"{time.Hour:00}:{time.Minute:00}";
+            currentTime = DateTime.Now;
+            lblTime.Text = $"{currentTime.Hour:00}:{currentTime.Minute:00}";
         }
 
         //public TableForm(Table table, Staff staff)

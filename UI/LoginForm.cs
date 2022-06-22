@@ -17,7 +17,7 @@ namespace Login
 {
     public partial class LoginForm : Form
     {
-        StaffService staffService;
+        private StaffService staffService;
 
         public LoginForm()
         {
