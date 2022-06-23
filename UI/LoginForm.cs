@@ -49,9 +49,7 @@ namespace Login
             byte[] bytes = Encoding.UTF8.GetBytes(input + salt);
             var sHA256ManagedString = new SHA256Managed();
             byte[] hash = sHA256ManagedString.ComputeHash(bytes);
-            //string testPinCode = Convert.ToBase64String(hash).ToString();
-
-            //MessageBox.Show(testPinCode);
+            
             return Convert.ToBase64String(hash);
         }
 
