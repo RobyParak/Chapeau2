@@ -15,7 +15,7 @@ namespace UI
         Staff staff;
         SalesService salesService;
         TableService tableService;
-        List<OrderItem> orderItems;
+        List<OrderItem> orderItems = new List<OrderItem>();
         bool splitPayment = false;
         double subtotal = 0;
         public Payment(Table table, Bill bill, Staff staff)
@@ -33,11 +33,17 @@ namespace UI
             pnlCashPayment.Hide();
             pnlSplitPayment.Hide();
             lblTableID.Text = table.Id.ToString();
+            GetListOfItems();
+        }
+        private void GetListOfItems()
+        {
             //added this so if the form is reloaded the items won't be entered in the list twice
-            if (orderItems != null)
-                orderItems.Clear();
-
-            orderItems = salesService.GetOrdersForBill(table.Id);
+            if (orderItems.Count != 0)
+            { orderItems.Clear(); }
+            
+            
+            else
+            {   orderItems = salesService.GetOrdersForBill(table.Id); }
             if (orderItems.Count > 0)
             {
                 DisplayOrder(orderItems);
@@ -70,14 +76,15 @@ namespace UI
                 MessageBox.Show(ex.Message);
             }
         }
-        private void DisplayOrderForCashPanel(List<OrderItem> orderItems)
+        private void DisplayOrderForCashPanel()
         {
             try
             {
-
+                listViewOrderCashPannel.Items.Clear();
+                listViewOrderCashPannel.View = View.Details;
                 foreach (OrderItem orderItem in orderItems)
                 {
-                    string[] items = { $"x{orderItem.Quantity}", orderItem.Item.ItemName, $"€{orderItem.Item.Price:#0.00}" };
+                    string[] items = { $"{orderItem.Quantity}", orderItem.Item.ItemName, $"{orderItem.Item.Price:#0.00}" };
                     ListViewItem li = new ListViewItem(items);
                     listViewOrderCashPannel.Items.Add(li);
                 }
@@ -168,7 +175,7 @@ namespace UI
         }
         private void DisplayStuffForCashPanel()
         {
-            DisplayOrderForCashPanel(orderItems);
+            DisplayOrderForCashPanel();
             lblTotalDueCash.Text = $"€ {bill.TotalDue:#0.00}";
         }
 
