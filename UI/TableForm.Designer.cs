@@ -368,6 +368,7 @@
             this.Controls.Add(this.btnTable3);
             this.Controls.Add(this.btnTable2);
             this.Controls.Add(this.btnTable1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "TableForm";
             this.Text = "TableForm";
             this.pnlOptions.ResumeLayout(false);

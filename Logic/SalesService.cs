@@ -15,10 +15,10 @@ public class SalesService
     {
         salesDao.UpdateOrder(bill, table);
     }
-    public void UpdateOrderStatus(Table table, List<OrderItem> orderItems)
-    {
-        salesDao.UpdateOrder(table, orderItems);
-    }
+    //public void UpdateOrderStatus(Table table, List<OrderItem> orderItems)
+    //{
+    //    salesDao.UpdateOrder(table, orderItems);
+    //}
     public void UpdateBill(Bill bill, Table table)
     {
         salesDao.UpdateBill(bill, table);

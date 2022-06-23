@@ -24,11 +24,6 @@ namespace DAL
             {
                 Table table = new Table((int)dr["Table_ID"], (int)dr["Status"]);
                 
-                //Table table1 = new Table()
-                //{
-                //    Id = (int)dr["Table_ID"],
-                //    TableStatus = (int)dr["Status"]
-                //};
                 tables.Add(table);
             }
             return tables;
@@ -36,15 +31,15 @@ namespace DAL
 
         public void Db_Seat_Table(int tableID)
         {
-            string query = $"Update [Tables] set [Status] = 1 Where [Table_ID] = '{tableID}'";
-            SqlParameter[] sqlParameters = new SqlParameter[0];
+            string query = $"Update [Tables] set [Status] = 1 Where [Table_ID] = @TableId";
+            SqlParameter[] sqlParameters = { new SqlParameter("@TableId", tableID) };
             ExecuteEditQuery(query, sqlParameters);
         }
 
         public void Db_Serve_Table(int tableID)
         {
-            string query = $"Update [Tables] set [Status] = 2 Where [Table_ID] = '{tableID}'";
-            SqlParameter[] sqlParameters = new SqlParameter[0];
+            string query = $"Update [Tables] set [Status] = 2 Where [Table_ID] = @TableId";
+            SqlParameter[] sqlParameters = { new SqlParameter("@TableId", tableID) };
             ExecuteEditQuery(query, sqlParameters);
         }
 

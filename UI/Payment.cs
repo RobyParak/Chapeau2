@@ -284,8 +284,8 @@ namespace UI
         }
         private void GoToTableviewForm()
         {
-            Close();
             TableForm tableForm = new TableForm(staff);
+            this.Close();
             tableForm.ShowDialog();
         }
 
