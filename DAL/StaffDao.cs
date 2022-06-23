@@ -24,7 +24,7 @@ namespace DAL
             // do samething as tableDao (delete constructor)
             
             Staff staff = new Staff();
-            if (dataTable.Rows.Count >= 1)
+            if (dataTable.Rows.Count > 0)
             {
                 DataRow dr = dataTable.Rows[0];
 

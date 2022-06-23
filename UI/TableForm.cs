@@ -19,9 +19,10 @@ namespace UI
         private List<Button> buttonList;
         private Staff staff;
 
+        private DateTime currentTime;
+
         public TableForm(Staff staff)
         {
-            // overal toevoegen
             InitializeComponent();
 
             this.staff = staff;
@@ -47,40 +48,9 @@ namespace UI
 
             pnlOptions.Visible = false;
             lblStaffName.Text = staff.FirstName;
-            DateTime time = DateTime.Now;
-            lblTime.Text = $"{time.Hour:00}:{time.Minute:00}";
+            currentTime = DateTime.Now;
+            lblTime.Text = $"{currentTime.Hour:00}:{currentTime.Minute:00}";
         }
-
-        //public TableForm(Table table, Staff staff)
-        //{
-        //    InitializeComponent();
-
-        //    this.staff = staff;
-
-        //    tableList = new List<Table>();
-        //    tableService = new Logic.TableService();
-        //    billService = new BillService();
-
-        //    buttonList = new List<Button>();
-        //    buttonList.Add(btnTable1);
-        //    buttonList.Add(btnTable2);
-        //    buttonList.Add(btnTable3);
-        //    buttonList.Add(btnTable4);
-        //    buttonList.Add(btnTable5);
-        //    buttonList.Add(btnTable6);
-        //    buttonList.Add(btnTable7);
-        //    buttonList.Add(btnTable8);
-        //    buttonList.Add(btnTable9);
-        //    buttonList.Add(btnTable10);
-
-        //    btnLogout.Text = "Logout";
-        //    btnOptions.Text = staff.FirstName;
-
-        //    tableService.ChangeTableToAvailable(table.Id);
-        //    TableStatus();
-
-        //    pnlOptions.Visible = false;
-        //}
 
         private void TableStatus()
         {
@@ -101,10 +71,10 @@ namespace UI
 
         private void btnLogout_Click(object sender, EventArgs e)
         {
-                LoginForm login = new LoginForm();
+            LoginForm login = new LoginForm();
 
-                this.Close();
-                login.ShowDialog();
+            login.ShowDialog();
+            this.Close();
         }
 
         private void SeatTable(int tableId)
@@ -179,17 +149,16 @@ namespace UI
                 Bill bill = billService.GetBillById(billService.GetBillIdByTableId(table.Id));
 
                 tableService.ServeTable(table.Id);
-                //OrderView orderView = new OrderView(table, bill, staff);
                 OrderView orderView = new OrderView(table, bill, staff);
-                this.Close();
                 orderView.Show();
+                this.Close();
             }
             else if (table.TableStatus == 2)
             {
                 Bill bill = billService.GetBillById(billService.GetBillIdByTableId(table.Id));
                 OrderView orderView = new OrderView(table, bill, staff);
-                this.Close();
                 orderView.Show();
+                this.Close();
             }
         }
 
@@ -198,14 +167,14 @@ namespace UI
             pnlOptions.Visible = true;
         }
 
-        private void button6_Click(object sender, EventArgs e)
-        {
-            MessageBox.Show("You dont have permission for the stock");
-        }
-
         private void btnBack_Click(object sender, EventArgs e)
         {
             pnlOptions.Visible = false;
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("You dont have permission for the stock");
         }
     }
 }
