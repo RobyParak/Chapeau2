@@ -2422,7 +2422,7 @@
     <value>Q</value>
   </data>
   <data name="columnHeader1.Width" type="System.Int32, mscorlib">
-    <value>40</value>
+    <value>35</value>
   </data>
   <data name="columnHeader2.Text" xml:space="preserve">
     <value>Name</value>
@@ -2431,7 +2431,7 @@
     <value>285</value>
   </data>
   <data name="columnHeader3.Text" xml:space="preserve">
-    <value>Price</value>
+    <value>€ Price</value>
   </data>
   <data name="columnHeader3.TextAlign" type="System.Windows.Forms.HorizontalAlignment, System.Windows.Forms">
     <value>Right</value>

@@ -222,11 +222,15 @@ namespace UI
         {
             try
             {
-                if ((double.Parse(txtTip.Text) < 0) && (double.Parse(txtTotalDue.Text) < 0))
-                    MessageBox.Show("This cannot be a negative number");
-
                 if (string.IsNullOrEmpty(txtTip.Text) && string.IsNullOrEmpty(txtTotalDue.Text))
+                {
+                    if ((double.Parse(txtTip.Text) < 0) || (double.Parse(txtTotalDue.Text) < 0))
+                    { MessageBox.Show("This cannot be a negative number");
+                }
+
                     bill.TotalDue = bill.AmountDue;
+                    }
+                
                 else if (!string.IsNullOrEmpty(txtTip.Text))
                 {
                     bill.Tip = double.Parse(txtTip.Text);
