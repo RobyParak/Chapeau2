@@ -8,6 +8,7 @@ using System.Windows.Forms;
 using Model;
 using Login;
 using Service;
+using System.Timers;
 
 namespace UI
 {
@@ -50,6 +51,36 @@ namespace UI
             lblStaffName.Text = staff.FirstName;
             currentTime = DateTime.Now;
             lblTime.Text = $"{currentTime.Hour:00}:{currentTime.Minute:00}";
+
+
+            timer.Interval = 1000;
+            timer.Start();
+            timer.Elapsed += OnTimeEvent;
+        }
+            System.Timers.Timer timer = new System.Timers.Timer();
+
+        int m, s;
+        private void OnTimeEvent(object sender, System.Timers.ElapsedEventArgs e)
+        {
+            try
+            {
+
+
+                Invoke(new Action(() =>
+                {
+                    s += 1;
+                    if (s == 60)
+                    {
+                        s = 0;
+                        m += 1;
+                    }
+                    lblTimerTableOne.Text = String.Format("{0}:{1}", m.ToString().PadLeft(2, '0'), s.ToString().PadLeft(2, '0'));
+                }));
+            }
+            catch (Exception)
+            {
+                throw;
+            }
         }
 
         private void TableStatus()
@@ -66,6 +97,23 @@ namespace UI
                     buttonList[i].BackColor = Color.CornflowerBlue;
                 else
                     buttonList[i].BackColor = Color.Gold;
+            }
+            if (tableList[2].TableStatus == 0)
+            {
+                pictureBox2.Hide();
+            }
+            else if (tableList[2].TableStatus == 2)
+            {
+                pictureBox2.Show();
+            }
+
+            if (tableList[3].TableStatus == 0)
+            {
+                pictureBox3.Hide();
+            }
+            else if (tableList[3].TableStatus == 2)
+            {
+                pictureBox3.Show();
             }
         }
 
@@ -150,6 +198,7 @@ namespace UI
 
                 tableService.ServeTable(table.Id);
                 OrderView orderView = new OrderView(table, bill, staff);
+                timer.Stop();
                 orderView.Show();
                 this.Close();
             }
@@ -157,6 +206,7 @@ namespace UI
             {
                 Bill bill = billService.GetBillById(billService.GetBillIdByTableId(table.Id));
                 OrderView orderView = new OrderView(table, bill, staff);
+                timer.Stop();
                 orderView.Show();
                 this.Close();
             }

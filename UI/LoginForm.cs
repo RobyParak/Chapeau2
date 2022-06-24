@@ -77,8 +77,9 @@ namespace Login
                     managerForm.ShowDialog();
                     this.Hide();
                     break;
-            }
 
+                    //add default
+            }
         }
 
         private void btnForgotPassword_Click(object sender, EventArgs e)
