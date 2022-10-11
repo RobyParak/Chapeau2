@@ -24,6 +24,9 @@ namespace UI
             //Application.Run(new OrderView(table,3));
             //Application.Run(new TableForm());
             Application.Run(new LoginForm());
+            //Bill bill = new Bill();
+            //Staff staff = new Staff();
+            //Application.Run(new Payment(table,bill,staff ));
         }
     }
 }

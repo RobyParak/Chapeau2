@@ -1,0 +1,102 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Service.BillService">
+    <Position X="0.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAQQAAAAAAAAAAAAAAAAACAAAAABAAAAAAA=</HashCode>
+      <FileName>BillService.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="_billDao" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="Service.DishService">
+    <Position X="2.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAEAAAAAAAAQAAAEAAAAACAAAAAAAAAAAAEAAAAAAA=</HashCode>
+      <FileName>DishService.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="dishDao" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="Service.DrinkService">
+    <Position X="4" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAIAACAAAAAAAAQAAAAAAAAAAAQAAEEAEAAIAAAA=</HashCode>
+      <FileName>DrinkService.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="drinksDao" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="Service.OrderService">
+    <Position X="5.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQAABAAAAAAQAAAAAAAAAAEAAAAAAAAAAAAAAQAAAAA=</HashCode>
+      <FileName>OrderService.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="_orderDao" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="SalesService">
+    <Position X="7.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAABAAAAAAACAAABAgAAAAAAAAAA=</HashCode>
+      <FileName>SalesService.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="salesDao" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="Service.StaffService">
+    <Position X="9.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAgAA=</HashCode>
+      <FileName>StaffService.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="staffDao" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="Logic.TableService">
+    <Position X="11" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gAAAAAAAAAAAAQAAAAAgQAAAAAAAAAAAAAAAAAAABAA=</HashCode>
+      <FileName>TableService.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="tableDao" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="DAL.BillDao" Collapsed="true">
+    <Position X="0.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="DAL.DishDao" Collapsed="true">
+    <Position X="2.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="DAL.DrinkDao" Collapsed="true">
+    <Position X="4" Y="0.5" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="DAL.OrderDao" Collapsed="true">
+    <Position X="5.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="DAL.SalesDao" Collapsed="true">
+    <Position X="7.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="DAL.StaffDao" Collapsed="true">
+    <Position X="9.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="DAL.TableDao" Collapsed="true">
+    <Position X="11" Y="0.5" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

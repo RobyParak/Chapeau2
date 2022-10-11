@@ -1,2 +1,91 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<ClassDiagram /> 
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Bill">
+    <Position X="1.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ABEBAgAAAAAAAAAQACASAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Bill.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Model.DinnerMenu">
+    <Position X="9.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>DinnerMenu.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Model.Dish">
+    <Position X="3.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAA=</HashCode>
+      <FileName>Dish.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Model.Drink">
+    <Position X="5.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Drink.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Model.Item">
+    <Position X="5.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAEAgAAAQAAAAAAgAAAAAAAgAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Item.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Model.LunchMenu">
+    <Position X="7.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>LunchMenu.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Model.Order">
+    <Position X="7.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EAAEAgAEAQAAAAAQAAAAAAQAAAAAAQAAAAAAgAAAAAA=</HashCode>
+      <FileName>Order.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Model.OrderItem">
+    <Position X="3.5" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAEAAAAAQAAAAAAgAAAAAA=</HashCode>
+      <FileName>OrderItem.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Item" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="Model.Staff">
+    <Position X="9.5" Y="2.5" Width="1.5" />
+    <NestedTypes>
+      <Enum Name="Model.Staff.RolesEnum" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>Staff.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Enum>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>AAAAAEAAAAIAAAAAEAAAAAAAAAAAAAAAAAAAAgAAAAg=</HashCode>
+      <FileName>Staff.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Model.Table">
+    <Position X="11.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAgAAAQAAAAAAAAAAAAQAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Table.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Enum Name="Model.PaymentType">
+    <Position X="1.5" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AABAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAA=</HashCode>
+      <FileName>PaymentEnum.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

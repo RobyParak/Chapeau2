@@ -23,6 +23,7 @@ namespace UI
         DishService _dishService;
         DrinkService _drinkService;
 
+
         public OrderView(Table table, Bill bill, Staff staff)
         {
             InitializeComponent();
@@ -59,9 +60,9 @@ namespace UI
             foreach(Order order in orders)
             {
 
-                string[] items = { order.OrderId.ToString(), order.ItemName,$"x{order.Quantity}", $"{order.Price * order.Quantity}", order.Comment };
-                ListViewItem li = new ListViewItem(items);
-                listViewOrders.Items.Add(li);
+               // string[] items = { order.OrderId.ToString(), order.OrderItems.Item.ItemName,$"x{order.OrderItems.Quantity}", $"{order.Price * order.Quantity}", order.Comment };
+                //ListViewItem li = new ListViewItem(items);
+              //  listViewOrders.Items.Add(li);
             }
         }
 
@@ -161,7 +162,7 @@ namespace UI
             {
                 BillId = _bill.BillId,
                 TableId = _table.Id,
-                Quantity = int.Parse(textBoxQuantity.Text)
+               // Quantity = int.Parse(textBoxQuantity.Text)
             };
             _bill.Orders.Add(order);
             _orderService.CreateOrder(order, dish, _staff);
@@ -410,7 +411,10 @@ namespace UI
             {
                 BillId = _bill.BillId,
                 TableId = _table.Id,
-                Quantity = int.Parse(textBoxQuantity.Text)
+                O_Item = new OrderItem()
+                {
+                    Quantity = int.Parse(textBoxQuantity.Text)
+                }
             };
             _bill.Orders.Add(order);
             _orderService.CreateOrder(order, drink, _staff);

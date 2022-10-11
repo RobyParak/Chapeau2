@@ -15,7 +15,7 @@ namespace UI
         Staff staff;
         SalesService salesService;
         TableService tableService;
-        List<OrderItem> orderItems = new List<OrderItem>();
+       
         bool splitPayment = false;
         double subtotal = 0;
         public Payment(Table table, Bill bill, Staff staff)
@@ -38,15 +38,13 @@ namespace UI
         private void GetListOfItems()
         {
             //added this so if the form is reloaded the items won't be entered in the list twice
-            if (orderItems.Count != 0)
-            { orderItems.Clear(); }
-            
-            
+            if (bill.Order.OrderItems.Count != 0)
+            { bill.Order.OrderItems.Clear(); } 
             else
-            {   orderItems = salesService.GetOrdersForBill(table.Id); }
-            if (orderItems.Count > 0)
+            {   bill.Order.OrderItems = salesService.GetOrdersForBill(table.Id); }
+            if (bill.Order.OrderItems.Count > 0)
             {
-                DisplayOrder(orderItems);
+                DisplayOrder(bill.Order.OrderItems);
             }
             else
             {   //If no items to pay then go back to table view
@@ -82,14 +80,14 @@ namespace UI
             {
                 listViewOrderCashPannel.Items.Clear();
                 listViewOrderCashPannel.View = View.Details;
-                foreach (OrderItem orderItem in orderItems)
+                foreach (OrderItem orderItem in bill.Order.OrderItems)
                 {
                     string[] items = { $"{orderItem.Quantity}", orderItem.Item.ItemName, $"{orderItem.Item.Price:#0.00}" };
                     ListViewItem li = new ListViewItem(items);
                     listViewOrderCashPannel.Items.Add(li);
                 }
 
-                CalculateAmountDue(orderItems);
+                CalculateAmountDue(bill.Order.OrderItems);
                 DisplayPrice();
             }
             catch (Exception ex)
@@ -105,7 +103,7 @@ namespace UI
         }
         private void DisplayPrice()
         {
-            CalculateAmountDue(orderItems);
+            CalculateAmountDue(bill.Order.OrderItems);
             lblAmountDue.Text = $"€ {bill.AmountDue:#0.00}";
         }
 
@@ -208,7 +206,7 @@ namespace UI
 
             double[] priceWithVAT = { 0, 0, };
             int vat6 = 6;
-            foreach (OrderItem orderItem in orderItems)
+            foreach (OrderItem orderItem in bill.Order.OrderItems)
             {
                 if (orderItem.Item.VAT == vat6)
                     priceWithVAT[0] += orderItem.Item.Price;
@@ -231,9 +229,10 @@ namespace UI
         {
             try
             {
-                if (string.IsNullOrEmpty(txtTip.Text) && string.IsNullOrEmpty(txtTotalDue.Text))
+                //minus number for both total and tips
+                if (string.IsNullOrEmpty(txtTip.Text) && string.IsNullOrEmpty(txtTotalDue.Text) && (double.Parse(txtTip.Text) > 0))
                     bill.TotalDue = bill.AmountDue;
-                else if (!string.IsNullOrEmpty(txtTip.Text))
+                else if (!string.IsNullOrEmpty(txtTip.Text) && (double.Parse(txtTip.Text) > 0))
                 {
                     bill.Tip = double.Parse(txtTip.Text);
                     bill.TotalDue = bill.AmountDue + bill.Tip;

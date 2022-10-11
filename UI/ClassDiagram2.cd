@@ -1,0 +1,62 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="UI.TableForm">
+    <Position X="0.5" Y="0.5" Width="1.75" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AEQAwRBAACAgI5AQAASAIIQKAMA5AADAgoADASBAAAA=</HashCode>
+      <FileName>TableForm.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UI.Payment">
+    <Position X="2.5" Y="0.5" Width="1.75" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>+yAAzoQ4ASKADBJQ4MKA4AiXEyIsUgxSCf0BspVIgIU=</HashCode>
+      <FileName>Payment.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UI.OrderView" Collapsed="true">
+    <Position X="8.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>RYDOBBBEESSGwoIAigW+uWEDDAFAggxMOCghgKSlsAE=</HashCode>
+      <FileName>OrderView.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UI.ManagerForm" Collapsed="true">
+    <Position X="6.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAAAAAAAACAAAACAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ManagerForm.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Login.LoginForm">
+    <Position X="4.5" Y="0.5" Width="1.75" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AEoAAAAAACAAABAAAACABAACAAAACAAAEAAgAABAAAQ=</HashCode>
+      <FileName>LoginForm.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UI.KitchenViewForm" Collapsed="true">
+    <Position X="6.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAAAAAAAACAAAACAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>KitchenViewForm.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UI.BarViewForm" Collapsed="true">
+    <Position X="8.25" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAAAAAAAACAAAACAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>BarViewForm.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
