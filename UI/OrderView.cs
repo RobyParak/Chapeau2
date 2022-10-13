@@ -161,7 +161,7 @@ namespace UI
             Order order = new Order()
             {
                 BillId = _bill.BillId,
-                TableId = _table.Id,
+                //TableId = _table.Id,
                // Quantity = int.Parse(textBoxQuantity.Text)
             };
             _bill.Orders.Add(order);
@@ -410,11 +410,8 @@ namespace UI
             Order order = new Order()
             {
                 BillId = _bill.BillId,
-                TableId = _table.Id,
-                O_Item = new OrderItem()
-                {
-                    Quantity = int.Parse(textBoxQuantity.Text)
-                }
+                //TableId = _table.Id,
+               
             };
             _bill.Orders.Add(order);
             _orderService.CreateOrder(order, drink, _staff);
@@ -498,7 +495,7 @@ namespace UI
             {
                 //RP coding this:
                 this.Close();
-                Payment payementForm = new Payment(_table, _bill, _staff);
+                Payment payementForm = new Payment(_table, _bill);
                 payementForm.ShowDialog();
             }
             catch (Exception ex)

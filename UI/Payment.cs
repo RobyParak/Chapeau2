@@ -18,12 +18,14 @@ namespace UI
        
         bool splitPayment = false;
         double subtotal = 0;
-        public Payment(Table table, Bill bill, Staff staff)
+        public Payment(Table table, Bill bill)
         {
             InitializeComponent();
             this.bill = bill;
             this.table = table;
-            this.staff = staff;
+            //had to initiate the objects here since the order part is not implemented
+            bill.Order = new Order();
+            bill.Order.OrderItems = new List<OrderItem>();
             salesService = new SalesService();
             tableService = new TableService();
             pnlFeedback.Hide();

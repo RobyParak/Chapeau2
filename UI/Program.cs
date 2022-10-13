@@ -18,15 +18,15 @@ namespace UI
         {
             Application.SetHighDpiMode(HighDpiMode.SystemAware);
             Application.EnableVisualStyles();
-            Application.SetCompatibleTextRenderingDefault(false);;
-            Table table = new Table(1, 1);
-            //Application.Run(new OrderView(table));
-            //Application.Run(new OrderView(table,3));
-            //Application.Run(new TableForm());
-            Application.Run(new LoginForm());
-            //Bill bill = new Bill();
-            //Staff staff = new Staff();
-            //Application.Run(new Payment(table,bill,staff ));
+            Application.SetCompatibleTextRenderingDefault(false);
+          
+
+            //Application.Run(new LoginForm());
+
+            //the below opens and works
+            Bill bill = new Bill(88);
+            Table table = new Table(3);
+            Application.Run(new Payment(table,bill));
         }
     }
 }

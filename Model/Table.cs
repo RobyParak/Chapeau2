@@ -10,7 +10,12 @@ namespace Model
         //{
 
         //}
-        
+
+        //created the below to only load the payment form
+        public Table(int id)
+        {
+            Id = id;
+        }
         public Table(int id, int status)
         {
             Id = id;

@@ -15,6 +15,11 @@ public class Bill
 
     public Order Order { get; set; }
 
+    public Bill(int id)
+    {
+        BillId = id;
+        Orders = new List<Order>();
+    }
     public Bill()
     {
         Orders = new List<Order>();

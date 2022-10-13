@@ -28,9 +28,9 @@ namespace DAL
             var dataTable = ExecuteSelectQuery(query, sqlParameters);
             int orderId = (int)dataTable.Rows[0]["Order_ID"];
             int itemId = item.ItemId;
-           // int orderQuantity = order.O_Item.Quantity;
+            //int orderQuantity = order.O_Item.Quantity;
             query = $"INSERT INTO dbo.[Order_Item] VALUES( @OrderId , @ItemId , '', @OrderQuantity ); ";
-            SqlParameter[] sqlParametersSecondLastQuery = { new SqlParameter("@OrderId", orderId), new SqlParameter("@ItemId", itemId) }; //new SqlParameter("@OrderQuantity", orderQuantity) };
+            SqlParameter[] sqlParametersSecondLastQuery = { new SqlParameter("@OrderId", orderId), new SqlParameter("@ItemId", itemId)};// new SqlParameter("@OrderQuantity", orderQuantity) };
             ExecuteEditQuery(query, sqlParametersSecondLastQuery);
             query = $"INSERT INTO dbo.[Order_Staff] VALUES( @OrderId , @StaffId ); ";
             SqlParameter[] sqlParametersLastQuery = { new SqlParameter("@OrderId", orderId), new SqlParameter("@StaffId", staff.StaffID) };
@@ -65,21 +65,21 @@ namespace DAL
 
                     OrderId = (int)dr["Order_ID"],
                     BillId = (int)dr["Bill_ID"],
-                   // TableId = (int)dr["Table_ID"],
+                    //TableId = (int)dr["Table_ID"],
                     Comment = (string)dr["Comments"],
                     IsPaid = false,
 
-                    //changing it to a list does not help
-                   // O_Item = new OrderItem()
-                   // {
-                   //     Quantity = (int)dr["Quantity"],
-                   //     Item = new Item()
-                   //     {
-                   //         ItemName = (string)dr["Name"],
-                   //         Price = (double)dr["Price"],
-                   //         VAT = (double)dr["VAT"]
-                   //     }
-                   // }
+                    ////changing it to a list does not help
+                    //O_Item = new OrderItem()
+                    //{
+                    //    Quantity = (int)dr["Quantity"],
+                    //    Item = new Item()
+                    //    {
+                    //        ItemName = (string)dr["Name"],
+                    //        Price = (double)dr["Price"],
+                    //        VAT = (double)dr["VAT"]
+                    //    }
+                    //}
                 };
                 orders.Add(order);
             }
