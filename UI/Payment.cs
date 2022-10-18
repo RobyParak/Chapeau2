@@ -349,7 +349,7 @@ namespace UI
         private void radBtnPin_CheckedChanged(object sender, EventArgs e)
         {
 
-            if (!string.IsNullOrEmpty(txtEnteredAmountToPayForSplitting.Text))
+            if (!string.IsNullOrEmpty(txtEnteredAmountToPayForSplitting.Text) && (double.Parse(txtEnteredAmountToPayForSplitting.Text) > 0))
             {
                 ShowRemainingToPayForSplitBill();
                 ShowAmountPaid();
@@ -363,7 +363,7 @@ namespace UI
             }
             else
             {
-                MessageBox.Show("Please enter amount you wish to pay, first");
+                MessageBox.Show("Entered amount must be a positive number");
                 radBtnPin.Checked = false;
             }
         }
@@ -371,7 +371,7 @@ namespace UI
         private void rdBtnCash_CheckedChanged(object sender, EventArgs e)
         {
 
-            if (!string.IsNullOrEmpty(txtEnteredAmountToPayForSplitting.Text))
+            if (!string.IsNullOrEmpty(txtEnteredAmountToPayForSplitting.Text) && (double.Parse(txtEnteredAmountToPayForSplitting.Text) > 0))
             {
                 ShowRemainingToPayForSplitBill();
                 ShowAmountPaid();
@@ -385,7 +385,7 @@ namespace UI
             }
             else
             {
-                MessageBox.Show("Please enter amount you wish to pay, first");
+                MessageBox.Show("Entered amount must be a positive number");
                 rdBtnCash.Checked = false;
             }
         }
