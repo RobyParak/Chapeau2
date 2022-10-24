@@ -32,65 +32,63 @@ namespace DAL
         //Update order as "paid" once the payment has been processed
         public void UpdateOrder(Bill bill, Table table)
         {
-            int paidStatus = 0;
             foreach (Order order in bill.Orders)
             {
-                if (order.IsPaid == true)
-                { paidStatus = 1; }
+                int paidStatus = PaidStatusConverter.ConvertToInt(order.PaidStatus);
                 string query = $"UPDATE [Order] SET Is_Paid = @Paid_status" +
                    " Where table_ID = @TableId";
                 SqlParameter[] sqlParameters = { new SqlParameter("@Paid_status", paidStatus),
             new SqlParameter("@TableId", table.Id)};
                 ExecuteEditQuery(query, sqlParameters);
             }
-        }
-        public void UpdateOrder(Table table, List<OrderItem> orderItems)
-        {
-            int paidStatus = 0;
-            foreach (OrderItem item in orderItems)
+            }
+            //public void UpdateOrder(Table table, List<OrderItem> orderItems)
+            //{
+            //    int paidStatus = 0;
+            //    foreach (OrderItem item in orderItems)
+            //    {
+            //        if (item.IsPaid == true)
+            //        { paidStatus = 1; }
+            //        string query = $"UPDATE [Order] SET Is_Paid = @Paid_status" +
+            //           " Where table_ID = @TableId";
+            //        SqlParameter[] sqlParameters = { new SqlParameter("@Paid_status", paidStatus),
+            //    new SqlParameter("@TableId", table.Id)};
+            //        ExecuteEditQuery(query, sqlParameters);
+            //    }
+            //}
+            public List<OrderItem> GetOrderItemsForBill(int tableId)
             {
-                if (item.IsPaid == true)
-                { paidStatus = 1; }
-                string query = $"UPDATE [Order] SET Is_Paid = @Paid_status" +
-                   " Where table_ID = @TableId";
-                SqlParameter[] sqlParameters = { new SqlParameter("@Paid_status", paidStatus),
-            new SqlParameter("@TableId", table.Id)};
-                ExecuteEditQuery(query, sqlParameters);
+                //Need to get item name, quantity, price and VAT
+                string query = "Select Item_Name as [Name], SUM(Quantity)" +
+                " as [Quantity], SUM(Price) as [Price], AVG(VAT) as [VAT]" +
+                " from Item Join [Order_Item] ON [Order_Item].Item_ID = Item.Item_ID" +
+                " Join [Order] ON [Order].Order_ID = Order_Item.Order_ID" +
+                " Where [Order].Table_ID = @TableId" +
+                " AND [Order].Is_Paid = 0" +
+                " Group by Item_Name;";
+                SqlParameter[] sqlParameters = { new SqlParameter("@TableId", tableId) };
+                return ReadTables(ExecuteSelectQuery(query, sqlParameters));
             }
-        }
-        public List<OrderItem> GetOrderItemsForBill(int tableId)
-        {
-            //Need to get item name, quantity, price and VAT
-            string query = "Select Item_Name as [Name], SUM(Quantity)" +
-            " as [Quantity], SUM(Price) as [Price], AVG(VAT) as [VAT]" +
-            " from Item Join [Order_Item] ON [Order_Item].Item_ID = Item.Item_ID" +
-            " Join [Order] ON [Order].Order_ID = Order_Item.Order_ID" +
-            " Where [Order].Table_ID = @TableId" +
-            " AND [Order].Is_Paid = 0" +
-            " Group by Item_Name;";
-            SqlParameter[] sqlParameters = { new SqlParameter("@TableId", tableId)};
-            return ReadTables(ExecuteSelectQuery(query, sqlParameters));
-        }
 
-        private List<OrderItem> ReadTables(DataTable dataTable)
-        {
-            List<OrderItem> ordersItems = new List<OrderItem>();
+            private List<OrderItem> ReadTables(DataTable dataTable)
+            {
+                List<OrderItem> ordersItems = new List<OrderItem>();
 
-            foreach (DataRow dr in dataTable.Rows)
-            { 
-                OrderItem orderItem = new OrderItem()
+                foreach (DataRow dr in dataTable.Rows)
                 {
-                    Quantity = (int)dr["Quantity"],
-                    Item = new Item() 
+                    OrderItem orderItem = new OrderItem()
                     {
-                        ItemName = (string)dr["Name"],
-                        Price = (double)dr["Price"],
-                        VAT = (double)dr["VAT"]
-                    }
-                };
-                ordersItems.Add(orderItem);
+                        Quantity = (int)dr["Quantity"],
+                        Item = new Item()
+                        {
+                            ItemName = (string)dr["Name"],
+                            Price = (double)dr["Price"],
+                            VAT = (double)dr["VAT"]
+                        }
+                    };
+                    ordersItems.Add(orderItem);
+                }
+                return ordersItems;
             }
-            return ordersItems;
         }
     }
-}

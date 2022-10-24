@@ -160,7 +160,7 @@ namespace UI
             Dish dish = _dishService.GetDishById(int.Parse(selectedRow.SubItems[0].Text));
             Order order = new Order()
             {
-                BillId = _bill.BillId,
+                //BillId = _bill.BillId,
                 //TableId = _table.Id,
                // Quantity = int.Parse(textBoxQuantity.Text)
             };
@@ -409,7 +409,7 @@ namespace UI
             Drink drink = _drinkService.GetDrinkById(int.Parse(selectedRow.SubItems[0].Text));
             Order order = new Order()
             {
-                BillId = _bill.BillId,
+              //  BillId = _bill.BillId,
                 //TableId = _table.Id,
                
             };
@@ -495,7 +495,7 @@ namespace UI
             {
                 //RP coding this:
                 this.Close();
-                Payment payementForm = new Payment(_table, _bill);
+                Payment payementForm = new Payment(_table);
                 payementForm.ShowDialog();
             }
             catch (Exception ex)

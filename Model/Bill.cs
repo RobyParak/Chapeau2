@@ -13,6 +13,8 @@ public class Bill
     public string Feedback { get; set; }
     public List<Order> Orders { get; set; }
 
+    public Table Table { get; set; }
+
     public Order Order { get; set; }
 
     public Bill(int id)

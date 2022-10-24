@@ -1,5 +1,6 @@
 ﻿using Logic;
 using Model;
+using Service;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
@@ -9,25 +10,36 @@ namespace UI
 {
     public partial class Payment : Form
     {
-        //Receive table and bill from orderForm
+        //Receive table
         Table table;
         Bill bill;
+
+        //left the staff to open the tableview after but it's null atm
         Staff staff;
         SalesService salesService;
         TableService tableService;
+        BillService billService;
        
         bool splitPayment = false;
+
+        //global - yes I need it in a button 
         double subtotal = 0;
-        public Payment(Table table, Bill bill)
+        public Payment(Table table)
         {
             InitializeComponent();
-            this.bill = bill;
+            salesService = new SalesService();
+            tableService = new TableService();
+            billService = new BillService();
+
             this.table = table;
+            //given the tableID get the billId from the database
+            Bill bill = new Bill(billService.GetBillIdByTableId(table.Id));
+            this.bill = bill;
+            
             //had to initiate the objects here since the order part is not implemented
             bill.Order = new Order();
             bill.Order.OrderItems = new List<OrderItem>();
-            salesService = new SalesService();
-            tableService = new TableService();
+          
             pnlFeedback.Hide();
             pnlPayment.Show();
             pnlCardPayment.Hide();
@@ -68,7 +80,10 @@ namespace UI
                 }
 
                 DisplayPrice();
-                DisplayVAT(CalculateVAT(orderItems), TotalPriceIncludingVATButDivivedByVATPercentage());
+                int vatValue6 = 6;
+                int vatValue21 = 21;
+                bill.VAT = (CalculateVAT(orderItems, vatValue6) + CalculateVAT(orderItems, vatValue21));
+                DisplayVAT(CalculateVAT(orderItems, vatValue6), CalculateVAT(orderItems, vatValue21), TotalPriceIncludingVATButDivivedByVATPercentage(vatValue6), TotalPriceIncludingVATButDivivedByVATPercentage(vatValue21));
 
             }
             catch (Exception ex)
@@ -122,6 +137,7 @@ namespace UI
         private void btnPaymentSuccessful_Click_1(object sender, EventArgs e)
         {
             //if the split payment option is "on" and not completed
+            //Here is when I do the loop and I need the subtotal var for it
             if ((splitPayment == true) & (subtotal != bill.TotalDue))
             {
                 lblSplitTotalDue.Text = $"€ {(bill.TotalDue - subtotal):#0.00}";
@@ -184,47 +200,39 @@ namespace UI
             //update the order status in the database
             foreach (Order order in bill.Orders)
             {
-                order.IsPaid = true;
+                order.PaidStatus = PaidStatus.IsPaid;
             }
             salesService.UpdateOrderStatus(bill, table);
         }
 
-        private double[] CalculateVAT(List<OrderItem> orderItems)
+        private double CalculateVAT(List<OrderItem> orderItems, int vatValue)
         {
-            double[] vat = { 0, 0 };
-            int vat6 = 6;
+            double vat = 0;
             foreach (OrderItem orderItem in orderItems)
             {
-                if (orderItem.Item.VAT == vat6)
-                    vat[0] += (orderItem.Item.Price * orderItem.Item.VAT) / 100;
-                else
-                    vat[1] += (orderItem.Item.Price * orderItem.Item.VAT) / 100;
+                if (orderItem.Item.VAT == vatValue)
+                   vat += (orderItem.Item.Price * orderItem.Item.VAT) / 100;
             }
-            bill.VAT = vat[0] + vat[1];
             return vat;
         }
-        private double[] TotalPriceIncludingVATButDivivedByVATPercentage()
+        private double TotalPriceIncludingVATButDivivedByVATPercentage(int vatValue)
         {
 
-            double[] priceWithVAT = { 0, 0, };
-            int vat6 = 6;
+            double priceWithVAT = 0;
             foreach (OrderItem orderItem in bill.Order.OrderItems)
             {
-                if (orderItem.Item.VAT == vat6)
-                    priceWithVAT[0] += orderItem.Item.Price;
-                else
-                    priceWithVAT[1] += orderItem.Item.Price;
-
+                if (orderItem.Item.VAT == vatValue)
+                    priceWithVAT += orderItem.Item.Price;
             }
             return priceWithVAT;
 
         }
-        private void DisplayVAT(double[] vat, double[] priceInclVAT)
+        private void DisplayVAT(double lowVat, double highVat, double lowPriceInclVAT, double highPriceInclVat)
         {
-            lblVAT6.Text = $"€ {vat[0]:00.00}";
-            lblVAT21.Text = $"€ {vat[1]:00.00}";
-            lblPriceIncl6VAT.Text += $" of €{priceInclVAT[0]:00.00}";
-            lblPriceIncl21VAT.Text += $" of €{priceInclVAT[1]:00.00}";
+            lblVAT6.Text = $"€ {lowVat:00.00}";
+            lblVAT21.Text = $"€ {highVat:00.00}";
+            lblPriceIncl6VAT.Text += $" of €{lowPriceInclVAT:00.00}";
+            lblPriceIncl21VAT.Text += $" of €{highPriceInclVat:00.00}";
         }
 
         private void btnCalculateTipAndTotal_Click(object sender, EventArgs e)
@@ -280,7 +288,6 @@ namespace UI
         private void UpdateCurrentTable()
         {
             table.TableStatus = 0;
-            //table.BillId = 0;
             tableService.ChangeTableToAvailable(table.Id);
         }
         private void GoToTableviewForm()
@@ -416,7 +423,7 @@ namespace UI
             ShowAmountPaid();
             txtEnteredAmountToPayForSplitting.Clear();
         }
-        //do a method to remove paid from total and show a new total due
+        //the below is to remove paid from total and show a new total due
         private void ShowRemainingToPayForSplitBill()
         {
             lblSplitRemainingToPay.Text = $"€ {(bill.TotalDue - subtotal - double.Parse(txtEnteredAmountToPayForSplitting.Text)):00.00}";

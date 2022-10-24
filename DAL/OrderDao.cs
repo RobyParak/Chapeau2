@@ -19,7 +19,7 @@ namespace DAL
         public void CreateOrder(Order order, Item item, Staff staff)
         {
             int tableId = order.Table.Id;
-            int billId = order.BillId;
+            int billId = order.Bill.BillId;
             string query = "INSERT INTO dbo.[Order] VALUES ( @TableId , @BillId ,0)"; //First we create the order in the database
             SqlParameter[] sqlParameters = { new SqlParameter("@TableId", tableId), new SqlParameter("@BillId", billId) };
             ExecuteEditQuery(query, sqlParameters);
@@ -64,10 +64,10 @@ namespace DAL
                 {
 
                     OrderId = (int)dr["Order_ID"],
-                    BillId = (int)dr["Bill_ID"],
+                    //BillId = (int)dr["Bill_ID"],
                    // TableId = (int)dr["Table_ID"],
                     Comment = (string)dr["Comments"],
-                    IsPaid = false,
+                    PaidStatus = PaidStatus.IsNotPaid,
 
                     //changing it to a list does not help
                    // O_Item = new OrderItem()

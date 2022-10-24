@@ -24,9 +24,9 @@ namespace UI
             //Application.Run(new LoginForm());
 
             //the below opens and works
-            Bill bill = new Bill(88);
+           // Bill bill = new Bill(88);
             Table table = new Table(3);
-            Application.Run(new Payment(table,bill));
+            Application.Run(new Payment(table));
         }
     }
 }
