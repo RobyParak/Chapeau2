@@ -82,7 +82,7 @@ namespace UI
                 DisplayPrice();
                 int vatValue6 = 6;
                 int vatValue21 = 21;
-                bill.VAT = (CalculateVAT(orderItems, vatValue6) + CalculateVAT(orderItems, vatValue21));
+                bill.VAT = CalculateVAT(orderItems, vatValue6) + CalculateVAT(orderItems, vatValue21);
                 DisplayVAT(CalculateVAT(orderItems, vatValue6), CalculateVAT(orderItems, vatValue21), TotalPriceIncludingVATButDivivedByVATPercentage(vatValue6), TotalPriceIncludingVATButDivivedByVATPercentage(vatValue21));
 
             }
@@ -129,6 +129,7 @@ namespace UI
             //card payent opens a new panel where the payment is "being processed"
             pnlPayment.Hide();
             bill.PaymentMethod = PaymentType.Card;
+            splitPayment = false;
             pnlCardPayment.Show();
             pnlCardPayment.Dock = DockStyle.Fill;
         }
@@ -184,6 +185,7 @@ namespace UI
         private void btnCash_Click(object sender, EventArgs e)
         {
             bill.PaymentMethod = PaymentType.Cash;
+            splitPayment = false;
             pnlPayment.Hide();
             pnlCashPayment.Show();
             pnlCashPayment.Dock = DockStyle.Fill;
